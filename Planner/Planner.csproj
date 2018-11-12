@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\**" />
+    <Content Remove="wwwroot\images\**" />
+    <EmbeddedResource Remove="wwwroot\images\**" />
+    <None Remove="wwwroot\images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\account-component\account-login.component.ts" />
+    <None Remove="src\app\account-component\account.modeule.ts" />
+    <None Remove="src\app\account-component\shared\services\account-data.service.ts" />
+    <None Remove="src\app\home-component\home.component.ts" />
+    <None Remove="src\app\shared\components\authentication-component.ts" />
+    <None Remove="src\app\shared\components\token-interceptor.service.ts" />
+    <None Remove="src\app\shared\guard\auth-guard.ts" />
+    <None Remove="src\app\shared\models\login.model.ts" />
+    <None Remove="src\app\shared\models\user-info.model.ts" />
+    <None Remove="src\app\shared\pipe\safe-pipe .ts" />
+    <None Remove="src\app\shared\shared.module.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\app\common\" />
+    <Folder Include="src\app\home-component\shared\models\" />
+    <Folder Include="src\app\home-component\shared\services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Planner.Common\Planner.Common.csproj" />
+    <ProjectReference Include="..\Planner.DependencyInjection\Planner.DependencyInjection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\account-component\account-login-component\account-login.component.ts" />
+    <TypeScriptCompile Include="src\app\account-component\account.modeule.ts" />
+    <TypeScriptCompile Include="src\app\account-component\shared\services\account-data.service.ts" />
+    <TypeScriptCompile Include="src\app\home-component\home.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\authentication-component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\token-interceptor.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\guard\auth-guard.ts" />
+    <TypeScriptCompile Include="src\app\account-component\shared\models\login.model.ts" />
+    <TypeScriptCompile Include="src\app\shared\models\user-info.model.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipe\safe-pipe .ts" />
+    <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
+  </ItemGroup>
+
+</Project>

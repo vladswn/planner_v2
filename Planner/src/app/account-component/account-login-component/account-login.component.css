@@ -1,0 +1,41 @@
+.hold-transition {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.login-page, .register-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url('../../../images/y-mx4m0z0hq.jpg');
+}
+
+.login-logo, .register-logo {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 300;
+  color: white;
+  padding-top: 15px;
+}
+
+.login-logo a, .register-logo a {
+  color: #444;
+}
+
+.background-img {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-size: contain;
+}
+
+.icheck > label {
+  padding-left: 0;
+  color: white;
+}
+
+
