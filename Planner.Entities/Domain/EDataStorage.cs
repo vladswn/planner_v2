@@ -6,10 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class EDataStorage
     {
-        public EDataStorage()
-        {
-            EDataStorageId = Guid.NewGuid().ToString();
-        }
         public String EDataStorageId { get; set; }
 
         public Int32 Semester { get; set; }

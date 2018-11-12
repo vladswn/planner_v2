@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Specialize
     {
-        public Specialize()
-        {
-            SpecializeId = Guid.NewGuid().ToString();
-        }
-
         public String SpecializeId { get; set; }
         public String Cipher { get; set; }
 

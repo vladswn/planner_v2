@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class LoadingList
     {
-        public LoadingList()
-        {
-            LoadingListId = Guid.NewGuid().ToString();
-        }
-
         public String LoadingListId { get; set; }
         public String Comment { get; set; }
         public Int32 Year { get; set; }

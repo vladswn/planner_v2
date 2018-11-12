@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class PublicationNMBD
     {
-        public PublicationNMBD()
-        {
-            PublicationNMBDId = Guid.NewGuid().ToString();
-        }
-
         public String PublicationNMBDId { get; set; }
         public String PublicationId { get; set; }
         public String NMBDId { get; set; }

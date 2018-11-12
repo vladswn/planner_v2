@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class NMBD
     {
-        public NMBD()
-        {
-            NMBDId = Guid.NewGuid().ToString();
-        }
-
         public String NMBDId { get; set; }
         public String Name { get; set; }
         public virtual ICollection<PublicationNMBD> PublicationNMBDs { get; set; }

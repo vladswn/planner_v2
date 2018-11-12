@@ -31,7 +31,8 @@ namespace Planner.BusinessLogic.Service
         public Boolean RegisterUser(RegisterUserDTO userDTO)
         {
             ApplicationUser user = _mapper.Map<ApplicationUser>(userDTO);
-            user.PasswordHash = _securityService.GetSha256Hash(userDTO.Password);
+            user.IsActive = true;
+            user.PasswordHash = _securityService.GetSha256Hash(userDTO.PasswordHash);
 
             uow.UserRepository.UpdateUser(user);
 

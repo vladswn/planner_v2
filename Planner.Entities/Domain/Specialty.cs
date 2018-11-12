@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Specialty
     {
-        public Specialty()
-        {
-            SpecialtyId = Guid.NewGuid().ToString();
-        }
-
         public String SpecialtyId { get; set; }
         public String Code { get; set; }
         public String Description { get; set; }

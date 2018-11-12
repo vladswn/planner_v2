@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class PlanConclusion
     {
-        public PlanConclusion()
-        {
-            PlanConclusionId = Guid.NewGuid().ToString();
-        }
-
         public String PlanConclusionId { get; set; }
 
         public Int32 Semester { get; set; }

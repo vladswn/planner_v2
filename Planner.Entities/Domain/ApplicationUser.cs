@@ -7,17 +7,13 @@ namespace Planner.Entities.Domain
 {
     public class ApplicationUser
     {
-        public ApplicationUser() {
-            ApplicationUserId = Guid.NewGuid().ToString();
-        }
-
         public String ApplicationUserId { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public String ThirdName { get; set; }
         
         public String ScholarLink { get; set; }
-        public Byte[] ProfilePicture { get; set; }
+        public String ProfilePicture { get; set; }
         public String BasicOrCompatible { get; set; }
         public String Document { get; set; }
         public Boolean IsActive { get; set; }
@@ -30,9 +26,9 @@ namespace Planner.Entities.Domain
         public Int32? AccessFailedCount { get; set; }
         public String UserName { get; set; }
         
-        public AcademicTitleEnum AcademicTitleId { get; set; }
-        public DegreeEnum DegreeId { get; set; }
-        public PositionEnum PositionId { get; set; }
+        public AcademicTitleEnum? AcademicTitleId { get; set; }
+        public DegreeEnum? DegreeId { get; set; }
+        public PositionEnum? PositionId { get; set; }
         
         public String ScheduleId { get; set; }
         public Int32 RoleId { get; set; }

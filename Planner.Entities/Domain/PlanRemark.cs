@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class PlanRemark
     {
-        public PlanRemark()
-        {
-            PlanRemarkId = Guid.NewGuid().ToString();
-        }
-
         public String PlanRemarkId { get; set; }
 
 

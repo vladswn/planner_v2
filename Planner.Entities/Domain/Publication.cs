@@ -7,11 +7,6 @@ namespace Planner.Entities.Domain
 {
     public class Publication
     {
-        public Publication()
-        {
-            PublicationId = Guid.NewGuid().ToString();
-        }
-
         public String PublicationId { get; set; }
         public String Name { get; set; }
         public String FilePath { get; set; }

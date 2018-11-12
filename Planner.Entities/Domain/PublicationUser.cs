@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class PublicationUser
     {
-        public PublicationUser()
-        {
-            PublicationUserId = Guid.NewGuid().ToString();
-        }
-
         public String PublicationUserId { get; set; }
         public Double PageQuantity { get; set; }
 

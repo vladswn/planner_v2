@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Department
     {
-        public Department()
-        {
-            DepartmentId = Guid.NewGuid().ToString();
-        }
-
         public String DepartmentId { get; set; }
         public String Name { get; set; }
 

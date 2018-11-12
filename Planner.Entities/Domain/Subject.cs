@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Subject
     {
-        public Subject()
-        {
-            SubjectId = Guid.NewGuid().ToString();
-        }
-
         public String SubjectId { get; set; }
         public String Name { get; set; }
 

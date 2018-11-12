@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class IndPlanType
     {
-        public IndPlanType()
-        {
-            IndPlanTypeId = Guid.NewGuid().ToString();
-        }
-
         public String IndPlanTypeId { get; set; }
 
         public String Name { get; set; }

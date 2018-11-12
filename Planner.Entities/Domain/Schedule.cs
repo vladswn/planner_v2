@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Schedule
     {
-        public Schedule()
-        {
-            ScheduleId = Guid.NewGuid().ToString();
-        }
-
         public String ScheduleId { get; set; }
         public String UserName { get; set; }
         public String ApiId { get; set; }

@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class ExtramuralSemester
     {
-        public ExtramuralSemester()
-        {
-            ExtramuralSemesterId = Guid.NewGuid().ToString();
-        }
-
         public String ExtramuralSemesterId { get; set; }
 
         public Int32 Semester { get; set; }

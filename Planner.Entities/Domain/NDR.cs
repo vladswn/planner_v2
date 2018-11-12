@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class NDR
     {
-        public NDR()
-        {
-            NDRId = Guid.NewGuid().ToString();
-        }
-
         public String NDRId { get; set; }
 
         public String FullName { get; set; }

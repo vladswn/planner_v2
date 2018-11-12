@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class IndivPlanFieldsValue
     {
-        public IndivPlanFieldsValue()
-        {
-            IndivPlanFieldsValueId = Guid.NewGuid().ToString();
-        }
-
         public String IndivPlanFieldsValueId { get; set; }
         public String SchemaName { get; set; }
         /// <summary>

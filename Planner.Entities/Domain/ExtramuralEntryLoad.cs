@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class ExtramuralEntryLoad
     {
-        public ExtramuralEntryLoad()
-        {
-            ExtramuralEntryLoadId = Guid.NewGuid().ToString();
-        }
-
         public String ExtramuralEntryLoadId { get; set; }
 
         public String DepartmentCipher { get; set; }

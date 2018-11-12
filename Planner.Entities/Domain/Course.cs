@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class Course
     {
-        public Course()
-        {
-            CourseId = Guid.NewGuid().ToString();
-        }
-
         public String CourseId { get; set; }
         public String Literal { get; set; }
 

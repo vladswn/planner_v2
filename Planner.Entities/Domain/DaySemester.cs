@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class DaySemester
     {
-        public DaySemester()
-        {
-            DaySemesterId = Guid.NewGuid().ToString();
-        }
-
         public String DaySemesterId { get; set; }
 
         public Byte Semester { get; set; }

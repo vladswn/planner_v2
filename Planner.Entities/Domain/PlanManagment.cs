@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class PlanManagment
     {
-        public PlanManagment()
-        {
-            PlanManagmentId = Guid.NewGuid().ToString();
-        }
-
         public String PlanManagmentId { get; set; }
         public Int32 OrderNumber { get; set; }
         public String Content { get; set; }

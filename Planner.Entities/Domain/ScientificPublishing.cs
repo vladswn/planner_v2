@@ -6,11 +6,6 @@ namespace Planner.Entities.Domain
 {
     public class ScientificPublishing
     {
-        public ScientificPublishing()
-        {
-            ScientificPublishingId = Guid.NewGuid().ToString();
-        }
-
         public String ScientificPublishingId { get; set; }
         public String ApplicationUserId { get; set; }
         public Int32 Year { get; set; }
