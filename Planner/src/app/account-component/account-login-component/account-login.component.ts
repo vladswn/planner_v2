@@ -16,14 +16,12 @@ export class AccountLoginComponent implements OnInit {
 
     submitted: boolean;
 
-    //genders: SelectItem[];
-
-    description: string;
 
     constructor(private fb: FormBuilder,
         private authenticationService: AuthenticationService,
         private router: Router,
-        private messageService: MessageService) { }
+        private messageService: MessageService
+    ) { }
 
     ngOnInit() {
         this.loginModel = new LoginModel();
@@ -47,17 +45,17 @@ export class AccountLoginComponent implements OnInit {
         }
     }
 
-    onSubmit() {
+    public onSubmit() {
         this.authenticationService.isAuthenticated(this.loginModel).subscribe((res) => {
             if (res.jwtToken) {
                 setTimeout(() => {
                     this.router.navigate(['/home']);
                 }, 400);
             } else if (res.error) {
-                this.messageService.add({ severity: 'error', summary: '', detail: res.error });
+                this.messageService.add({ key:'error', severity: 'error', summary: '', detail: res.error });
                 //this.error = 'res.error';
             } else {
-                this.messageService.add({ severity: 'error', summary: '', detail: 'Invalid login attempt' });
+                this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: 'Invalid login attempt' });
                 //this.error = 'Some Error';
             }
         });

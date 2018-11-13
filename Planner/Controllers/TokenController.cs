@@ -21,7 +21,7 @@ namespace Planner.Controllers
     [Route("CreateToken")]
     public IActionResult CreateToken([FromBody] LoginViewModel login)
     {
-      JwtResult result = serviceFactory.TokenService.CreatejwtSecurityToken(login.UserName, login.Password);
+      JwtResult result = serviceFactory.TokenService.CreatejwtSecurityToken(login.Email, login.Password);
 
       return Ok(result);
     }

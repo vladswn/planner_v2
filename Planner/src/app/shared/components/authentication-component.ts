@@ -19,7 +19,7 @@ export class AuthenticationService {
         let body = JSON.stringify(login);
         return this.http.post('api/Token/CreateToken', body, httpOptions).pipe(map(result => {
             this.tokenResult = result;
-            if (this.tokenResult && this.tokenResult.jwtToken.token) {
+            if (this.tokenResult && this.tokenResult.jwtToken &&  this.tokenResult.jwtToken.token) {
                 localStorage.setItem('tokenInfo', JSON.stringify(this.tokenResult.jwtToken));
                 this.setUserInfo();
             }
@@ -29,7 +29,7 @@ export class AuthenticationService {
 
 
     setUserInfo() {
-        return this.http.get('api/User/GetUserInfo').subscribe((result) => {
+        return this.http.get('api/Account/GetUserInfo').subscribe((result) => {
             if (result) {
                 localStorage.setItem('userInfo', JSON.stringify(result));
             }

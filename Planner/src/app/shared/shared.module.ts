@@ -35,6 +35,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
     imports:
@@ -69,7 +70,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
         ToastModule,
         MessagesModule,
         MessageModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
+        MatSidenavModule
     ],
     exports:
     [
@@ -101,7 +103,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
         ToastModule,
         MessagesModule,
         MessageModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
+        MatSidenavModule
     ],
     providers:
     [
@@ -115,4 +118,4 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ]
 })
 
-export class SharedAppModeule { }
+export class SharedAppModule { }
