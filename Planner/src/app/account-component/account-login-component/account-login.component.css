@@ -1,3 +1,5 @@
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css");
+
 .hold-transition {
   -webkit-transition: none;
   -o-transition: none;
@@ -10,7 +12,7 @@
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  background-image: url('../../../images/y-mx4m0z0hq.jpg');
+  background: url('../../../images/hneu-house.png') right bottom no-repeat, url('../../../images/hneu-background.jpg') left top repeat;
 }
 
 .login-logo, .register-logo {
@@ -20,22 +22,53 @@
   font-weight: 300;
   color: white;
   padding-top: 15px;
+  font-family: Verdana;
+}
+  .login-logo a, .register-logo a {
+    color: #444;
+  }
+
+.background-logo {
+  max-width: 120px;
+  float: left;
+  content: url('../../../images/hneu-logo.png');
 }
 
-.login-logo a, .register-logo a {
-  color: #444;
+.login-form {
+  background-color: rgba(0,0,0,0.5);
+  padding: 25px;
+  border-radius: 9px;
+  width: 600px;
+  margin-left: 35%;
+  font-size: 13px;
+  font-family: Verdana;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.background-img {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-  background-size: contain;
+.form-label {
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Verdana;
+  margin-left: 18%;
+}
+
+.form-btn {
+  margin-left: 60%;
+  background-color: #3c8dbc;
+  border-color: #367fa9;
+}
+
+.checkbox-label {
+  display: inline;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 .icheck > label {
   padding-left: 0;
   color: white;
 }
-
-
