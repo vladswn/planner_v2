@@ -36,8 +36,7 @@ export class AccountLoginComponent implements OnInit {
   getErrorMessage(value: string) {
     if (value == 'password') {
       return this.userform.controls['password'].errors['required'] ? `Пароль - обов'язковий` :
-        this.userform.controls['password'].errors['minlength'] ? 'Пароль повинен мати не менше 4-х символів' :
-          'Пароль повинен мати не менше 4-х символів';
+        this.userform.controls['password'].errors['minlength'] ? 'Пароль повинен мати не менше 4-х символів' :'';
     }
     if (value == 'email') {
       return this.userform.controls['email'].errors['required'] ? `Електронна пошта - обов'язкова` :
@@ -50,13 +49,11 @@ export class AccountLoginComponent implements OnInit {
       if (res.jwtToken) {
         setTimeout(() => {
           this.router.navigate(['/home']);
-        }, 400);
+        }, 200);
       } else if (res.error) {
         this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: res.error });
-        //this.error = 'res.error';
       } else {
         this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: 'Некоректний логін чи пароль' });
-        //this.error = 'Some Error';
       }
     });
   }

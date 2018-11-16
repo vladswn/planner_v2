@@ -17,9 +17,12 @@
     <None Remove="src\app\account-component\account.modeule.ts" />
     <None Remove="src\app\account-component\shared\services\account-data.service.ts" />
     <None Remove="src\app\common\app-header-component\app-header.component.ts" />
+    <None Remove="src\app\common\app-sidenav-component\app-sidenav.component.ts" />
     <None Remove="src\app\common\common.modeule.ts" />
     <None Remove="src\app\planner-component\home-component\home.component.ts" />
     <None Remove="src\app\planner-component\home-component\home.modeule.ts" />
+    <None Remove="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
+    <None Remove="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
     <None Remove="src\app\shared\components\authentication-component.ts" />
     <None Remove="src\app\shared\components\token-interceptor.service.ts" />
     <None Remove="src\app\shared\guard\auth-guard.ts" />
@@ -30,8 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\app\planner-component\home-component\shared\models\" />
-    <Folder Include="src\app\planner-component\home-component\shared\services\" />
+    <Folder Include="src\app\planner-component\shared\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,8 +52,11 @@
     <TypeScriptCompile Include="src\app\account-component\account.module.ts" />
     <TypeScriptCompile Include="src\app\account-component\shared\services\account-data.service.ts" />
     <TypeScriptCompile Include="src\app\common\app-header-component\app-header.component.ts" />
+    <TypeScriptCompile Include="src\app\common\app-sidenav-component\app-sidenav.component.ts" />
     <TypeScriptCompile Include="src\app\common\common.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\home.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
     <TypeScriptCompile Include="src\app\shared\components\authentication-component.ts" />
     <TypeScriptCompile Include="src\app\shared\components\token-interceptor.service.ts" />
     <TypeScriptCompile Include="src\app\shared\guard\auth-guard.ts" />

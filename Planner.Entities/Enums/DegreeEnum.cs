@@ -10,4 +10,24 @@ namespace Planner.Entities.Enums
         SeniorResearchFellow = 2,
         Professor = 3
     }
+
+    public static class DegreeEnumExtensions
+    {
+        public static string GetDescription(this DegreeEnum value)
+        {
+            if (value == DegreeEnum.Docent)
+            {
+                return "Доцент";
+            }
+            if (value == DegreeEnum.SeniorResearchFellow)
+            {
+                return "Старший науковий співробітник";
+            }
+            if (value == DegreeEnum.Professor)
+            {
+                return "Професор";
+            }
+            return "";
+        }
+    }
 }

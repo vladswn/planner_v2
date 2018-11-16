@@ -6,18 +6,17 @@ import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './app-header.component.html',
-    styleUrls: ['./app-header.component.css']
+    selector: 'app-sidenav',
+    templateUrl: './app-sidenav.component.html',
 })
-export class AppHeaderComponent implements OnInit {
+export class AppSidenavComponent implements OnInit {
+    isShowHeader: boolean;
+    display: boolean = true;
     constructor(private router: Router) { }
 
     ngOnInit() {
+        this.isShowHeader = this.router.url === '/login';
+
     }
 
-    public logout() {
-        localStorage.clear();
-        this.router.navigate(['/login']);
-    }
 }
