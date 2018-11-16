@@ -72,3 +72,8 @@
   padding-left: 0;
   color: white;
 }
+
+.ui-message.ui-message-error {
+  width: 100%;
+  text-align: center
+}

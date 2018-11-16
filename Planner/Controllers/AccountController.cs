@@ -33,5 +33,6 @@ namespace Planner.Controllers
           Boolean result = serviceFactory.UserService.RegisterUser(registerUserDTO);
           return Ok(result);
         }
+
   }
 }

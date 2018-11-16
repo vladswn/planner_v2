@@ -8,11 +8,13 @@ import { AccountModule } from "src/app/account-component/account.module";
 import { HomeModule } from "src/app/planner-component/home-component/home.module";
 import { CommonModule } from "@angular/common";
 import { AppHeaderComponent } from "src/app/common/app-header-component/app-header.component";
+import { AppSidenavComponent } from "src/app/common/app-sidenav-component/app-sidenav.component";
 
 @NgModule({
   declarations: [
       AppComponent,
-      AppHeaderComponent
+      AppHeaderComponent,
+      AppSidenavComponent
   ],
   imports: [
       BrowserModule,

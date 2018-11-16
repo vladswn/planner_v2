@@ -53,10 +53,8 @@ export class AccountLoginComponent implements OnInit {
                 }, 400);
             } else if (res.error) {
                 this.messageService.add({ key:'error', severity: 'error', summary: '', detail: res.error });
-                //this.error = 'res.error';
             } else {
                 this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: 'Invalid login attempt' });
-                //this.error = 'Some Error';
             }
         });
     }
