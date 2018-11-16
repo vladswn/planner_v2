@@ -6,58 +6,58 @@ import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
 
 @Component({
-    selector: 'account-login',
-    templateUrl: './account-login.component.html',
-    styleUrls: ['./account-login.component.css']
+  selector: 'account-login',
+  templateUrl: './account-login.component.html',
+  styleUrls: ['./account-login.component.css']
 })
 export class AccountLoginComponent implements OnInit {
-    loginModel: LoginModel;
-    userform: FormGroup;
+  loginModel: LoginModel;
+  userform: FormGroup;
 
-    submitted: boolean;
+  submitted: boolean;
 
 
-    constructor(private fb: FormBuilder,
-        private authenticationService: AuthenticationService,
-        private router: Router,
-        private messageService: MessageService
-    ) { }
+  constructor(private fb: FormBuilder,
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private messageService: MessageService
+  ) { }
 
-    ngOnInit() {
-        this.loginModel = new LoginModel();
+  ngOnInit() {
+    this.loginModel = new LoginModel();
 
-        this.userform = this.fb.group({
-            'email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
-            'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
-        });
+    this.userform = this.fb.group({
+      'email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
+    });
 
+  }
+
+  getErrorMessage(value: string) {
+    if (value == 'password') {
+      return this.userform.controls['password'].errors['required'] ? `Пароль - обов'язковий` :
+        this.userform.controls['password'].errors['minlength'] ? 'Пароль повинен мати не менше 4-х символів' :
+          'Пароль повинен мати не менше 4-х символів';
     }
-
-    getErrorMessage(value: string) {
-        if (value == 'password') {
-            return this.userform.controls['password'].errors['required'] ? `Пароль - обов'язковий` :
-                //this.userform.controls['password'].errors['minlength'] ? 'Пароль повинен мати не менше 4 символи':
-                '';
-        }
-        if (value == 'email') {
-            return this.userform.controls['email'].errors['required'] ? `Електронна пошта - обов'язкова` :
-                this.userform.controls['email'].errors['email'] ? 'Не корректний формат електронної пошти ':'';
-        }
+    if (value == 'email') {
+      return this.userform.controls['email'].errors['required'] ? `Електронна пошта - обов'язкова` :
+        this.userform.controls['email'].errors['email'] ? 'Некоректний формат електронної пошти' : '';
     }
+  }
 
-    public onSubmit() {
-        this.authenticationService.isAuthenticated(this.loginModel).subscribe((res) => {
-            if (res.jwtToken) {
-                setTimeout(() => {
-                    this.router.navigate(['/home']);
-                }, 400);
-            } else if (res.error) {
-                this.messageService.add({ key:'error', severity: 'error', summary: '', detail: res.error });
-                //this.error = 'res.error';
-            } else {
-                this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: 'Invalid login attempt' });
-                //this.error = 'Some Error';
-            }
-        });
-    }
+  public onSubmit() {
+    this.authenticationService.isAuthenticated(this.loginModel).subscribe((res) => {
+      if (res.jwtToken) {
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 400);
+      } else if (res.error) {
+        this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: res.error });
+        //this.error = 'res.error';
+      } else {
+        this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: 'Некоректний логін чи пароль' });
+        //this.error = 'Some Error';
+      }
+    });
+  }
 }
