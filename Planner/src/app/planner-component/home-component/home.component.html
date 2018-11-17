@@ -1,80 +1,79 @@
-<div class="content-wrapper">
-  <div class="form-group">
-    <div class="login-box-body" data-ng-controller="registerController as registerCtrl" ng-cloak data-ng-init="registerCtrl.init()">
-      <p class="login-box-msg">Головна сторінка</p>
-      <hr />
-      <div class="row">
-        <div class="form-group">
-          <table class="table">
-            <tr>
-              <td>
-                E-mail:
-              </td>
-              <td>
-                {{userProfile.email}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                П.I.Б.
-              </td>
-              <td>
-                {{userProfile.lastName}} {{userProfile.firstName}} {{userProfile.thirdName}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Google Scholar
-              </td>
-              <td>
-                {{userProfile.scholarLink}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Orcid Scholar
-              </td>
-              <td>
-                {{userProfile.orcidLink}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Ступiнь
-              </td>
-              <td>
-                {{userProfile.academicTitleViewMode}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Звання
-              </td>
-              <td>
-                {{userProfile.degreeViewMode}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Посада
-              </td>
-              <td>
-                {{userProfile.positionViewMode}}
-              </td>
-            </tr>
-          </table>
-
-        </div>
-        <hr />
-
-        <div class="row">
-          <div class="col-xs-8">
+<div class="col">
+  <div class="profile-content">
+    <div class="content-wrapper">
+      <div class="form-group">
+        <div class="login-box-body" data-ng-controller="registerController as registerCtrl" ng-cloak data-ng-init="registerCtrl.init()">
+          <p class="login-box-msg">Головна сторінка</p>
+          <hr />
+          <div class="col">
+            <div class="form-group">
+              <table class="table">
+                <tr>
+                  <td>
+                    E-mail:
+                  </td>
+                  <td>
+                    {{userProfile.email}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    П.I.Б.
+                  </td>
+                  <td>
+                    {{userProfile.lastName}} {{userProfile.firstName}} {{userProfile.thirdName}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Google Scholar
+                  </td>
+                  <td>
+                    {{userProfile.scholarLink}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Orcid Scholar
+                  </td>
+                  <td>
+                    {{userProfile.orcidLink}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Ступiнь
+                  </td>
+                  <td>
+                    {{userProfile.academicTitleViewMode}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Звання
+                  </td>
+                  <td>
+                    {{userProfile.degreeViewMode}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Посада
+                  </td>
+                  <td>
+                    {{userProfile.positionViewMode}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <hr />
           </div>
-          <div class="col-xs-4">
-            <button href="" type="submit" class="btn btn-primary btn-block btn-flat">Редагувати</button>
+          <div class="row">
+            <div class="button-margin">
+              <button href="" type="submit" class="btn btn-primary btn-block btn-flat">Редагувати</button>
+            </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
