@@ -70,10 +70,11 @@ li {
     display: inline-block;
     color: #FFFFFF;
     text-align: center;
-    padding: 14px 16px;
+    padding: 6px 16px;
     text-decoration: none;
     font-family: Verdana;
     font-size: 16px;
+    height: 35px;
   }
 
     li a:hover, .dropdown:hover .dropbtn {
@@ -103,7 +104,6 @@ li {
     text-align: left;
     font-family: Verdana;
     position: absolute;
-    z-index: 999999;
   }
 
     .dropdown-content a:hover {
