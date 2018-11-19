@@ -53,13 +53,18 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   color: #FFFFFF;
   background-color: #073ea2;
   font-family: Verdana;
   font-size: 16px;
   height: 2%;
 }
+
+  ul:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
 
 li {
   float: left;
@@ -103,7 +108,7 @@ li {
     display: block;
     text-align: left;
     font-family: Verdana;
-    position: absolute;
+    height: auto;
   }
 
     .dropdown-content a:hover {
