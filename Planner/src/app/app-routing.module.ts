@@ -8,7 +8,7 @@ import { AddUpdateUserComponent } from "src/app/planner-component/shared/compone
 const routes: Routes = [
     { path: 'login', component: AccountLoginComponent },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'update-user', component: AddUpdateUserComponent, canActivate: [AuthGuard] },
+    { path: 'user', component: AddUpdateUserComponent, canActivate: [AuthGuard] },
     { path: '', component: AccountLoginComponent },
     { path: '**', redirectTo: '/' },
 ];

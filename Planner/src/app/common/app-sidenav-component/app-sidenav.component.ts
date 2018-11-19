@@ -8,6 +8,7 @@ import { MessageService } from "primeng/components/common/messageservice";
 @Component({
     selector: 'app-sidenav',
     templateUrl: './app-sidenav.component.html',
+  styleUrls: ['./app-sidenav.component.css']
 })
 export class AppSidenavComponent implements OnInit {
     isShowHeader: boolean;
