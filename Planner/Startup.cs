@@ -73,7 +73,7 @@ namespace Planner
       app.Run(async (context) =>
       {
         context.Response.ContentType = "text/html";
-        await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+        await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "src", "index.html"));
       });
     }
   }

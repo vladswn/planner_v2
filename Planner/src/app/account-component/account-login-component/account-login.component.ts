@@ -45,6 +45,8 @@ export class AccountLoginComponent implements OnInit {
   }
 
   public onSubmit() {
+      if (this.userform.invalid) return;
+
     this.authenticationService.isAuthenticated(this.loginModel).subscribe((res) => {
       if (res.jwtToken) {
         setTimeout(() => {

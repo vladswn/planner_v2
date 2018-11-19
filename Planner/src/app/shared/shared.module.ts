@@ -36,6 +36,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { UserDataService } from "src/app/planner-component/shared/service/user-data.service";
 
 @NgModule({
     imports:
@@ -110,6 +111,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     [
         { provide: AuthenticationService, useClass: AuthenticationService },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        { provide: UserDataService, useClass: UserDataService }
         //{ provide: HomeService, useClass: HomeService }
     ],
     declarations:

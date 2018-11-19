@@ -23,7 +23,7 @@ namespace Planner.DependencyInjection.MapperConfiguration
                  .ForMember(s => s.AcademicTitle, x => x.MapFrom(z => z.AcademicTitleId))
                  .ForMember(s => s.Degree, x => x.MapFrom(z => z.DegreeId))
                  .ForMember(s => s.Position, x => x.MapFrom(z => z.PositionId))
-                 .ForMember(s => s.Role, x => x.MapFrom(z => z.Role.Name))
+                 .ForMember(s => s.RoleName, x => x.MapFrom(z => z.Role.Name))
                  .ForMember(s => s.AcademicTitleViewMode, x => x.MapFrom(z => z.AcademicTitleId.HasValue ? z.AcademicTitleId.Value.GetDescription() : null))
                  .ForMember(s => s.DegreeViewMode, x => x.MapFrom(z => z.DegreeId.HasValue ? z.DegreeId.Value.GetDescription() : null))
                  .ForMember(s => s.PositionViewMode, x => x.MapFrom(z => z.PositionId.HasValue ? z.PositionId.Value.GetDescription() : null));

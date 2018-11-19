@@ -12,5 +12,6 @@ export class UserInfo {
     position: number;
     academicTitle: number;
     userName: string;
-    role: string;
+    roleName: string;
+    profilePicture: string;
 }

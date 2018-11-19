@@ -5,12 +5,12 @@ export class UserProfileModel {
     thirdName: string;
     scholarLink: string;
     orcidLink: string;
-    degreeViewMode: string;
-    positionViewMode: string;
-    academicTitleViewMode: string;
     degree: number;
     position: number;
     academicTitle: number;
+    password: string;
+    roleName: string;
+    profilePicture: string;
 
     constructor() {
         this.email = null;
@@ -19,12 +19,12 @@ export class UserProfileModel {
         this.thirdName = null;
         this.scholarLink = null;
         this.orcidLink = null;
-        this.degreeViewMode = null;
-        this.positionViewMode = null;
-        this.academicTitleViewMode = null;
         this.degree = null;
         this.position = null;
         this.academicTitle = null;
+        this.password = null;
+        this.roleName = null;
+        this.profilePicture = null;
     }
 
 }
