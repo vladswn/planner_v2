@@ -68,7 +68,7 @@ export class AddUpdateUserComponent implements OnInit {
                     Validators.minLength(4)])),
             'orcidLink': new FormControl(this.userProfile.orcidLink, Validators.compose([ValidateURL])),
             'scholarLink': new FormControl(this.userProfile.scholarLink, Validators.compose([ValidateURL])),
-            'role': new FormControl(this.userProfile.roleName, [Validators.required]),
+            'roleName': new FormControl(this.userProfile.roleName, [Validators.required]),
             'academicTitle': new FormControl(this.userProfile.academicTitle,[]),
             'degree': new FormControl(this.userProfile.degree,[]),
             'position': new FormControl(this.userProfile.position, []),

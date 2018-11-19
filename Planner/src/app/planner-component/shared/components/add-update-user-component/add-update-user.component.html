@@ -71,13 +71,13 @@
 
   <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
 
-  <!--<div class="form-group">
-    <p-dropdown [options]="roles" formControlName="role" placeholder="Виберіть роль користувача" [(ngModel)]="userProfile.roleName" required></p-dropdown>
+  <div class="form-group">
+    <p-dropdown [options]="roles" formControlName="roleName" placeholder="Виберіть роль користувача" required></p-dropdown>
 
     <p-message severity="error" [text]="getErrorMessage('role')"
                *ngIf="!this.userform.controls['role'].valid && this.userform.controls['role'].dirty"></p-message>
 
-  </div>-->
+  </div>
 
   <button type="submit" class="btn btn-primary form-btn">Оновити</button>
 </form>
