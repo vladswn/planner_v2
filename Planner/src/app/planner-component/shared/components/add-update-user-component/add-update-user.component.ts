@@ -27,6 +27,7 @@ export class AddUpdateUserComponent implements OnInit {
     academicTitles = ApplicationConstants.ACADEMIC_TITLE;
     degrees = ApplicationConstants.DEGREE;
     positions = ApplicationConstants.POSITION;
+    profileImage: string;
 
     constructor(private authenticationService: AuthenticationService,
         private userDataService: UserDataService,
@@ -41,40 +42,46 @@ export class AddUpdateUserComponent implements OnInit {
         }
 
         this.userform = this.fb.group({
-            'email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
-            'firstName': new FormControl('', Validators.compose(
+            'email': new FormControl(this.userProfile.email, Validators.compose([Validators.required, Validators.email])),
+            'firstName': new FormControl(this.userProfile.firstName, Validators.compose(
                 [Validators.required,
                 Validators.maxLength(25),
                 Validators.minLength(3),
                     ValidateLetter]
             )),
-            'lastName': new FormControl('', Validators.compose(
+            'lastName': new FormControl(this.userProfile.lastName, Validators.compose(
                 [Validators.required,
                 Validators.maxLength(25),
                 Validators.minLength(3),
                     ValidateLetter]
             )),
-            'thirdName': new FormControl('', Validators.compose(
+            'thirdName': new FormControl(this.userProfile.thirdName, Validators.compose(
                 [Validators.required,
                 Validators.maxLength(25),
                 Validators.minLength(3),
                     ValidateLetter])),
-            'password': new FormControl('', Validators.compose(
+            'password': new FormControl(this.userProfile.password, Validators.compose(
                 [Validators.required,
                 Validators.minLength(4)])),
             'confirmPassword': new FormControl('', Validators.compose(
                 [Validators.required,
-                Validators.minLength(4)])),
-            'orcidLink': new FormControl('', Validators.compose([ValidateURL])),
-            'scholarLink': new FormControl('', Validators.compose([ValidateURL])),
-            'role': new FormControl('', []),
+                    Validators.minLength(4)])),
+            'orcidLink': new FormControl(this.userProfile.orcidLink, Validators.compose([ValidateURL])),
+            'scholarLink': new FormControl(this.userProfile.scholarLink, Validators.compose([ValidateURL])),
+            'role': new FormControl(this.userProfile.roleName, [Validators.required]),
+            'academicTitle': new FormControl(this.userProfile.academicTitle,[]),
+            'degree': new FormControl(this.userProfile.degree,[]),
+            'position': new FormControl(this.userProfile.position, []),
+            'profilePicture': new FormControl(this.userProfile.profilePicture, [])
         }
         );
 
     }
 
     updateUser() {
-        console.log(this.userform);
+        //console.log(this.userform);
+        console.log(this.userProfile);
+        console.log(<UserProfileModel>this.userform.value);
         //this.userDataService.updateUserInfo(this.userProfile).subscribe(data => {
         //    if (data) {
         //    }
@@ -186,7 +193,6 @@ export class AddUpdateUserComponent implements OnInit {
         let pass = this.userform.controls.password.value;
         let confirmPassword = this.userform.controls.confirmPassword.value;
 
-        //return pass === confirmPassword ? null : { notEqual: true }
         if (pass !== confirmPassword) {
             this.userform.controls['password'].setErrors({ 'notEqual': true });
             this.userform.controls['confirmPassword'].setErrors({ 'notEqual': true });
@@ -197,7 +203,4 @@ export class AddUpdateUserComponent implements OnInit {
         
     }
 
-    private checkUser() {
-
-    }
 }
