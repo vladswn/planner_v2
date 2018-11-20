@@ -4,10 +4,10 @@
   font-size: 16px;
 }
 
-.button-margin {
-  margin-left: 84%;
-}
-
 .login-box-msg {
   text-align: center;
+}
+
+.table-height {
+  min-height: 275px;
 }
