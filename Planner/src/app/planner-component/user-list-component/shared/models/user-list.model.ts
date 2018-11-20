@@ -1,13 +1,11 @@
 export class UserList {
-  email: string;
-  firstName: string;
-  lastName: string;
-  thirdName: string;
+    applicationUserId: string;
+    email: string;
+    fullName: string;
 
-  constructor() {
-    this.email = null;
-    this.firstName = null;
-    this.lastName = null;
-    this.thirdName = null;
-  }
+    constructor() {
+        this.applicationUserId = null;
+        this.email = null;
+        this.fullName = null;
+    }
 }

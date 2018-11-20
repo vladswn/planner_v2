@@ -28,6 +28,13 @@ namespace Planner.BusinessLogic.Service
             return _mapper.Map<UserDTO>(user);
         }
 
+        public IEnumerable<UserListItemDTO> GetAllUsers()
+        {
+            IEnumerable<ApplicationUser> users = uow.UserRepository.GetUsers();
+            return _mapper.Map<IEnumerable<UserListItemDTO>>(users);
+        }
+
+
         public Boolean AddOrUpdateUser(UserDTO userDTO)
         {
             //ApplicationUser user = uow.UserRepository.GetByUserName(userDTO.Email);

@@ -31,10 +31,14 @@ namespace Planner.DependencyInjection.MapperConfiguration
                  .ForMember(s => s.AcademicTitleViewMode, x => x.MapFrom(z => z.AcademicTitleId.HasValue ? z.AcademicTitleId.Value.GetDescription() : null))
                  .ForMember(s => s.DegreeViewMode, x => x.MapFrom(z => z.DegreeId.HasValue ? z.DegreeId.Value.GetDescription() : null))
                  .ForMember(s => s.PositionViewMode, x => x.MapFrom(z => z.PositionId.HasValue ? z.PositionId.Value.GetDescription() : null));
+
+            CreateMap<ApplicationUser, UserListItemDTO>()
+                .ForMember(s => s.FullName, x => x.MapFrom(z => $"{z.LastName} {z.FirstName} {z.ThirdName}"));
             #endregion
 
             #region dto to view model
             CreateMap<UserDTO, UserInfoViewModel>();
+            CreateMap<UserListItemDTO, UserListItemViewModel>();
 
             //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
             #endregion

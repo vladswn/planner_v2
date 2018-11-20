@@ -9,5 +9,6 @@ namespace Planner.ServiceInterfaces.Interfaces
     {
         UserDTO GetUser(String email);
         Boolean AddOrUpdateUser(UserDTO userDTO);
+        IEnumerable<UserListItemDTO> GetAllUsers();
     }
 }

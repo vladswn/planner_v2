@@ -40,6 +40,16 @@ namespace Planner.Controllers
           return Ok(result);
         }
 
+    [HttpGet]
+    [Route("GetAllUsers")]
+    public IActionResult GetAllUsers()
+    {
+      IEnumerable<UserListItemDTO> users = serviceFactory.UserService.GetAllUsers();
+      IEnumerable<UserListItemViewModel> userModel = _mapper.Map<IEnumerable<UserListItemViewModel>>(users);
+      return Ok(userModel);
+    }
+
+
     [HttpPost, DisableRequestSizeLimit]
     public ActionResult UploadFile()
     {
