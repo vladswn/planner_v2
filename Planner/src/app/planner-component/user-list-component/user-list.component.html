@@ -1,10 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="col">
+  <div class="profile-content">
+    <div class="content-wrapper">
+      <div class="form-group">
+        <p class="login-box-msg">Користувачі</p>
+        <hr />
+        <div class="col">
+          <div class="form-group">
+            <input type="text" pInputText placeholder="Введiть ПIБ або поштову скриньку" class="form-control" formControlName="firstName">
+          </div>
+          <table class="table-height">
+            <tbody>
+              <tr>
+                <td>ПIБ</td>
+                <td>Поштова скринька</td>
+              </tr>
+              <tr>
+                <td>test</td>
+                <td>test2@mail.ru</td>
+                <td><button routerLink="/user" type="submit" class="btn btn-primary btn-block btn-flat">Редагувати</button></td>
+                <td><button routerLink="/user" type="submit" class="btn btn-primary btn-block btn-flat">Активувати</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

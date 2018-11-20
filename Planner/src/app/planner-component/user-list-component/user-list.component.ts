@@ -4,7 +4,7 @@ import { LoginModel } from "src/app/account-component/shared/models/login.model"
 import { AuthenticationService } from "src/app/shared/components/authentication-component";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
-import { UserProfileModel } from "src/app/planner-component/home-component/shared/models/user-profile.model";
+import { UserList } from "src/app/planner-component/user-list-component/shared/models/user-list.model";
 import { UserInfo } from "src/app/shared/models/user-info.model";
 import { Input } from "@angular/core";
 import { Output } from "@angular/core";
@@ -21,7 +21,7 @@ import { ApplicationConstants } from "src/app/shared/constants/constants";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  @Input() userProfile: UserProfileModel;
+  @Input() userList: UserList;
 
   userform: FormGroup;
 
@@ -33,8 +33,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.userProfile) {
-      this.userProfile = new UserProfileModel();
+    if (!this.userList) {
+      this.userList = new UserList();
     }
   }
 }

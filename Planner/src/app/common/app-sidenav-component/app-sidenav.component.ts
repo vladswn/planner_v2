@@ -6,18 +6,17 @@ import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
 
 @Component({
-    selector: 'app-sidenav',
-    templateUrl: './app-sidenav.component.html',
+  selector: 'app-sidenav',
+  templateUrl: './app-sidenav.component.html',
   styleUrls: ['./app-sidenav.component.css']
 })
 export class AppSidenavComponent implements OnInit {
-    isShowHeader: boolean;
-    display: boolean = true;
-    constructor(private router: Router) { }
+  isShowHeader: boolean;
+  display: boolean = true;
+  constructor(private router: Router) { }
 
-    ngOnInit() {
-        this.isShowHeader = this.router.url === '/login';
+  ngOnInit() {
+    this.isShowHeader = this.router.url === '/login';
 
-    }
-
+  }
 }
