@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Planner.Common.Constants;
 using System.Text;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Planner
 {
@@ -56,6 +57,11 @@ namespace Planner
 
 
       services.AddMvc();
+      services.Configure<FormOptions>(x =>
+      {
+        x.ValueLengthLimit = Int32.MaxValue;
+        x.MultipartBodyLengthLimit = Int32.MaxValue;
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

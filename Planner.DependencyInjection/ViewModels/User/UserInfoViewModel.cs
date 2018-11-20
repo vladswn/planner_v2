@@ -21,5 +21,6 @@ namespace Planner.DependencyInjection.ViewModels.User
         public String UserName { get; set; }
         public String RoleName { get; set; }
         public String ProfilePicture { get; set; }
+        public String Password { get; set; }
     }
 }

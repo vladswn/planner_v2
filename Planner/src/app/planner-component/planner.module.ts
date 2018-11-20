@@ -3,6 +3,7 @@ import { AppHeaderComponent } from "src/app/common/app-header-component/app-head
 import { SharedAppModule } from "src/app/shared/shared.module";
 import { HomeComponent } from "src/app/planner-component/home-component/home.component";
 import { AddUpdateUserComponent } from "src/app/planner-component/shared/components/add-update-user-component/add-update-user.component";
+import { MessageService } from "primeng/components/common/messageservice";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AddUpdateUserComponent } from "src/app/planner-component/shared/compone
     ],
     providers:
     [
+        { provide: MessageService, useClass: MessageService }
     ],
 
 })

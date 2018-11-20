@@ -14,8 +14,12 @@ namespace Planner.DependencyInjection.MapperConfiguration
         public MappingConfig()
         {
             #region dto to domain
-            CreateMap<RegisterUserDTO, ApplicationUser>()
-                .ForMember(s => s.Email, x => x.MapFrom(z => z.UserName));
+            CreateMap<UserDTO, ApplicationUser>()
+                .ForMember(s => s.Email, x => x.MapFrom(z => z.Email))
+                .ForMember(s => s.UserName, x => x.MapFrom(z => z.Email))
+                .ForMember(s => s.DegreeId , x => x.MapFrom(z => z.Degree))
+                .ForMember(s => s.PositionId , x => x.MapFrom(z => z.Position))
+                .ForMember(s => s.AcademicTitleId , x => x.MapFrom(z => z.AcademicTitle));
             #endregion
 
             #region domail to dto
@@ -31,7 +35,14 @@ namespace Planner.DependencyInjection.MapperConfiguration
 
             #region dto to view model
             CreateMap<UserDTO, UserInfoViewModel>();
-                //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
+
+            //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
+            #endregion
+
+            #region   view model to dto
+            CreateMap<UserInfoViewModel,UserDTO>();
+
+            //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
             #endregion
         }
     }

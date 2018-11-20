@@ -71,7 +71,7 @@
   <ItemGroup>
     <Folder Include="src\app\planner-component\home-component\shared\services\" />
     <Folder Include="src\app\planner-component\shared\models\" />
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\profileImages\" />
   </ItemGroup>
 
 </Project>
