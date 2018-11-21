@@ -9,5 +9,18 @@
 }
 
 .table-height {
-  min-height: 275px;
+  min-height: 330px;
 }
+
+.table-header-content {
+  text-align: right;
+}
+
+.header-i {
+  margin: 4px 4px 0 0;
+}
+
+.header-input {
+  width: auto;
+}
+
