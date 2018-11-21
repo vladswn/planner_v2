@@ -14,8 +14,12 @@ namespace Planner.DependencyInjection.MapperConfiguration
         public MappingConfig()
         {
             #region dto to domain
-            CreateMap<RegisterUserDTO, ApplicationUser>()
-                .ForMember(s => s.Email, x => x.MapFrom(z => z.UserName));
+            CreateMap<UserDTO, ApplicationUser>()
+                .ForMember(s => s.Email, x => x.MapFrom(z => z.Email))
+                .ForMember(s => s.UserName, x => x.MapFrom(z => z.Email))
+                .ForMember(s => s.DegreeId , x => x.MapFrom(z => z.Degree))
+                .ForMember(s => s.PositionId , x => x.MapFrom(z => z.Position))
+                .ForMember(s => s.AcademicTitleId , x => x.MapFrom(z => z.AcademicTitle));
             #endregion
 
             #region domail to dto
@@ -27,11 +31,22 @@ namespace Planner.DependencyInjection.MapperConfiguration
                  .ForMember(s => s.AcademicTitleViewMode, x => x.MapFrom(z => z.AcademicTitleId.HasValue ? z.AcademicTitleId.Value.GetDescription() : null))
                  .ForMember(s => s.DegreeViewMode, x => x.MapFrom(z => z.DegreeId.HasValue ? z.DegreeId.Value.GetDescription() : null))
                  .ForMember(s => s.PositionViewMode, x => x.MapFrom(z => z.PositionId.HasValue ? z.PositionId.Value.GetDescription() : null));
+
+            CreateMap<ApplicationUser, UserListItemDTO>()
+                .ForMember(s => s.FullName, x => x.MapFrom(z => $"{z.LastName} {z.FirstName} {z.ThirdName}"));
             #endregion
 
             #region dto to view model
             CreateMap<UserDTO, UserInfoViewModel>();
-                //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
+            CreateMap<UserListItemDTO, UserListItemViewModel>();
+
+            //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
+            #endregion
+
+            #region   view model to dto
+            CreateMap<UserInfoViewModel,UserDTO>();
+
+            //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
             #endregion
         }
     }

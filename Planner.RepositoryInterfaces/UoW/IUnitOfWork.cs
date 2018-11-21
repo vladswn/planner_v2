@@ -8,6 +8,7 @@ namespace Planner.RepositoryInterfaces.UoW
     public interface IUnitOfWork : IDisposable
     {
         IUserRepository UserRepository { get; set; }
+        IRoleRepository RoleRepository { get; set; }
         Int32 SaveChanges();
     }
 }

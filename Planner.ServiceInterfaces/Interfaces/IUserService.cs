@@ -8,6 +8,7 @@ namespace Planner.ServiceInterfaces.Interfaces
     public interface IUserService
     {
         UserDTO GetUser(String email);
-        Boolean RegisterUser(RegisterUserDTO userDTO);
+        Boolean AddOrUpdateUser(UserDTO userDTO);
+        IEnumerable<UserListItemDTO> GetAllUsers();
     }
 }

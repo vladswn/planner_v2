@@ -13,12 +13,14 @@ namespace Planner.Data.UoW
         private AppDbContext context;
 
         public IUserRepository UserRepository { get; set; }
+        public IRoleRepository RoleRepository { get; set; }
 
         public UnitOfWork(AppDbContext _context)
         {
             context = _context;
 
             UserRepository = new UserRepository(_context);
+            RoleRepository = new RoleRepository(_context);
         }
 
         public Int32 SaveChanges()

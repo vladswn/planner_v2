@@ -4,19 +4,29 @@ import { LoginModel } from "src/app/account-component/shared/models/login.model"
 import { AuthenticationService } from "src/app/shared/components/authentication-component";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
+import { UserInfo } from "src/app/shared/models/user-info.model";
 
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './app-sidenav.component.html',
+    selector: 'app-sidenav',
+    templateUrl: './app-sidenav.component.html',
   styleUrls: ['./app-sidenav.component.css']
 })
 export class AppSidenavComponent implements OnInit {
-  isShowHeader: boolean;
-  display: boolean = true;
-  constructor(private router: Router) { }
+    isShowHeader: boolean;
+    display: boolean = true;
+    userProfile: UserInfo;
 
-  ngOnInit() {
-    this.isShowHeader = this.router.url === '/login';
+    constructor(private router: Router,
+        private authenticationService: AuthenticationService) { }
 
-  }
+    ngOnInit() {
+        this.isShowHeader = this.router.url === '/login';
+        this.userProfile = new UserInfo();
+        this.getUser();
+    }
+
+    getUser() {
+        this.userProfile = this.authenticationService.getUserInfo();
+    }
+
 }

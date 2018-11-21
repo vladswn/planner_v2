@@ -5,6 +5,7 @@
         <p class="login-box-msg">Реєстрація нового користувача</p>
         <hr />
         <div class="col">
+          <p-toast key="success" position="top-center"></p-toast>
           <p-toast key="error" position="top-center"></p-toast>
           <form [formGroup]="userform" (ngSubmit)="updateUser(userform.value)">
             <div class="form-group">
@@ -80,7 +81,7 @@
               <p-dropdown [options]="roles" formControlName="roleName" placeholder="Виберіть роль користувача" required></p-dropdown>
 
               <p-message severity="error" [text]="getErrorMessage('role')"
-                         *ngIf="!this.userform.controls['role'].valid && this.userform.controls['role'].dirty"></p-message>
+                         *ngIf="!this.userform.controls['roleName'].valid && this.userform.controls['roleName'].dirty"></p-message>
 
             </div>
           </form>

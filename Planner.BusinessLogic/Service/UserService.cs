@@ -28,11 +28,26 @@ namespace Planner.BusinessLogic.Service
             return _mapper.Map<UserDTO>(user);
         }
 
-        public Boolean RegisterUser(RegisterUserDTO userDTO)
+        public IEnumerable<UserListItemDTO> GetAllUsers()
         {
+            IEnumerable<ApplicationUser> users = uow.UserRepository.GetUsers();
+            return _mapper.Map<IEnumerable<UserListItemDTO>>(users);
+        }
+
+
+        public Boolean AddOrUpdateUser(UserDTO userDTO)
+        {
+            //ApplicationUser user = uow.UserRepository.GetByUserName(userDTO.Email);
+
             ApplicationUser user = _mapper.Map<ApplicationUser>(userDTO);
             user.IsActive = true;
-            user.PasswordHash = _securityService.GetSha256Hash(userDTO.PasswordHash);
+            user.PasswordHash = _securityService.GetSha256Hash(userDTO.Password);
+
+            Role role = uow.RoleRepository.GetRoleByName(userDTO.RoleName);
+            if (role != null)
+            {
+                user.Role = role;
+            }
 
             uow.UserRepository.UpdateUser(user);
 

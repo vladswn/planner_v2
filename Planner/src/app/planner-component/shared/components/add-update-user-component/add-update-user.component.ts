@@ -13,6 +13,7 @@ import { UserDataService } from "src/app/planner-component/shared/service/user-d
 import { ValidateLetter } from "src/app/shared/validators/letter-validator";
 import { ValidateURL } from "src/app/shared/validators/url-validator";
 import { ApplicationConstants } from "src/app/shared/constants/constants";
+import { HttpEventType } from "@angular/common/http";
 
 
 @Component({
@@ -22,12 +23,14 @@ import { ApplicationConstants } from "src/app/shared/constants/constants";
 export class AddUpdateUserComponent implements OnInit {
     @Input() userProfile: UserProfileModel;
     //@Output() back = new EventEmitter();
+
     userform: FormGroup;
     roles = ApplicationConstants.ROLES;
     academicTitles = ApplicationConstants.ACADEMIC_TITLE;
     degrees = ApplicationConstants.DEGREE;
     positions = ApplicationConstants.POSITION;
     profileImage: string;
+    file: File;
 
     constructor(private authenticationService: AuthenticationService,
         private userDataService: UserDataService,
@@ -79,19 +82,24 @@ export class AddUpdateUserComponent implements OnInit {
     }
 
     updateUser() {
-        //console.log(this.userform);
-        console.log(this.userProfile);
-        console.log(<UserProfileModel>this.userform.value);
-        //this.userDataService.updateUserInfo(this.userProfile).subscribe(data => {
-        //    if (data) {
-        //    }
-        //});
+        if (this.userform.invalid) return; 
+
+        let tempUser = <UserProfileModel>this.userform.value;
+        tempUser.profilePicture = this.profileImage;
+        
+        this.userDataService.updateUserInfo(tempUser).subscribe(data => {
+            if (data) {
+                this.userform.reset();
+                this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Новий користувач успішно створенний' });
+            } else {
+                this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
+            }
+        });
         //this.back.emit(null);
     }
 
     getErrorMessage(value: string) {
         if (value == 'password') {
-            //let error;
             if (this.userform.controls['password'].errors['required']) {
                 return `Пароль - обов'язковий`;
             }
@@ -201,6 +209,15 @@ export class AddUpdateUserComponent implements OnInit {
             this.userform.controls['confirmPassword'].setErrors(null);
         }
         
+    }
+
+    async uploadImage(data) {
+        this.file = data.files[0];
+        await this.userDataService.uploadFiles(this.file).subscribe(event => {
+            if (event.type === HttpEventType.Response) {
+                this.profileImage  = event.body.toString();
+            }
+        });
     }
 
 }

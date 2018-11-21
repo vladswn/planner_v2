@@ -29,6 +29,11 @@ namespace Planner.Data.Repository
                         .Where(s => s.Email == userName && s.PasswordHash == password).FirstOrDefault();
         }
 
+        public IEnumerable<ApplicationUser> GetUsers()
+        {
+            return Query.ToList();
+        }
+
         public void UpdateUser(ApplicationUser user)
         {
             InsertOrUpdateGraph(user);

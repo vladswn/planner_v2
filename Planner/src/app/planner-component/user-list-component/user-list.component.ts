@@ -13,6 +13,7 @@ import { UserDataService } from "src/app/planner-component/shared/service/user-d
 import { ValidateLetter } from "src/app/shared/validators/letter-validator";
 import { ValidateURL } from "src/app/shared/validators/url-validator";
 import { ApplicationConstants } from "src/app/shared/constants/constants";
+import { UserListDataService } from "src/app/planner-component/user-list-component/shared/service/user-list-data.service";
 
 
 @Component({
@@ -21,20 +22,26 @@ import { ApplicationConstants } from "src/app/shared/constants/constants";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  @Input() userList: UserList;
+    userList: UserList[] = [];
 
   userform: FormGroup;
 
   constructor(private authenticationService: AuthenticationService,
-    private userDataService: UserDataService,
+    private userListDataService: UserListDataService,
     private router: Router,
     private messageService: MessageService,
     private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    if (!this.userList) {
-      this.userList = new UserList();
-    }
+      this.getUsers();
+  }
+
+  getUsers() {
+      this.userListDataService.getAllUsers().subscribe((result:UserList[])=> {
+          if (result) {
+              this.userList = result;
+          }
+      });
   }
 }
