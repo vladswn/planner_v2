@@ -4,7 +4,7 @@ import { LoginModel } from "src/app/account-component/shared/models/login.model"
 import { AuthenticationService } from "src/app/shared/components/authentication-component";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
-import { UserList } from "src/app/planner-component/user-list-component/shared/models/user-list.model";
+import { NDR } from "src/app/planner-component/ndr-component/shared/models/ndr.model";
 import { UserInfo } from "src/app/shared/models/user-info.model";
 import { Input } from "@angular/core";
 import { Output } from "@angular/core";
@@ -13,35 +13,26 @@ import { UserDataService } from "src/app/planner-component/shared/service/user-d
 import { ValidateLetter } from "src/app/shared/validators/letter-validator";
 import { ValidateURL } from "src/app/shared/validators/url-validator";
 import { ApplicationConstants } from "src/app/shared/constants/constants";
-import { UserListDataService } from "src/app/planner-component/user-list-component/shared/service/user-list-data.service";
+import { NDRDataService } from "src/app/planner-component/ndr-component/shared/service/ndr-data.service";
 
 
 @Component({
-  selector: 'user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'ndr',
+  templateUrl: './ndr.component.html',
+  styleUrls: ['./ndr.component.css']
 })
-export class UserListComponent implements OnInit {
-  userList: UserList[] = [];
+export class NDRComponent implements OnInit {
+  studentResearchWork: NDR[] = [];
 
-  userform: FormGroup;
+  studentResearchWorkForm: FormGroup;
 
   constructor(private authenticationService: AuthenticationService,
-    private userListDataService: UserListDataService,
+    private NDRDataService: NDRDataService,
     private router: Router,
     private messageService: MessageService,
     private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.getUsers();
-  }
-
-  getUsers() {
-    this.userListDataService.getAllUsers().subscribe((result: UserList[]) => {
-      if (result) {
-        this.userList = result;
-      }
-    });
   }
 }

@@ -16,7 +16,10 @@
     <None Remove="src\app\planner-component\home-component\home.modeule.ts" />
     <None Remove="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
     <None Remove="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
+    <None Remove="src\app\planner-component\ndr-component\shared\models\ndr.model.ts" />
+    <None Remove="src\app\planner-component\ndr-component\shared\service\ndr-data.service.ts" />
     <None Remove="src\app\planner-component\planner.module.ts" />
+    <None Remove="src\app\planner-component\ndr-component\ndr.component.ts" />
     <None Remove="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
     <None Remove="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />
     <None Remove="src\app\planner-component\user-list-component\user-list.component.ts" />
@@ -54,7 +57,10 @@
     <TypeScriptCompile Include="src\app\common\common.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\home.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\ndr-component\shared\models\ndr.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\ndr-component\shared\service\ndr-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\planner.module.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\ndr-component\ndr.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\service\user-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />

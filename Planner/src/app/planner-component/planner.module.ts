@@ -6,6 +6,8 @@ import { AddUpdateUserComponent } from "src/app/planner-component/shared/compone
 import { UserListComponent } from "src/app/planner-component/user-list-component/user-list.component";
 import { MessageService } from "primeng/components/common/messageservice";
 import { UserListDataService } from "src/app/planner-component/user-list-component/shared/service/user-list-data.service";
+import { NDRDataService } from "src/app/planner-component/ndr-component/shared/service/ndr-data.service";
+import { NDRComponent } from "./ndr-component/ndr.component";
 
 @NgModule({
     imports:
@@ -16,25 +18,28 @@ import { UserListDataService } from "src/app/planner-component/user-list-compone
     [
         HomeComponent,
         AddUpdateUserComponent,
-        UserListComponent
+        UserListComponent,
+        NDRComponent
     ],
     declarations:
     [
         HomeComponent,
         AddUpdateUserComponent,
-        UserListComponent
+        UserListComponent,
+        NDRComponent
     ],
     entryComponents:
     [
         HomeComponent,
         AddUpdateUserComponent,
-        UserListComponent
+        UserListComponent,
+        NDRComponent
     ],
     providers:
     [
         { provide: MessageService, useClass: MessageService },
-        { provide: UserListDataService, useClass: UserListDataService}
-        
+        { provide: UserListDataService, useClass: UserListDataService},
+        { provide: NDRDataService, useClass: NDRDataService }
     ],
 
 })
