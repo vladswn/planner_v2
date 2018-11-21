@@ -18,6 +18,7 @@
     <None Remove="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
     <None Remove="src\app\planner-component\planner.module.ts" />
     <None Remove="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
+    <None Remove="src\app\planner-component\user-list-component\shared\models\user-list.model.ts" />
     <None Remove="src\app\planner-component\user-list-component\user-list.component.ts" />
     <None Remove="src\app\shared\components\authentication-component.ts" />
     <None Remove="src\app\shared\components\token-interceptor.service.ts" />
@@ -56,6 +57,7 @@
     <TypeScriptCompile Include="src\app\planner-component\planner.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\service\user-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\user-list-component\shared\models\user-list.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\user-list-component\user-list.component.ts" />
     <TypeScriptCompile Include="src\app\shared\components\authentication-component.ts" />
     <TypeScriptCompile Include="src\app\shared\components\token-interceptor.service.ts" />
@@ -73,6 +75,7 @@
   <ItemGroup>
     <Folder Include="src\app\planner-component\home-component\shared\services\" />
     <Folder Include="src\app\planner-component\shared\models\" />
+    <Folder Include="src\app\planner-component\user-list-component\shared\service\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
