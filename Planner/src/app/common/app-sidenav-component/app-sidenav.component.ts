@@ -20,8 +20,9 @@ export class AppSidenavComponent implements OnInit {
         private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
-        this.isShowHeader = this.router.url === '/login';
         this.userProfile = new UserInfo();
+        this.isShowHeader = this.router.url === '/login';
+
         this.getUser();
     }
 

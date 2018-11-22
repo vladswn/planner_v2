@@ -11,6 +11,7 @@ export class UserProfileModel {
     password: string;
     roleName: string;
     profilePicture: string;
+    applicationUserId: string;
 
     constructor() {
         this.email = null;
@@ -25,6 +26,7 @@ export class UserProfileModel {
         this.password = null;
         this.roleName = null;
         this.profilePicture = null;
+        this.applicationUserId = null;
     }
 
 }

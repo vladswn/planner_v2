@@ -2,13 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders, HttpResponse } from "@angular/common/http";
 import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, forkJoin } from 'rxjs';
 import { UserInfo } from "src/app/shared/models/user-info.model";
 import { LoginModel } from "src/app/account-component/shared/models/login.model";
 
 @Injectable()
 export class AuthenticationService {
     private tokenResult: any;
+
     constructor(private http: HttpClient) { }
 
     isAuthenticated(login: LoginModel) {
@@ -23,8 +24,10 @@ export class AuthenticationService {
                 localStorage.setItem('tokenInfo', JSON.stringify(this.tokenResult.jwtToken));
                 this.setUserInfo();
             }
+
             return this.tokenResult;
         }));
+
     }
 
 

@@ -25,6 +25,8 @@ export class UserListComponent implements OnInit {
   userList: UserList[] = [];
 
   userform: FormGroup;
+  isEdit: boolean;
+  applicationUserId: string;
 
   constructor(private authenticationService: AuthenticationService,
     private userListDataService: UserListDataService,
@@ -43,5 +45,10 @@ export class UserListComponent implements OnInit {
         this.userList = result;
       }
     });
+  }
+
+  toggleEditUser(userId) {
+      this.applicationUserId = userId;
+      this.isEdit = !this.isEdit;
   }
 }

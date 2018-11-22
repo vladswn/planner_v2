@@ -10,6 +10,7 @@ namespace Planner.RepositoryInterfaces.ObjectInterfaces
         ApplicationUser GetByUserName(String userName);
         ApplicationUser GetUser(String userName, String password);
         IEnumerable<ApplicationUser> GetUsers();
+        ApplicationUser GetByUserId(String userId);
         void UpdateUser(ApplicationUser user);
     }
 }

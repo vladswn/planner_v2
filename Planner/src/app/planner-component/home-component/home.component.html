@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col" *ngIf="!isEdit">
   <div class="profile-content">
     <div class="content-wrapper">
       <div class="form-group">
@@ -70,7 +70,7 @@
           </div>
           <div class="col">
             <div class="button-margin">
-              <button routerLink="/user" type="submit" class="btn btn-primary btn-block btn-flat">Редагувати</button>
+              <button class="btn btn-primary btn-block btn-flat" (click)="toggleEditUser()">Редагувати</button>
             </div>
           </div>
         </div>
@@ -78,3 +78,4 @@
     </div>
   </div>
 </div>
+<add-update-user *ngIf="isEdit" [applicationUserId]="userProfile.applicationUserId"></add-update-user>

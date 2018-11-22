@@ -21,7 +21,8 @@ import { HttpEventType } from "@angular/common/http";
     templateUrl: './add-update-user.component.html',
 })
 export class AddUpdateUserComponent implements OnInit {
-    @Input() userProfile: UserProfileModel;
+    @Input() applicationUserId: string;
+    userProfile: UserProfileModel;
     //@Output() back = new EventEmitter();
 
     userform: FormGroup;
@@ -31,19 +32,56 @@ export class AddUpdateUserComponent implements OnInit {
     positions = ApplicationConstants.POSITION;
     profileImage: string;
     file: File;
+    isLoaded: boolean;
 
     constructor(private authenticationService: AuthenticationService,
         private userDataService: UserDataService,
         private router: Router,
         private messageService: MessageService,
         private fb: FormBuilder) {
+
+        
     }
 
     ngOnInit() {
-        if (!this.userProfile) {
-            this.userProfile = new UserProfileModel();
-        }
+        this.userProfile = new UserProfileModel();
+        //if (!this.applicationUserId) {
+        //    this.userProfile = new UserProfileModel();
 
+        //}
+        this.getUser();
+        this.buidForms();
+        
+    }
+
+    getUser() {
+        this.isLoaded = true;
+        this.userDataService.getUser(this.applicationUserId).subscribe((result: UserProfileModel) => {
+            this.userProfile = result;
+            this.isLoaded = false;
+            this.setValue();
+        });
+    }
+
+    setValue() {
+        this.userform.patchValue({
+            email: this.userProfile.email,
+            firstName: this.userProfile.firstName,
+            lastName: this.userProfile.lastName,
+            thirdName: this.userProfile.thirdName,
+            orcidLink: this.userProfile.orcidLink,
+            scholarLink: this.userProfile.scholarLink,
+            roleName: this.userProfile.roleName,
+            academicTitle: this.userProfile.academicTitle,
+            degree: this.userProfile.degree,
+            position: this.userProfile.position,
+            profilePicture: this.userProfile.profilePicture
+        });
+        this.userform.controls.password.disable();
+        this.userform.controls.confirmPassword.disable();
+    }
+
+    buidForms() {
         this.userform = this.fb.group({
             'email': new FormControl(this.userProfile.email, Validators.compose([Validators.required, Validators.email])),
             'firstName': new FormControl(this.userProfile.firstName, Validators.compose(
@@ -68,29 +106,36 @@ export class AddUpdateUserComponent implements OnInit {
                 Validators.minLength(4)])),
             'confirmPassword': new FormControl('', Validators.compose(
                 [Validators.required,
-                    Validators.minLength(4)])),
+                Validators.minLength(4)])),
             'orcidLink': new FormControl(this.userProfile.orcidLink, Validators.compose([ValidateURL])),
             'scholarLink': new FormControl(this.userProfile.scholarLink, Validators.compose([ValidateURL])),
             'roleName': new FormControl(this.userProfile.roleName, [Validators.required]),
-            'academicTitle': new FormControl(this.userProfile.academicTitle,[]),
-            'degree': new FormControl(this.userProfile.degree,[]),
+            'academicTitle': new FormControl(this.userProfile.academicTitle, []),
+            'degree': new FormControl(this.userProfile.degree, []),
             'position': new FormControl(this.userProfile.position, []),
             'profilePicture': new FormControl(this.userProfile.profilePicture, [])
         }
         );
-
     }
 
+
     updateUser() {
-        if (this.userform.invalid) return; 
+        //if (this.userform.invalid) return; 
 
         let tempUser = <UserProfileModel>this.userform.value;
         tempUser.profilePicture = this.profileImage;
-        
+        if (this.userProfile) {
+            tempUser.applicationUserId = this.applicationUserId;
+        }
         this.userDataService.updateUserInfo(tempUser).subscribe(data => {
             if (data) {
                 this.userform.reset();
-                this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Новий користувач успішно створенний' });
+                if (this.applicationUserId) {
+                    this.messageService.add({ key: 'success', severity: 'success', summary: '', detail: 'Користувача успішно відредаговано' });
+                } else {
+                    this.messageService.add({ key: 'success', severity: 'success', summary: '', detail: 'Новий користувач успішно створенний' });
+                }
+                
             } else {
                 this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
             }

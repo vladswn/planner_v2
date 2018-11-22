@@ -39,6 +39,11 @@ namespace FrameworkApp.BusinessLogic.Service
                 result.Error = "Invalid username or password";
                 return result;
             }
+            if(user != null && !user.IsActive)
+            {
+                result.Error = "Користувач деактивованний!";
+                return result;
+            }
 
             var claims = new[]
             {
