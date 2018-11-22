@@ -23,6 +23,7 @@ namespace Planner.DependencyInjection.Extensions
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConfigurationExtensions.GetConnectionString(Configuration, "DefaultConnection"), x => x.MigrationsAssembly("Planner.Data")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<INdrRepository, NdrRepository>();
             services.AddSingleton<IRoleRepository, RoleRepository>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
