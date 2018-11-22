@@ -9,6 +9,7 @@ namespace Planner.RepositoryInterfaces.UoW
     {
         IUserRepository UserRepository { get; set; }
         IRoleRepository RoleRepository { get; set; }
+        INdrRepository NdrRepository { get; set; }
         Int32 SaveChanges();
     }
 }

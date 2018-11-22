@@ -2,77 +2,101 @@
   <div class="profile-content">
     <div class="content-wrapper">
       <div class="form-group">
-        <div class="login-box-body" data-ng-controller="registerController as registerCtrl" ng-cloak data-ng-init="registerCtrl.init()">
-          <p class="login-box-msg">Результаты НДР студентів</p>
-          <hr />
-          <div class="col">
+        <p class="login-box-msg">Результаты НДР студентів</p>
+        <hr />
+        <div class="col">
+          <p-toast key="success" position="top-center"></p-toast>
+          <p-toast key="error" position="top-center"></p-toast>
+          <form [formGroup]="NDRForm" (ngSubmit)="addNDR(NDRForm.value)">
             <div class="form-group">
-              <table class="table">
-                <tr>
-                  <td>
-                    E-mail:
-                  </td>
-                  <td>
-                   
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    П.I.Б.
-                  </td>
-                  <td>
-                    
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Google Scholar
-                  </td>
-                  <td>
-                   
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Orcid Scholar
-                  </td>
-                  <td>
-                   
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Ступiнь
-                  </td>
-                  <td>
-                    
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Звання
-                  </td>
-                  <td>
-                    
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Посада
-                  </td>
-                  <td>
-                    
-                  </td>
-                </tr>
-              </table>
+              <input type="text" pInputText placeholder="ПІБ" class="form-control" formControlName="FullName">
+              <p-message severity="error" [text]="getErrorMessage('FullName')"
+                         *ngIf="!this.NDRForm.controls['FullName'].valid && this.NDRForm.controls['FullName'].dirty"></p-message>
+
             </div>
-            <hr />
-          </div>
-          <div class="col">
-            <div class="button-margin">
-              <button routerLink="/user" type="submit" class="btn btn-primary btn-block btn-flat">Зберегти</button>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Тип" class="form-control" formControlName="Type">
+              <p-message severity="error" [text]="getErrorMessage('Type')"
+                         *ngIf="!this.NDRForm.controls['Type'].valid && this.NDRForm.controls['Type'].dirty"></p-message>
+
             </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Рiвень" class="form-control" formControlName="Level">
+              <p-message severity="error" [text]="getErrorMessage('Level')"
+                         *ngIf="!this.NDRForm.controls['Level'].valid && this.NDRForm.controls['Level'].dirty"></p-message>
+
+            </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Назва/Напрям" class="form-control" formControlName="Name">
+              <p-message severity="error" [text]="getErrorMessage('Name')"
+                         *ngIf="!this.NDRForm.controls['Name'].valid && this.NDRForm.controls['Name'].dirty"></p-message>
+
+            </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Етап" class="form-control" formControlName="Step">
+              <p-message severity="error" [text]="getErrorMessage('Step')"
+                         *ngIf="!this.NDRForm.controls['Step'].valid && this.NDRForm.controls['Step'].dirty"></p-message>
+
+            </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Мiсце та дата проведення" class="form-control" formControlName="Place">
+              <p-message severity="error" [text]="getErrorMessage('Place')"
+                         *ngIf="!this.NDRForm.controls['Place'].valid && this.NDRForm.controls['Place'].dirty"></p-message>
+
+            </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="ПIБ студента" class="form-control" formControlName="StudentName">
+              <p-message severity="error" [text]="getErrorMessage('StudentName')"
+                         *ngIf="!this.NDRForm.controls['StudentName'].valid && this.NDRForm.controls['StudentName'].dirty"></p-message>
+
+            </div>
+
+            <div class="form-group">
+              <input type="text" pInputText placeholder="Нагороди" class="form-control" formControlName="Awards">
+              <p-message severity="error" [text]="getErrorMessage('Awards')"
+                         *ngIf="!this.NDRForm.controls['Awards'].valid && this.NDRForm.controls['Awards'].dirty"></p-message>
+
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <div class="button-margin">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Підтвердити</button>
           </div>
+        </div>
+        <div class="col table-margin-top">
+          <p-table #dt [value]="NDR" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>ПIБ викладача</th>
+                <th>Тип</th>
+                <th>Рiвень</th>
+                <th>Назва/Напрям</th>
+                <th>Етап</th>
+                <th>Мiсце та дата проведення</th>
+                <th>ПIБ студента</th>
+                <th>Нагороди</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body">
+              <tr>
+                <td>Євсеєв Сергій Петрович</td>
+                <td>НДР</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>ХНЄУ ім. С. Кузнеця</td>
+                <td>Коваленко Денис Олегович</td>
+                <td>-</td>
+              </tr>
+            </ng-template>
+          </p-table>
         </div>
       </div>
     </div>

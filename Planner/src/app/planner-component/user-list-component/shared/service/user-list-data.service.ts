@@ -8,13 +8,9 @@ import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class UserListDataService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-
-    getAllUsers() {
-        return this.http.get('/api/Account/GetAllUsers');
-    }
-
-
-
+  getAllUsers() {
+    return this.http.get('/api/Account/GetAllUsers');
+  }
 }

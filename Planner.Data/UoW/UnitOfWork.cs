@@ -3,8 +3,6 @@ using Planner.Data.Repository;
 using Planner.RepositoryInterfaces.ObjectInterfaces;
 using Planner.RepositoryInterfaces.UoW;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Planner.Data.UoW
 {
@@ -14,6 +12,7 @@ namespace Planner.Data.UoW
 
         public IUserRepository UserRepository { get; set; }
         public IRoleRepository RoleRepository { get; set; }
+        public INdrRepository NdrRepository { get; set; }
 
         public UnitOfWork(AppDbContext _context)
         {
@@ -21,6 +20,7 @@ namespace Planner.Data.UoW
 
             UserRepository = new UserRepository(_context);
             RoleRepository = new RoleRepository(_context);
+            NdrRepository = new NdrRepository(_context);
         }
 
         public Int32 SaveChanges()

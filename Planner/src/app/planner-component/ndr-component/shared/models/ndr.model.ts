@@ -1,5 +1,4 @@
 export class NDR {
-  NDRId: string;
   FullName: string;
   Type: string;
   Level: string;
@@ -8,10 +7,8 @@ export class NDR {
   Place: string;
   StudentName: string;
   Awards: string;
-  ApplicationUserId: string;
 
   constructor() {
-    this.NDRId = null;
     this.FullName = null;
     this.Type = null;
     this.Level = null;
@@ -20,6 +17,5 @@ export class NDR {
     this.Place = null;
     this.StudentName = null;
     this.Awards = null;
-    this.ApplicationUserId = null;
   }
 }
