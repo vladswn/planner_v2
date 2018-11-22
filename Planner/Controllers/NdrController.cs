@@ -29,14 +29,9 @@ namespace Planner.Controllers
     [Route("GetUserNdr")]
     public IActionResult GetUserNdr()
     {
-      IEnumerable<NdrListDTO> ndrs = serviceFactory.NdrService.GetUserNdr();
+      IEnumerable<NdrListDTO> ndrs = serviceFactory.NdrService.GetUserNdr(UserInfo().UserName);
       IEnumerable<NdrListViewModel> ndrModel = _mapper.Map<IEnumerable<NdrListViewModel>>(ndrs);
       return Ok(ndrModel);
     }
-
-    public IActionResult Index()
-        {
-            return View();
-        }
-    }
+  }
 }

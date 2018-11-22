@@ -6,6 +6,6 @@ namespace Planner.ServiceInterfaces.Interfaces
     public interface INdrService
     {
         bool AddNdr(NdrDTO userDTO);
-        IEnumerable<NdrListDTO> GetUserNdr();
+        IEnumerable<NdrListDTO> GetUserNdr(string userName);
     }
 }
