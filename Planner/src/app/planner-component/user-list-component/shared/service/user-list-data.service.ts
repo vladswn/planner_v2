@@ -13,4 +13,10 @@ export class UserListDataService {
   getAllUsers() {
     return this.http.get('/api/Account/GetAllUsers');
   }
+
+  changeUserStatus(userId: string) {
+      return this.http.post('/api/Account/ChangeUserStatus', userId);
+  }
+
+  
 }

@@ -58,7 +58,13 @@ export class UserListComponent implements OnInit {
       this.confirmationService.confirm({
           message: userList.isActive ? 'Дійсно бажаєте деактивувати користувача?' : 'Дійсно бажаєте активувати користувача?',
           accept: () => {
-              console.log(userList.applicationUserId);
+              this.userListDataService.changeUserStatus(userList.applicationUserId).subscribe((result: UserList[]) => {
+                  if (result) {
+                      this.getUsers();
+                      // console.log(userList.applicationUserId);
+                  }
+              });
+             
           }
       });
   }

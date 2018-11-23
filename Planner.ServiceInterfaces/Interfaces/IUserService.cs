@@ -11,5 +11,6 @@ namespace Planner.ServiceInterfaces.Interfaces
         UserDTO GetUserById(String userId);
         Boolean AddOrUpdateUser(UserDTO userDTO);
         IEnumerable<UserListItemDTO> GetAllUsers();
+        Boolean ChangeUserStatus(String userId);
     }
 }

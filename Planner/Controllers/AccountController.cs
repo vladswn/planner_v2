@@ -77,28 +77,13 @@ namespace Planner.Controllers
         return Json(fileName);
     }
 
+    [HttpPost]
+    [Route("ChangeUserStatus")]
+    public IActionResult ChangeUserStatus([FromBody] String userId)
+    {
+      Boolean result = serviceFactory.UserService.ChangeUserStatus(userId);
+      return Ok(result);
+    }
+
   }
 }
-/*
-    uploadFiles(data: File): string {
-
-        //return this.http.post('/api/Home/UploadFiles', data);
-        let formData: FormData = new FormData();
-
-        formData.append(data.name, data);
-
-        const uploadReq = new HttpRequest('POST', `api/Home`, formData, {
-            reportProgress: true,
-        });
-        this.http.request(uploadReq).subscribe(event => {
-                if (event.type === HttpEventType.Response) {
-                console.log("body: " + event.body.toString());
-                return event.body.toString();
-            }
-                
-            
-            //this.message = event.body.toString();
-        });
-        return null;
-    }
-   */
