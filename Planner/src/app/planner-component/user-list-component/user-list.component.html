@@ -25,7 +25,8 @@
                   <td>{{userListItem.fullName}}</td>
                   <td>{{userListItem.email}}</td>
                   <td><button class="btn btn-primary btn-block btn-flat"  (click)="toggleEditUser(userListItem.applicationUserId)">Редагувати</button></td>
-                  <td><button class="btn btn-primary btn-block btn-flat">Активувати</button></td>
+                  <td><button class="btn btn-primary btn-block btn-flat" (click)="confirmActivate(userListItem)"> {{userListItem.isActive?'Активувати':'Деактивувати'}}</button></td>
+
                 </tr>
             </ng-template>
           </p-table>
@@ -35,3 +36,10 @@
   </div>
 </div>
 <add-update-user *ngIf="isEdit" [applicationUserId]="applicationUserId"></add-update-user>
+<p-confirmDialog [autoZIndex]="false" icon="pi pi-exclamation-triangle" width="425" #cd>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="Ні" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Так" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>
+

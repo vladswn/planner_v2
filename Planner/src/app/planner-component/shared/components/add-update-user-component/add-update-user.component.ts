@@ -45,11 +45,11 @@ export class AddUpdateUserComponent implements OnInit {
 
     ngOnInit() {
         this.userProfile = new UserProfileModel();
-        //if (!this.applicationUserId) {
-        //    this.userProfile = new UserProfileModel();
+        if (this.applicationUserId) {
+            this.getUser();
 
-        //}
-        this.getUser();
+        }
+        
         this.buidForms();
         
     }
