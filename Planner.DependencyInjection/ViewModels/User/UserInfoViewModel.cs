@@ -4,6 +4,7 @@ namespace Planner.DependencyInjection.ViewModels.User
 {
     public class UserInfoViewModel
     {
+        public String ApplicationUserId { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public String ThirdName { get; set; }

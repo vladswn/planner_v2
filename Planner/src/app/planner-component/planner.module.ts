@@ -8,6 +8,7 @@ import { MessageService } from "primeng/components/common/messageservice";
 import { UserListDataService } from "src/app/planner-component/user-list-component/shared/service/user-list-data.service";
 import { NDRDataService } from "src/app/planner-component/ndr-component/shared/service/ndr-data.service";
 import { NDRComponent } from "./ndr-component/ndr.component";
+import { ConfirmationService } from "primeng/api";
 
 @NgModule({
     imports:
@@ -39,7 +40,8 @@ import { NDRComponent } from "./ndr-component/ndr.component";
     [
         { provide: MessageService, useClass: MessageService },
         { provide: UserListDataService, useClass: UserListDataService},
-        { provide: NDRDataService, useClass: NDRDataService }
+        { provide: NDRDataService, useClass: NDRDataService },
+        { provide: ConfirmationService, useClass: ConfirmationService }
     ],
 
 })

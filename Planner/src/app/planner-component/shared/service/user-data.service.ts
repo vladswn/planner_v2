@@ -18,6 +18,10 @@ export class UserDataService {
         return this.http.post('/api/Account/UpdateUser', user);
     }
 
+    getUser(appUserId: string) {
+        return this.http.get('/api/Account/GetUser', { params: { userId: appUserId }} );
+    }
+
     uploadFiles(data: File) {
         let formData: FormData = new FormData();
 
@@ -26,9 +30,6 @@ export class UserDataService {
             reportProgress: true,
         });
         return this.http.request(uploadReq);
-
-
-       // return null;
     }
 
 }

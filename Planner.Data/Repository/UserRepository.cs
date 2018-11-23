@@ -18,15 +18,21 @@ namespace Planner.Data.Repository
 
         public ApplicationUser GetByUserName(String userName)
         {
-            return Query.Include(s=> s.Role)
+            return Query.AsNoTracking().Include(s=> s.Role)
                         .Where(s => s.Email == userName).FirstOrDefault();
+        }
+
+        public ApplicationUser GetByUserId(String userId)
+        {
+            return Query.Include(s => s.Role)
+                        .Where(s => s.ApplicationUserId == userId).FirstOrDefault();
         }
 
 
         public ApplicationUser GetUser(String userName, String password)
         {
             return Query.Include(s=> s.Role)
-                        .Where(s => s.Email == userName && s.PasswordHash == password).FirstOrDefault();
+                        .Where(s => s.Email == userName && s.PasswordHash == password && s.IsActive).FirstOrDefault();
         }
 
         public IEnumerable<ApplicationUser> GetUsers()

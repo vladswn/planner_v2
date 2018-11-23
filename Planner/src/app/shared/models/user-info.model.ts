@@ -14,4 +14,5 @@ export class UserInfo {
     userName: string;
     roleName: string;
     profilePicture: string;
+    applicationUserId: string;
 }

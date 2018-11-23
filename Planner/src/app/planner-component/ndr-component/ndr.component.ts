@@ -21,7 +21,7 @@ import { NDR } from "src/app/planner-component/ndr-component/shared/models/ndr.m
   styleUrls: ['./ndr.component.css']
 })
 export class NDRComponent implements OnInit {
-  @Input() NDRInfo: NDR;
+  NDRInfo: NDR;
 
   NDR: NDR[] = [];
 
@@ -35,10 +35,8 @@ export class NDRComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.NDRInfo) {
       this.NDRInfo = new NDR();
       this.getUserNdr();
-    }
 
     this.NDRForm = this.fb.group({
       'FullName': new FormControl(this.NDRInfo.FullName, Validators.compose(
@@ -94,8 +92,9 @@ export class NDRComponent implements OnInit {
 
     this.NDRDataService.addNDR(tempNDR).subscribe(data => {
       if (data) {
-        this.NDRForm.reset();
-        this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'НДР студента успішно додано' });
+          this.NDRForm.reset();
+          this.getUserNdr();
+          this.messageService.add({ key: 'success', severity: 'success', summary: '', detail: 'НДР студента успішно додано' });
       } else {
         this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
       }

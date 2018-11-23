@@ -1,13 +1,15 @@
+<p-toast key="success" position="top-center"></p-toast>
+<p-toast key="error" position="top-center"></p-toast>
 <div class="col">
   <div class="profile-content">
     <div class="content-wrapper">
       <div class="form-group">
         <p class="login-box-msg">Результаты НДР студентів</p>
         <hr />
-        <div class="col">
-          <p-toast key="success" position="top-center"></p-toast>
-          <p-toast key="error" position="top-center"></p-toast>
-          <form [formGroup]="NDRForm" (ngSubmit)="addNDR(NDRForm.value)">
+        <form [formGroup]="NDRForm" (ngSubmit)="addNDR(NDRForm.value)">
+          <div class="col">
+
+
             <div class="form-group">
               <input type="text" pInputText placeholder="ПІБ" class="form-control" formControlName="FullName">
               <p-message severity="error" [text]="getErrorMessage('FullName')"
@@ -63,13 +65,15 @@
                          *ngIf="!this.NDRForm.controls['Awards'].valid && this.NDRForm.controls['Awards'].dirty"></p-message>
 
             </div>
-          </form>
-        </div>
-        <div class="col">
-          <div class="button-margin">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Підтвердити</button>
+
           </div>
-        </div>
+          <div class="col">
+            <div class="button-margin">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Підтвердити</button>
+            </div>
+          </div>
+        </form>
+
         <div class="col table-margin-top">
           <p-table #dt [value]="NDR" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header">

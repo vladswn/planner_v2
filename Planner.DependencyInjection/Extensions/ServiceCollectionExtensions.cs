@@ -29,6 +29,8 @@ namespace Planner.DependencyInjection.Extensions
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<IServiceFactory, ServiceFactory>();
             services.AddTransient<ISecurityService, SecurityService>();
+            services.AddTransient<INdrService, NdrService>();
+            
 
 
             services.AddAutoMapper(null, AppDomain.CurrentDomain.GetAssemblies());

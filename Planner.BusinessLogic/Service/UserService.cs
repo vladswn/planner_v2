@@ -27,6 +27,12 @@ namespace Planner.BusinessLogic.Service
             return _mapper.Map<UserDTO>(user);
         }
 
+        public UserDTO GetUserById(String userId)
+        {
+            ApplicationUser user = uow.UserRepository.GetByUserId(userId);
+            return _mapper.Map<UserDTO>(user);
+        }
+
         public IEnumerable<UserListItemDTO> GetAllUsers()
         {
             IEnumerable<ApplicationUser> users = uow.UserRepository.GetUsers();
@@ -36,11 +42,18 @@ namespace Planner.BusinessLogic.Service
 
         public Boolean AddOrUpdateUser(UserDTO userDTO)
         {
-            //ApplicationUser user = uow.UserRepository.GetByUserName(userDTO.Email);
-
             ApplicationUser user = _mapper.Map<ApplicationUser>(userDTO);
-            user.IsActive = true;
-            user.PasswordHash = _securityService.GetSha256Hash(userDTO.Password);
+            ApplicationUser existingUser;
+            if (!String.IsNullOrEmpty(userDTO.ApplicationUserId)) {
+                existingUser = uow.UserRepository.GetByUserName(userDTO.Email);
+                user.PasswordHash = existingUser.PasswordHash;
+                user.IsActive = user.IsActive;
+            }
+            else
+            {
+                user.PasswordHash = _securityService.GetSha256Hash(userDTO.Password);
+                user.IsActive = true;
+            }
 
             Role role = uow.RoleRepository.GetRoleByName(userDTO.RoleName);
             if (role != null)

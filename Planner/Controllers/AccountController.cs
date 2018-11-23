@@ -30,7 +30,17 @@ namespace Planner.Controllers
           return Ok(userInfo);
         }
 
-        [HttpPost]
+    [HttpGet]
+    [Route("GetUser")]
+    public IActionResult GetUser(String userId)
+    {
+      UserDTO user = serviceFactory.UserService.GetUserById(userId);
+      UserInfoViewModel userInfo = _mapper.Map<UserInfoViewModel>(user);
+      return Ok(userInfo);
+    }
+
+
+    [HttpPost]
         [Route("UpdateUser")]
         public IActionResult UpdateUser([FromBody] UserInfoViewModel registerUserDTO)
         {
