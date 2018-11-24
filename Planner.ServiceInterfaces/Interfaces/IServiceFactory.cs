@@ -10,5 +10,6 @@ namespace Planner.ServiceInterfaces.Interfaces
         ITokenService TokenService { get;}
         ISecurityService SecurityService { get; }
         INdrService NdrService { get; }
+        IPublicationService PublicationService { get; }
     }
 }

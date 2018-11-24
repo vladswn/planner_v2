@@ -76,7 +76,7 @@
               <p-dropdown [options]="positions" placeholder="Виберіть посаду" formControlName="position"></p-dropdown>
             </div>
 
-            <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
+            <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="uploadImage($event)"></p-fileUpload>
 
             <div class="form-group">
               <p-dropdown [options]="roles" formControlName="roleName" placeholder="Виберіть роль користувача" required></p-dropdown>

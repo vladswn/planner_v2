@@ -94,20 +94,20 @@ export class PublicationComponent implements OnInit {
     );
   }
 
-  addPublication() {
-    if (this.publicationForm.invalid) return;
+  //addPublication() {
+  //  if (this.publicationForm.invalid) return;
 
-    let tempPublication = <Publication>this.publicationForm.value;
+  //  let tempPublication = <Publication>this.publicationForm.value;
 
-    this.PublicationDataService.addPublication(tempPublication).subscribe(data => {
-      if (data) {
-        this.publicationForm.reset();
-        this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Публікацію успішно додано' });
-      } else {
-        this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
-      }
-    });
-  }
+  //  this.PublicationDataService.addPublication(tempPublication).subscribe(data => {
+  //    if (data) {
+  //      this.publicationForm.reset();
+  //      this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Публікацію успішно додано' });
+  //    } else {
+  //      this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
+  //    }
+  //  });
+  //}
 
   getUserPublication() {
     this.PublicationDataService.getUserPublication().subscribe((result: Publication[]) => {

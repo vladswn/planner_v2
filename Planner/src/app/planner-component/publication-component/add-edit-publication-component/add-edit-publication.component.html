@@ -1,0 +1,68 @@
+<form [formGroup]="publicationForm" (ngSubmit)="addPublication(publicationForm.value)">
+  <div class="content-wrapper">
+    <div class="form-group">
+      <p class="login-box-msg">Створення публікації</p>
+      <hr />
+      <div class="col">
+
+        <div class="form-group">
+          <input type="text" pInputText placeholder="Назва" class="form-control" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <input type="text" pInputText placeholder="Об'єм" class="form-control" formControlName="pages">
+        </div>
+
+        <div class="form-group">
+          <input type="text" pInputText placeholder="Вихідні дані" class="form-control" formControlName="output">
+        </div>
+
+        <!--<div class="form-group">
+          <input type="text" pInputText placeholder="Співавтор" class="form-control" formControlName="NewCollaboratorsNames">
+        </div>-->
+
+        <div class="form-group">
+          <input type="text" pInputText placeholder="Кількість цитувань у виданнях, що входять до НМБД" class="form-control" formControlName="citationNumberNMBD">
+        </div>
+
+        <div class="form-group">
+          <input type="text" pInputText placeholder="Імпакт-фактор видання, тільки з НМБД" class="form-control" formControlName="impactFactorNMBD">
+        </div>
+
+        <div class="datepicker-margin-bottom">
+          <h5 class="h5-style">Дата публикації</h5>
+          <p-calendar id="PublishedAt" formControlName="PublishedAt" [(ngModel)]="publishedAt" [showIcon]="true"></p-calendar>
+        </div>
+
+        <div class="form-group">
+          <p-dropdown [options]="nmbds" placeholder="НМБД" formControlName="nmdbId"></p-dropdown>
+        </div>
+
+        <div class="form-group">
+          <p-dropdown [options]="storingTypes" placeholder="Тип" formControlName="storingType"></p-dropdown>
+        </div>
+
+        <div class="form-group">
+          <p-dropdown [options]="publicationTypes" placeholder="Тип видання" formControlName="publicationType"></p-dropdown>
+        </div>
+
+        <div class="form-group">
+          <p-dropdown [options]="researchDoneTypes" placeholder="За якою НДР виконано" formControlName="researchDoneType"></p-dropdown>
+        </div>
+
+        <h5 class="h5-style">Закордонне видання</h5>
+        <p-inputSwitch id="IsOverseas" formControlName="isOverseas" title="Закордонне видання"></p-inputSwitch>
+
+        <div>
+          <p-fileUpload name="filePath" customUpload="true" (uploadHandler)="uploadFile($event)" placeholder="Завантажити файл публикації"></p-fileUpload>
+        </div>
+
+      </div>
+    </div>
+    <div class="col">
+      <div class="button-margin">
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Підтвердити</button>
+      </div>
+    </div>
+  </div>
+</form>
