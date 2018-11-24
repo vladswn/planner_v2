@@ -24,6 +24,9 @@
     <None Remove="src\app\planner-component\publication-component\publication.component.ts" />
     <None Remove="src\app\planner-component\publication-component\shared\models\publication.model.ts" />
     <None Remove="src\app\planner-component\publication-component\shared\service\publication-data.service.ts" />
+    <None Remove="src\app\planner-component\report-component\report.component.ts" />
+    <None Remove="src\app\planner-component\report-component\shared\models\report.model.ts" />
+    <None Remove="src\app\planner-component\report-component\shared\service\report-data.service.ts" />
     <None Remove="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
     <None Remove="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />
     <None Remove="src\app\planner-component\user-list-component\user-list.component.ts" />
@@ -69,6 +72,9 @@
     <TypeScriptCompile Include="src\app\planner-component\publication-component\publication.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\publication-component\shared\models\publication.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\publication-component\shared\service\publication-data.service.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\report-component\report.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\report-component\shared\models\report.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\report-component\shared\service\report-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\service\user-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />

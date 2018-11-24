@@ -10,6 +10,8 @@ import { NDRDataService } from "src/app/planner-component/ndr-component/shared/s
 import { NDRComponent } from "./ndr-component/ndr.component";
 import { PublicationDataService } from "src/app/planner-component/publication-component/shared/service/publication-data.service";
 import { PublicationComponent } from "./publication-component/publication.component";
+import { ReportDataService } from "src/app/planner-component/report-component/shared/service/report-data.service";
+import { ReportComponent } from "./report-component/report.component";
 import { AppDashboardComponent } from "./app-dashboard-component/app.dashboard.component";
 import { ConfirmationService } from "primeng/api";
 
@@ -25,7 +27,8 @@ import { ConfirmationService } from "primeng/api";
         UserListComponent,
         NDRComponent,
         PublicationComponent,
-        AppDashboardComponent
+        AppDashboardComponent,
+        ReportComponent
     ],
     declarations:
     [
@@ -34,7 +37,8 @@ import { ConfirmationService } from "primeng/api";
         UserListComponent,
         NDRComponent,
         PublicationComponent,
-        AppDashboardComponent
+        AppDashboardComponent,
+        ReportComponent
     ],
     entryComponents:
     [
@@ -43,7 +47,8 @@ import { ConfirmationService } from "primeng/api";
         UserListComponent,
         NDRComponent,
         PublicationComponent,
-        AppDashboardComponent
+        AppDashboardComponent,
+        ReportComponent
     ],
     providers:
     [
@@ -51,7 +56,8 @@ import { ConfirmationService } from "primeng/api";
         { provide: UserListDataService, useClass: UserListDataService},
         { provide: NDRDataService, useClass: NDRDataService },
         { provide: ConfirmationService, useClass: ConfirmationService },
-        { provide: PublicationDataService, useClass: PublicationDataService }
+        { provide: PublicationDataService, useClass: PublicationDataService },
+        { provide: ReportDataService, useClass: ReportDataService }
     ],
 
 })
