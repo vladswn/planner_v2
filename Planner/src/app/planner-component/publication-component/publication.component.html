@@ -1,10 +1,115 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<p-toast key="success" position="top-center"></p-toast>
+<p-toast key="error" position="top-center"></p-toast>
+<div class="col" *ngIf="!this.isLoaded">
+  <div class="profile-content">
+    <p-tabView>
+      <p-tabPanel header="Створення публікації">
+        <form [formGroup]="publicationForm" (ngSubmit)="addPublication(publicationForm.value)">
+          <div class="content-wrapper">
+            <div class="form-group">
+              <p class="login-box-msg">Створення публікації</p>
+              <hr />
+              <div class="col">
 
-</body>
-</html>
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Назва" class="form-control" formControlName="Name">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Об'єм" class="form-control" formControlName="Pages">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Вихідні дані" class="form-control" formControlName="Output">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Співавтор" class="form-control" formControlName="NewCollaboratorsNames">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Кількість цитувань у виданнях, що входять до НМБД" class="form-control" formControlName="CitationNumberNMBD">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" pInputText placeholder="Імпакт-фактор видання, тільки з НМБД" class="form-control" formControlName="ImpactFactorNMBD">
+                </div>
+
+                <div class="datepicker-margin-bottom">
+                  <h5 class="h5-style">Дата публикації</h5>
+                  <p-calendar id="PublishedAt" formControlName="PublishedAt" [(ngModel)]="PublishedAt" [showIcon]="true"></p-calendar>
+                </div>
+
+                <div class="form-group">
+                  <p-dropdown [options]="NMBDs" placeholder="НМБД" formControlName="NMBDId"></p-dropdown>
+                </div>
+
+                <div class="form-group">
+                  <p-dropdown [options]="StoringType" placeholder="Тип" formControlName="StoringType"></p-dropdown>
+                </div>
+
+                <div class="form-group">
+                  <p-dropdown [options]="PublicationType" placeholder="Тип видання" formControlName="PublicationType"></p-dropdown>
+                </div>
+
+                <div class="form-group">
+                  <p-dropdown [options]="ResearchDoneType" placeholder="За якою НДР виконано" formControlName="ResearchDoneType"></p-dropdown>
+                </div>
+
+                <h5 class="h5-style">Закордонне видання</h5>
+                <p-inputSwitch id="IsOverseas" formControlName="IsOverseas" [(ngModel)]="checked" title="Закордонне видання"></p-inputSwitch>
+
+                <div>
+                  <p-fileUpload name="FilePath" customUpload="true" (uploadHandler)="myUploader($event)" placeholder="Завантажити файл публикації"></p-fileUpload>
+                </div>
+
+              </div>
+            </div>
+            <div class="col">
+              <div class="button-margin">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Підтвердити</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </p-tabPanel>
+      <p-tabPanel header="Мої публікації">
+        <div class="content-wrapper">
+          <form [formGroup]="publicationForm" (ngSubmit)="getUserPublication()">
+            <div class="content-wrapper">
+              <div class="form-group">
+                <p class="login-box-msg">Мої публікації</p>
+                <hr />
+                <div class="col table-margin-top">
+                  <p-table #dt [value]="Publication" [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th>Назва</th>
+                        <th>Характер роботи</th>
+                        <th>Вихідні дані</th>
+                        <th>Обсяг (стор.)</th>
+                        <th>Співавтори</th>
+                        <th>Дата публікації</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body">
+                      <tr>
+                        <th>Назва</th>
+                        <th>Характер роботи</th>
+                        <th>Вихідні дані</th>
+                        <th>Обсяг (стор.)</th>
+                        <th>Співавтори</th>
+                        <th>Дата публікації</th>
+                        <td><button class="btn btn-primary btn-block btn-flat" (click)="addPublication()">Редагувати</button></td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>
