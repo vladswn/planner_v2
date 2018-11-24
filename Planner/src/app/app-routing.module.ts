@@ -7,6 +7,8 @@ import { AddUpdateUserComponent } from "src/app/planner-component/shared/compone
 import { UserListComponent } from "src/app/planner-component/user-list-component/user-list.component";
 import { NDRComponent } from "src/app/planner-component/ndr-component/ndr.component";
 import { PublicationComponent } from "src/app/planner-component/publication-component/publication.component";
+import { AppDashboardComponent } from "src/app/planner-component/app-dashboard-component/app.dashboard.component";
+import { ReportComponent } from "src/app/planner-component/report-component/report.component";
 
 const routes: Routes = [
   { path: 'login', component: AccountLoginComponent },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'user-list', component: UserListComponent, canActivate: [AuthGuard] },
   { path: 'ndr', component: NDRComponent, canActivate: [AuthGuard] },
   { path: 'publication', component: PublicationComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: AppDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] },
   { path: '', component: AccountLoginComponent },
   { path: '**', redirectTo: '/' },
 ];

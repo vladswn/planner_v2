@@ -65,21 +65,21 @@
             </div>
 
             <div class="form-group">
-              <p-dropdown [options]="academicTitles" placeholder="Виберіть ступінь" formControlName="academicTitle"></p-dropdown>
+              <p-dropdown [options]="academicTitles" placeholder="Оберіть ступінь" formControlName="academicTitle"></p-dropdown>
             </div>
 
             <div class="form-group">
-              <p-dropdown [options]="degrees" placeholder="Виберіть звання" formControlName="degree"></p-dropdown>
+              <p-dropdown [options]="degrees" placeholder="Оберіть звання" formControlName="degree"></p-dropdown>
             </div>
 
             <div class="form-group">
-              <p-dropdown [options]="positions" placeholder="Виберіть посаду" formControlName="position"></p-dropdown>
+              <p-dropdown [options]="positions" placeholder="Оберіть посаду" formControlName="position"></p-dropdown>
             </div>
 
             <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="uploadImage($event)"></p-fileUpload>
 
             <div class="form-group">
-              <p-dropdown [options]="roles" formControlName="roleName" placeholder="Виберіть роль користувача" required></p-dropdown>
+              <p-dropdown [options]="roles" formControlName="roleName" placeholder="Оберіть роль користувача" required></p-dropdown>
 
               <p-message severity="error" [text]="getErrorMessage('role')"
                          *ngIf="!this.userform.controls['roleName'].valid && this.userform.controls['roleName'].dirty"></p-message>
