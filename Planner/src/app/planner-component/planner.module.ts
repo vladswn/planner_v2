@@ -10,6 +10,7 @@ import { NDRDataService } from "src/app/planner-component/ndr-component/shared/s
 import { NDRComponent } from "./ndr-component/ndr.component";
 import { PublicationDataService } from "src/app/planner-component/publication-component/shared/service/publication-data.service";
 import { PublicationComponent } from "./publication-component/publication.component";
+import { AppDashboardComponent } from "./app-dashboard-component/app.dashboard.component";
 import { ConfirmationService } from "primeng/api";
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ConfirmationService } from "primeng/api";
         AddUpdateUserComponent,
         UserListComponent,
         NDRComponent,
-        PublicationComponent
+        PublicationComponent,
+        AppDashboardComponent
     ],
     declarations:
     [
@@ -31,7 +33,8 @@ import { ConfirmationService } from "primeng/api";
         AddUpdateUserComponent,
         UserListComponent,
         NDRComponent,
-        PublicationComponent
+        PublicationComponent,
+        AppDashboardComponent
     ],
     entryComponents:
     [
@@ -39,7 +42,8 @@ import { ConfirmationService } from "primeng/api";
         AddUpdateUserComponent,
         UserListComponent,
         NDRComponent,
-        PublicationComponent
+        PublicationComponent,
+        AppDashboardComponent
     ],
     providers:
     [
