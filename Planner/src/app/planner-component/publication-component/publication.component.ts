@@ -4,9 +4,12 @@ import { LoginModel } from "src/app/account-component/shared/models/login.model"
 import { AuthenticationService } from "src/app/shared/components/authentication-component";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/components/common/messageservice";
+import { UserProfileModel } from "src/app/planner-component/home-component/shared/models/user-profile.model";
+import { UserInfo } from "src/app/shared/models/user-info.model";
 import { Input } from "@angular/core";
 import { Output } from "@angular/core";
 import { EventEmitter } from "events";
+import { UserDataService } from "src/app/planner-component/shared/service/user-data.service";
 import { ValidateLetter } from "src/app/shared/validators/letter-validator";
 import { ValidateURL } from "src/app/shared/validators/url-validator";
 import { ApplicationConstants } from "src/app/shared/constants/constants";
@@ -25,7 +28,7 @@ export class PublicationComponent implements OnInit {
 
   Publication: Publication[] = [];
 
-  PublicationForm: FormGroup;
+  publicationForm: FormGroup;
 
   constructor(private authenticationService: AuthenticationService,
     private PublicationDataService: PublicationDataService,
@@ -40,7 +43,7 @@ export class PublicationComponent implements OnInit {
       this.getUserPublication();
     }
 
-    this.PublicationForm = this.fb.group({
+    this.publicationForm = this.fb.group({
       'Name': new FormControl(this.PublicationInfo.Name, Validators.compose(
         [Validators.required,
         Validators.maxLength(250),
@@ -76,19 +79,29 @@ export class PublicationComponent implements OnInit {
       'CitationNumberNMBD': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
         [Validators.required])),
       'ImpactFactorNMBD': new FormControl(this.PublicationInfo.ImpactFactorNMBD, Validators.compose(
+        [Validators.required])),
+      'NMBDId': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
+        [Validators.required])),
+      'StoringType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
+        [Validators.required])),
+      'PublicationType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
+        [Validators.required])),
+      'ResearchDoneType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
+        [Validators.required])),
+      'NewCollaboratorsNames': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
         [Validators.required]))
     }
     );
   }
 
   addPublication() {
-    if (this.PublicationForm.invalid) return;
+    if (this.publicationForm.invalid) return;
 
-    let tempPublication = <Publication>this.PublicationForm.value;
+    let tempPublication = <Publication>this.publicationForm.value;
 
     this.PublicationDataService.addPublication(tempPublication).subscribe(data => {
       if (data) {
-        this.PublicationForm.reset();
+        this.publicationForm.reset();
         this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Публікацію успішно додано' });
       } else {
         this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
@@ -106,115 +119,17 @@ export class PublicationComponent implements OnInit {
 
   getErrorMessage(value: string) {
     if (value == 'Name') {
-      if (this.PublicationForm.controls['Name'].errors['required']) {
+      if (this.publicationForm.controls['Name'].errors['required']) {
         return `Поле "Назва" - обов'язкове`;
       }
-      else if (this.PublicationForm.controls['Name'].errors['minlength']) {
+      else if (this.publicationForm.controls['Name'].errors['minlength']) {
         return `Поле "Назва" повинне мати не менше 3-х символів`;
       }
-      else if (this.PublicationForm.controls['Name'].errors['maxLength']) {
+      else if (this.publicationForm.controls['Name'].errors['maxLength']) {
         return `Поле "Назва" повинне мати не менше 3-х символів`;
       }
-      else if (this.PublicationForm.controls['Name'].errors['validLetter']) {
+      else if (this.publicationForm.controls['Name'].errors['validLetter']) {
         return `Коректно заповніть поле "Назва" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Type') {
-      if (this.PublicationForm.controls['Type'].errors['required']) {
-        return `Поле "Тип" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Type'].errors['minlength']) {
-        return `Поле "Тип" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Type'].errors['maxLength']) {
-        return `Поле "Тип" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Type'].errors['validLetter']) {
-        return `Коректно заповніть поле "Тип" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Level') {
-      if (this.PublicationForm.controls['Level'].errors['required']) {
-        return `Поле "Рівень" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Level'].errors['minlength']) {
-        return `Поле "Рівень" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Level'].errors['maxLength']) {
-        return `Поле "Рівень" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Level'].errors['validLetter']) {
-        return `Коректно заповніть поле "Рівень" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Name') {
-      if (this.PublicationForm.controls['Name'].errors['required']) {
-        return `Поле "Назва/Напрям" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Name'].errors['minlength']) {
-        return `Поле "Назва/Напрям" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Name'].errors['maxLength']) {
-        return `Поле "Назва/Напрям" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Name'].errors['validLetter']) {
-        return `Коректно заповніть поле "Назва/Напрям" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Step') {
-      if (this.PublicationForm.controls['Step'].errors['required']) {
-        return `Поле "Етап" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Step'].errors['minlength']) {
-        return `Поле "Етап" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Step'].errors['maxLength']) {
-        return `Поле "Етап" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Step'].errors['validLetter']) {
-        return `Коректно заповніть поле "Етап" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Place') {
-      if (this.PublicationForm.controls['Place'].errors['required']) {
-        return `Поле "Місце та дата проведення" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Place'].errors['minlength']) {
-        return `Поле "Місце та дата проведення" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Place'].errors['maxLength']) {
-        return `Поле "Місце та дата проведення" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Place'].errors['validLetter']) {
-        return `Коректно заповніть поле "Місце та дата проведення" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'StudentName') {
-      if (this.PublicationForm.controls['StudentName'].errors['required']) {
-        return `Поле "ПІБ студента" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['StudentName'].errors['minlength']) {
-        return `Поле "ПІБ студента" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['StudentName'].errors['maxLength']) {
-        return `Поле "ПІБ студента" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['StudentName'].errors['validLetter']) {
-        return `Коректно заповніть поле "ПІБ студента" ! Поле не може мати цифорвих значень!`;
-      }
-    }
-    if (value == 'Awards') {
-      if (this.PublicationForm.controls['Awards'].errors['required']) {
-        return `Поле "Нагороди" - обов'язкове`;
-      }
-      else if (this.PublicationForm.controls['Awards'].errors['minlength']) {
-        return `Поле "Нагороди" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Awards'].errors['maxLength']) {
-        return `Поле "Нагороди" повинне мати не менше 3-х символів`;
-      }
-      else if (this.PublicationForm.controls['Awards'].errors['validLetter']) {
-        return `Коректно заповніть поле "Нагороди" ! Поле не може мати цифорвих значень!`;
       }
     }
   }
