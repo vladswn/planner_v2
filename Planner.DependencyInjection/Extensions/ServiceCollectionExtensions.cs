@@ -24,12 +24,14 @@ namespace Planner.DependencyInjection.Extensions
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<INdrRepository, NdrRepository>();
+            services.AddSingleton<INMBDRepository, NMBDRepository>();
             services.AddSingleton<IRoleRepository, RoleRepository>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<IServiceFactory, ServiceFactory>();
             services.AddTransient<ISecurityService, SecurityService>();
             services.AddTransient<INdrService, NdrService>();
+            services.AddTransient<IPublicationService, PublicationService>();
             
 
 

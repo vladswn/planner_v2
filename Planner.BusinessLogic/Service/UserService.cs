@@ -39,6 +39,14 @@ namespace Planner.BusinessLogic.Service
             return _mapper.Map<IEnumerable<UserListItemDTO>>(users);
         }
 
+        public Boolean ChangeUserStatus(String userId)
+        {
+            ApplicationUser user = uow.UserRepository.GetByUserId(userId);
+            user.IsActive = !user.IsActive;
+            uow.UserRepository.UpdateUser(user);
+
+            return uow.SaveChanges() >= 0;
+        }
 
         public Boolean AddOrUpdateUser(UserDTO userDTO)
         {

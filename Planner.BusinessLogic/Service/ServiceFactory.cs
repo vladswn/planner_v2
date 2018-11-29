@@ -8,14 +8,16 @@ namespace Planner.BusinessLogic.Service
         public ITokenService TokenService { get; }
         public ISecurityService SecurityService { get; }
         public INdrService NdrService { get; }
+        public IPublicationService PublicationService { get; }
 
         public ServiceFactory(IUserService _userService, ITokenService _tokenService,
-            ISecurityService _securityService, INdrService _ndrService)
+            ISecurityService _securityService, INdrService _ndrService, IPublicationService _publicationService)
         {
             UserService = _userService;
             TokenService = _tokenService;
             SecurityService = _securityService;
             NdrService = _ndrService;
+            PublicationService = _publicationService;
         }
     }
 }
