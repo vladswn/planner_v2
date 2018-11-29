@@ -76,8 +76,6 @@
               <p-dropdown [options]="positions" placeholder="Оберіть посаду" formControlName="position"></p-dropdown>
             </div>
 
-            <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
-
             <div class="form-group">
               <p-dropdown [options]="roles" formControlName="roleName" placeholder="Оберіть роль користувача" required></p-dropdown>
 
@@ -85,6 +83,8 @@
                          *ngIf="!this.userform.controls['roleName'].valid && this.userform.controls['roleName'].dirty"></p-message>
 
             </div>
+
+            <p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
 
           </div>
         </div>
