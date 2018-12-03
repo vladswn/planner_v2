@@ -14,6 +14,7 @@ namespace Planner.Data.UoW
         public IRoleRepository RoleRepository { get; set; }
         public INdrRepository NdrRepository { get; set; }
         public INMBDRepository NMBDRepository { get; set; }
+        public IPublicationRepositpry PublicationRepositpry { get; set; }
 
         public UnitOfWork(AppDbContext _context)
         {
@@ -23,6 +24,7 @@ namespace Planner.Data.UoW
             RoleRepository = new RoleRepository(_context);
             NdrRepository = new NdrRepository(_context);
             NMBDRepository = new NMBDRepository(_context);
+            PublicationRepositpry = new PublicationRepositpry(_context);
         }
 
         public Int32 SaveChanges()

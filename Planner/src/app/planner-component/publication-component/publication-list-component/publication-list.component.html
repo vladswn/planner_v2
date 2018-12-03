@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <div class="content-wrapper">
+      <div class="form-group">
+        <p class="login-box-msg">Мої публікації</p>
+        <hr />
+        <div class="col table-margin-top">
+          <p-table #dt [value]="publications" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Назва</th>
+                <th>Характер роботи</th>
+                <th>Вихідні дані</th>
+                <th>Обсяг (стор.)</th>
+                <th>Співавтори</th>
+                <th>Дата публікації</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-publicationListItem>
+              <tr>
+                <th>{{publicationListItem.name}}</th>
+                <th>{{publicationListItem.output}}</th>
+                <th>{{publicationListItem.output}}</th>
+                <th>{{publicationListItem.pages}}</th>
+                <th>{{publicationListItem.collaboratorsName}}</th>
+                <th>{{publicationListItem.publishedAt | date:'M/d/yy' }}</th>
+                <td><button class="btn btn-primary btn-block btn-flat" (click)="addPublication()">Редагувати</button></td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+</div>

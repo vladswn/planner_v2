@@ -19,5 +19,9 @@ namespace Planner.Data.Repository
         {
             return Query.ToList();
         }
+        public NMBD GetById(String id)
+        {
+            return Query.FirstOrDefault(s=> s.NMBDId == id);
+        }
     }
 }

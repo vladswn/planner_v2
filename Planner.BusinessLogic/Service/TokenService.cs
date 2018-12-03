@@ -58,7 +58,7 @@ namespace FrameworkApp.BusinessLogic.Service
                                             issuer: JwtConst.ISSUER,
                                             audience: JwtConst.AUDIENCE,
                                             claims: claims,
-                                            expires: DateTime.Now.AddMinutes(30),
+                                            expires: DateTime.Now.AddYears(30),
                                             signingCredentials: creds);
 
             var tokenEncd = new JwtSecurityTokenHandler().WriteToken(token);

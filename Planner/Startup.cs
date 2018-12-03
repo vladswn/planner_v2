@@ -47,7 +47,7 @@ namespace Planner
                         //// установка потребителя токена
                         ValidAudience = JwtConst.AUDIENCE,
                         // будет ли валидироваться время существования
-                        ValidateLifetime = true,
+                        //ValidateLifetime = true,
                         // установка ключа безопасности
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtConst.SECURITY_KEY)),
                         // валидация ключа безопасности
@@ -74,7 +74,9 @@ namespace Planner
 
       app.UseDefaultFiles();
       app.UseStaticFiles();
+      app.UseAuthentication();
       app.UseMvc();
+      
 
       app.Run(async (context) =>
       {

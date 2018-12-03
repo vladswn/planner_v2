@@ -10,20 +10,24 @@ import { ValidateLetter } from "src/app/shared/validators/letter-validator";
 import { ApplicationConstants } from "src/app/shared/constants/constants";
 import { SelectItem } from "primeng/components/common/selectitem";
 import { HttpEventType } from "@angular/common/http";
+import { NmbdModel } from "src/app/planner-component/publication-component/shared/models/nmdb.model";
 
 @Component({
     selector: 'add-edit-publication',
-    templateUrl: './add-edit-publication.component',
+    templateUrl: './add-edit-publication.component.html',
 //    styleUrls: ['./publication.component.css']
     
 })
-export class PublicationComponent implements OnInit {
+export class AddEditPublicationComponent implements OnInit {
     @Input() publication: PublicationAddEditModel;
-
+    users: SelectItem[] = [];
     researchDoneTypes = ApplicationConstants.RESEARCHDONETYPE;
     storingTypes = ApplicationConstants.STORINGTYPE;
     publicationTypes = ApplicationConstants.PUBLICATION;
-    nmbds: SelectItem[];
+    nmbds: SelectItem[]=[];
+    // users: SelectItem[]=[];
+    collaboratorsNames: string;
+  
     file: File;
     publicationFile: string;
     ua: any;
@@ -45,9 +49,30 @@ export class PublicationComponent implements OnInit {
     ngOnInit() {
         if (!this.publication) {
             this.publication = new PublicationAddEditModel();
+
         }
 
         this.initCalendar();
+        let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let prevMonth = (month === 0) ? 11 : month - 1;
+        let prevYear = (prevMonth === 11) ? year - 1 : year;
+        let nextMonth = (month === 11) ? 0 : month + 1;
+        let nextYear = (nextMonth === 0) ? year + 1 : year;
+        this.minDate = new Date();
+        this.minDate.setMonth(prevMonth);
+        this.minDate.setFullYear(prevYear);
+        this.maxDate = new Date();
+        this.maxDate.setMonth(nextMonth);
+        this.maxDate.setFullYear(nextYear);
+
+        let invalidDate = new Date();
+        invalidDate.setDate(today.getDate() - 1);
+        this.invalidDates = [today, invalidDate];
+       
+        this.getNmbds();
+        this.getUsers();
         this.publicationForm = this.fb.group({
             'name': new FormControl(this.publication.name, Validators.compose(
                 [Validators.required,
@@ -71,7 +96,7 @@ export class PublicationComponent implements OnInit {
                 [Validators.required])),
             'impactFactorNMBD': new FormControl(this.publication.impactFactorNMBD, Validators.compose(
                 [Validators.required])),
-            'nmdbId': new FormControl(this.publication.nmdbId, Validators.compose(
+            'nmbdId': new FormControl(this.publication.nmbdId, Validators.compose(
                 [Validators.required])),
             'storingType': new FormControl(this.publication.storingType, Validators.compose(
                 [Validators.required])),
@@ -79,16 +104,76 @@ export class PublicationComponent implements OnInit {
                 [Validators.required])),
             'researchDoneType': new FormControl(this.publication.researchDoneType, Validators.compose(
                 [Validators.required])),
-            'newCollaboratorsIds': new FormControl(this.publication.newCollaboratorsIds, [Validators.required]),
+            //'newCollaboratorsIds': new FormControl(this.publication.newCollaboratorsIds, [Validators.required]),
             'collaboratorsIds': new FormControl(this.publication.collaboratorsIds, [Validators.required]),
         }
         );
+
+        this.publicationForm.controls.collaboratorsIds.valueChanges.subscribe(s => {
+            if (s) {
+                let tempNames = [];
+                this.users.forEach(result => {
+                    s.forEach(item => {
+                        if (result.value == item) {
+                             tempNames.push(result.label);
+                        }
+                    });
+
+                })
+                this.collaboratorsNames = tempNames.join(',')
+                console.log(this.collaboratorsNames);
+            }
+            //console.log(s);
+        });
+        
+    }
+
+    getNmbds() {
+        this.publicationDataService.getNMBDs().subscribe((data: NmbdModel[]) => {
+            this.configNmdbs(data);
+        });
+    }
+
+    getUsers() {
+        this.publicationDataService.getUsers().subscribe((data) => {
+            this.configUsers(data);
+          
+                if (this.publicationForm.controls.collaboratorsIds.value) {
+                    let tempNames = [];
+                    this.users.forEach(result => {
+                        this.publicationForm.controls.collaboratorsIds.value.forEach(item => {
+                            if (result.value == item) {
+                                tempNames.push(result.label);
+                            }
+                        });
+
+                    });
+                    this.collaboratorsNames = tempNames.join(','); 
+                }
+            
+        });
+    }
+
+    configNmdbs(data: NmbdModel[]) {
+        data.forEach(item => {
+            this.nmbds.push({ label: item.name, value: item.nmbdId });
+        })
+    }
+
+    configUsers(data) {
+        console.log(data);
+        data.forEach(item => {
+            this.users.push({ label: item.fullName, value: item.applicationUserId });
+        });
+        console.log(this.users);
     }
 
     addPublication() {
-        if (this.publicationForm.invalid) return;
+        //if (this.publicationForm.invalid) return;
+        console.log(this.publicationForm.value);
 
         let tempPublication = <PublicationAddEditModel>this.publicationForm.value;
+        if (this.publication) tempPublication.publicationId = this.publication.publicationId;
 
         this.publicationDataService.addPublication(tempPublication).subscribe(data => {
             if (data) {
@@ -99,14 +184,6 @@ export class PublicationComponent implements OnInit {
             }
         });
     }
-
-    //getUserPublication() {
-    //    this.PublicationDataService.getUserPublication().subscribe((result: Publication[]) => {
-    //        if (result) {
-    //            this.Publication = result;
-    //        }
-    //    });
-    //}
 
     getErrorMessage(value: string) {
         if (value == 'Name') {
@@ -148,23 +225,7 @@ export class PublicationComponent implements OnInit {
             clear: 'Видалити'
         }
 
-        let today = new Date();
-        let month = today.getMonth();
-        let year = today.getFullYear();
-        let prevMonth = (month === 0) ? 11 : month - 1;
-        let prevYear = (prevMonth === 11) ? year - 1 : year;
-        let nextMonth = (month === 11) ? 0 : month + 1;
-        let nextYear = (nextMonth === 0) ? year + 1 : year;
-        this.minDate = new Date();
-        this.minDate.setMonth(prevMonth);
-        this.minDate.setFullYear(prevYear);
-        this.maxDate = new Date();
-        this.maxDate.setMonth(nextMonth);
-        this.maxDate.setFullYear(nextYear);
 
-        let invalidDate = new Date();
-        invalidDate.setDate(today.getDate() - 1);
-        this.invalidDates = [today, invalidDate];
     }
 
 }

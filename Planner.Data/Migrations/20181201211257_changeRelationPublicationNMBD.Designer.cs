@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Planner.Data.Context;
 
 namespace Planner.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181201211257_changeRelationPublicationNMBD")]
+    partial class changeRelationPublicationNMBD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1108,8 +1110,6 @@ namespace Planner.Data.Migrations
 
                     b.Property<bool>("IsPublished");
 
-                    b.Property<string>("NMBDId");
-
                     b.Property<string>("Name");
 
                     b.Property<string>("Output");
@@ -1128,9 +1128,20 @@ namespace Planner.Data.Migrations
 
                     b.HasKey("PublicationId");
 
+                    b.ToTable("Publication");
+                });
+
+            modelBuilder.Entity("Planner.Entities.Domain.PublicationNMBD", b =>
+                {
+                    b.Property<string>("PublicationId");
+
+                    b.Property<string>("NMBDId");
+
+                    b.HasKey("PublicationId", "NMBDId");
+
                     b.HasIndex("NMBDId");
 
-                    b.ToTable("Publication");
+                    b.ToTable("PublicationNMBD");
                 });
 
             modelBuilder.Entity("Planner.Entities.Domain.PublicationUser", b =>
@@ -1484,11 +1495,17 @@ namespace Planner.Data.Migrations
                         .HasForeignKey("ApplicationUserId");
                 });
 
-            modelBuilder.Entity("Planner.Entities.Domain.Publication", b =>
+            modelBuilder.Entity("Planner.Entities.Domain.PublicationNMBD", b =>
                 {
                     b.HasOne("Planner.Entities.Domain.NMBD", "NMBD")
-                        .WithMany("Publications")
-                        .HasForeignKey("NMBDId");
+                        .WithMany("PublicationNMBDs")
+                        .HasForeignKey("NMBDId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Planner.Entities.Domain.Publication", "Publication")
+                        .WithMany("PublicationNMBDs")
+                        .HasForeignKey("PublicationId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Planner.Entities.Domain.PublicationUser", b =>

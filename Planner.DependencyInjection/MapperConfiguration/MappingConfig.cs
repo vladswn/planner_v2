@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using Planner.DependencyInjection.ViewModels.Publication;
 using Planner.DependencyInjection.ViewModels.User;
 using Planner.Entities.Domain;
 using Planner.Entities.Enums;
 using Planner.ServiceInterfaces.DTO;
+using Planner.ServiceInterfaces.DTO.Publication;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Planner.DependencyInjection.MapperConfiguration
@@ -20,6 +23,8 @@ namespace Planner.DependencyInjection.MapperConfiguration
                 .ForMember(s => s.DegreeId , x => x.MapFrom(z => z.Degree))
                 .ForMember(s => s.PositionId , x => x.MapFrom(z => z.Position))
                 .ForMember(s => s.AcademicTitleId , x => x.MapFrom(z => z.AcademicTitle));
+
+            CreateMap<PublicationAddEditDTO, Publication>();
             #endregion
 
             #region domail to dto
@@ -34,6 +39,8 @@ namespace Planner.DependencyInjection.MapperConfiguration
 
             CreateMap<ApplicationUser, UserListItemDTO>()
                 .ForMember(s => s.FullName, x => x.MapFrom(z => $"{z.LastName} {z.FirstName} {z.ThirdName}"));
+            CreateMap<Publication, PublicationDTO>()
+                .ForMember(s => s.CollaboratorsName, x => x.MapFrom(z => String.Join(',', z.PublicationUsers.Select(a => String.Format("{0} {1} {2}", a.User.LastName, a.User.FirstName, a.User.ThirdName)))));
             #endregion
 
             #region dto to view model
@@ -45,7 +52,7 @@ namespace Planner.DependencyInjection.MapperConfiguration
 
             #region   view model to dto
             CreateMap<UserInfoViewModel,UserDTO>();
-
+            CreateMap<PublicationAddEditViewModel, PublicationAddEditDTO>();
             //.ForMember(s => s.UserName, x => x.MapFrom(z => z.Email));
             #endregion
         }

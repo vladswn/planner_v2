@@ -37,6 +37,7 @@ import { MessageModule } from 'primeng/message';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { UserDataService } from "src/app/planner-component/shared/service/user-data.service";
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
     imports:
@@ -72,7 +73,8 @@ import { UserDataService } from "src/app/planner-component/shared/service/user-d
         MessagesModule,
         MessageModule,
         ProgressSpinnerModule,
-        MatSidenavModule
+        MatSidenavModule,
+        ListboxModule
     ],
     exports:
     [
@@ -105,7 +107,8 @@ import { UserDataService } from "src/app/planner-component/shared/service/user-d
         MessagesModule,
         MessageModule,
         ProgressSpinnerModule,
-        MatSidenavModule
+        MatSidenavModule,
+        ListboxModule
     ],
     providers:
     [

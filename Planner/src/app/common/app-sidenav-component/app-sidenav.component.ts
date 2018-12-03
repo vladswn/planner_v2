@@ -12,7 +12,6 @@ import { UserInfo } from "src/app/shared/models/user-info.model";
   styleUrls: ['./app-sidenav.component.css']
 })
 export class AppSidenavComponent implements OnInit {
-    isShowHeader: boolean;
     display: boolean = true;
     userProfile: UserInfo;
 
@@ -21,7 +20,6 @@ export class AppSidenavComponent implements OnInit {
 
     ngOnInit() {
         this.userProfile = new UserInfo();
-        this.isShowHeader = this.router.url === '/login';
 
         this.getUser();
     }

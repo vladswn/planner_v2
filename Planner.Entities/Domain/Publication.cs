@@ -23,9 +23,11 @@ namespace Planner.Entities.Domain
         public ResearchDoneTypeEnum ResearchDoneTypeId { get; set; }
         public StoringTypeEnum StoringTypeId { get; set; }
         public PublicationTypeEnum PublicationTypeId { get; set; }
+        public String NMBDId { get; set; }
 
-
-        public virtual ICollection<PublicationNMBD> PublicationNMBDs { get; set; }
+        //public virtual ICollection<PublicationNMBD> PublicationNMBDs { get; set; }
+        //public virtual ICollection<NMBD> PublicationNMBDs { get; set; }
+        public virtual NMBD NMBD { get; set; }
         public virtual ICollection<PublicationUser> PublicationUsers { get; set; }
     }
 }

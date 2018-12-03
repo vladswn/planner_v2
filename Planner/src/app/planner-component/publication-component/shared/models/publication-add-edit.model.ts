@@ -7,14 +7,14 @@ export class PublicationAddEditModel {
     citationNumberNMBD: number;
     impactFactorNMBD: number;
     publishedAt: Date;
-    nmdbId: string;
+    nmbdId: string;
     isOverseas: boolean;
     researchDoneType: number;//ResearchDoneTypeEnum
     storingType: number;//StoringTypeEnum
     publicationType: number;//PublicationTypeEnum
 
-    collaboratorsIds: number[];
-    newCollaboratorsIds: number[];
+    collaboratorsIds: string[];
+    newCollaboratorsIds: string[];
 
     constructor() {
         this.publicationId = null;
@@ -24,7 +24,7 @@ export class PublicationAddEditModel {
         this.output = null;
         this.citationNumberNMBD = null;
         this.publishedAt = null;
-        this.nmdbId = null;
+        this.nmbdId = null;
         this.isOverseas = false;
         this.researchDoneType = null;
         this.storingType = null;

@@ -39,7 +39,7 @@ namespace Planner.Data.Context
         public DbSet<PlanRemark> PlanRemark { get; set; }
         public DbSet<PlanTrainingJob> PlanTrainingJob { get; set; }
         public DbSet<Publication> Publication { get; set; }
-        public DbSet<PublicationNMBD> PublicationNMBD { get; set; }
+        //public DbSet<PublicationNMBD> PublicationNMBD { get; set; }
         public DbSet<PublicationUser> PublicationUser { get; set; }
         public DbSet<Rate> Rate { get; set; }
         public DbSet<Schedule> Schedule { get; set; }
@@ -54,6 +54,7 @@ namespace Planner.Data.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            //modelBuilder.ApplyConfiguration(new PublicationNMBDConfiguration());
         }
     }
 }

@@ -4,46 +4,10 @@
   <div class="profile-content">
     <p-tabView>
       <p-tabPanel header="Створення публікації">
-
-
-        
+        <add-edit-publication></add-edit-publication>
       </p-tabPanel>
       <p-tabPanel header="Мої публікації">
-        <div class="content-wrapper">
-          <form [formGroup]="publicationForm" (ngSubmit)="getUserPublication()">
-            <div class="content-wrapper">
-              <div class="form-group">
-                <p class="login-box-msg">Мої публікації</p>
-                <hr />
-                <div class="col table-margin-top">
-                  <p-table #dt [value]="Publication" [paginator]="true" [rows]="10">
-                    <ng-template pTemplate="header">
-                      <tr>
-                        <th>Назва</th>
-                        <th>Характер роботи</th>
-                        <th>Вихідні дані</th>
-                        <th>Обсяг (стор.)</th>
-                        <th>Співавтори</th>
-                        <th>Дата публікації</th>
-                      </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body">
-                      <tr>
-                        <th>Назва</th>
-                        <th>Характер роботи</th>
-                        <th>Вихідні дані</th>
-                        <th>Обсяг (стор.)</th>
-                        <th>Співавтори</th>
-                        <th>Дата публікації</th>
-                        <td><button class="btn btn-primary btn-block btn-flat" (click)="addPublication()">Редагувати</button></td>
-                      </tr>
-                    </ng-template>
-                  </p-table>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+        <publication-list></publication-list>
       </p-tabPanel>
     </p-tabView>
   </div>

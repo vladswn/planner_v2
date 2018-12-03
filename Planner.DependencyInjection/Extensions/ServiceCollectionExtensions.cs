@@ -26,6 +26,7 @@ namespace Planner.DependencyInjection.Extensions
             services.AddSingleton<INdrRepository, NdrRepository>();
             services.AddSingleton<INMBDRepository, NMBDRepository>();
             services.AddSingleton<IRoleRepository, RoleRepository>();
+            services.AddSingleton<IPublicationRepositpry, PublicationRepositpry>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<IServiceFactory, ServiceFactory>();

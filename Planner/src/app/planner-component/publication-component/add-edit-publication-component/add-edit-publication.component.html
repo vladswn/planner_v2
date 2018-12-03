@@ -18,8 +18,28 @@
         </div>
 
         <!--<div class="form-group">
-          <input type="text" pInputText placeholder="Співавтор" class="form-control" formControlName="NewCollaboratorsNames">
+          <p-listbox [options]="users" formControlName="newCollaboratorsIds" multiple="multiple" checkbox="checkbox" filter="filter" [style]="{'width':'100%'}" [listStyle]="{'max-height': '250px'}">
+            <p-header>
+              Нові співавтори
+            </p-header>
+            <p-footer>
+            </p-footer>
+          </p-listbox>
         </div>-->
+
+        <div class="form-group">
+          <p-listbox [options]="users" formControlName="collaboratorsIds" multiple="multiple" checkbox="checkbox" filter="filter" [style]="{'width':'100%'}" [listStyle]="{'max-height': '250px'}">
+            <p-header>
+              <!--<i class="fa"></i>-->
+              Співавтор
+            </p-header>
+            <p-footer>
+              <!--(change)="collaboratorsName()"
+              {{selectedCar||'none'}}-->
+              <span>{{collaboratorsNames}}</span>
+            </p-footer>
+          </p-listbox>
+        </div>
 
         <div class="form-group">
           <input type="text" pInputText placeholder="Кількість цитувань у виданнях, що входять до НМБД" class="form-control" formControlName="citationNumberNMBD">
@@ -31,11 +51,11 @@
 
         <div class="datepicker-margin-bottom">
           <h5 class="h5-style">Дата публикації</h5>
-          <p-calendar id="PublishedAt" formControlName="PublishedAt" [(ngModel)]="publishedAt" [showIcon]="true"></p-calendar>
+          <p-calendar id="publishedAt" formControlName="publishedAt" locate="ua" [showIcon]="true"></p-calendar>
         </div>
 
         <div class="form-group">
-          <p-dropdown [options]="nmbds" placeholder="НМБД" formControlName="nmdbId"></p-dropdown>
+          <p-dropdown [options]="nmbds" placeholder="НМБД" formControlName="nmbdId"></p-dropdown>
         </div>
 
         <div class="form-group">

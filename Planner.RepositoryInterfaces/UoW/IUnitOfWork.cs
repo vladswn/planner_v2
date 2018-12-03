@@ -11,6 +11,7 @@ namespace Planner.RepositoryInterfaces.UoW
         IRoleRepository RoleRepository { get; set; }
         INdrRepository NdrRepository { get; set; }
         INMBDRepository NMBDRepository { get; set; }
+        IPublicationRepositpry PublicationRepositpry { get; set; }
         Int32 SaveChanges();
     }
 }

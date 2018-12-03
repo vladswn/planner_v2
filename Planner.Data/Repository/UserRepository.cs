@@ -37,7 +37,7 @@ namespace Planner.Data.Repository
 
         public IEnumerable<ApplicationUser> GetUsers()
         {
-            return Query.ToList();
+            return Query.OrderBy(s=> s.LastName).ThenBy(x=> x.FirstName).ToList();
         }
 
         public void UpdateUser(ApplicationUser user)

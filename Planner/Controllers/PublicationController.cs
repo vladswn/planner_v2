@@ -1,8 +1,11 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Planner.DependencyInjection.ViewModels.Publication;
 using Planner.ServiceInterfaces.DTO;
+using Planner.ServiceInterfaces.DTO.Publication;
 using Planner.ServiceInterfaces.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Planner.Controllers
 {
+  [Authorize]
   [Route("api/Publication")]
   public class PublicationController : GenericController
   {
@@ -31,6 +35,23 @@ namespace Planner.Controllers
       IEnumerable<NmbdDTO> result = serviceFactory.PublicationService.GetAllNmbds();
       return Ok(result);
     }
+
+    [HttpPost]
+    [Route("UpdatePublication")]
+    public IActionResult UpdatePublication([FromBody] PublicationAddEditViewModel publication)
+    {
+      Boolean result = serviceFactory.PublicationService.UpdatePublication(_mapper.Map<PublicationAddEditDTO>(publication), UserInfo().UserName);
+      return Ok(result);
+    }
+
+    [HttpGet]
+    [Route("GetUserPublications")]
+    public IActionResult GetUserPublications()
+    {
+      IEnumerable<PublicationDTO> result = serviceFactory.PublicationService.GetPublications();
+      return Ok(result);
+    }
+
 
     [HttpPost, DisableRequestSizeLimit]
     public ActionResult UploadFile()

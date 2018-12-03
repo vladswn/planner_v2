@@ -39,44 +39,44 @@ export class NDRComponent implements OnInit {
       this.getUserNdr();
 
     this.NDRForm = this.fb.group({
-      'FullName': new FormControl(this.NDRInfo.FullName, Validators.compose(
+      'fullName': new FormControl(this.NDRInfo.fullName, Validators.compose(
         [Validators.required,
         Validators.maxLength(250),
         Validators.minLength(3),
           ValidateLetter]
       )),
-      'Type': new FormControl(this.NDRInfo.Type, Validators.compose(
+      'type': new FormControl(this.NDRInfo.type, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
           ValidateLetter]
       )),
-      'Level': new FormControl(this.NDRInfo.Level, Validators.compose(
+      'level': new FormControl(this.NDRInfo.level, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
           ValidateLetter])),
-      'Name': new FormControl(this.NDRInfo.Name, Validators.compose(
+      'name': new FormControl(this.NDRInfo.name, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
           ValidateLetter])),
-      'Step': new FormControl(this.NDRInfo.Step, Validators.compose(
+      'step': new FormControl(this.NDRInfo.step, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
           ValidateLetter])),
-      'Place': new FormControl(this.NDRInfo.Place, Validators.compose(
+      'place': new FormControl(this.NDRInfo.place, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
           ValidateLetter])),
-      'StudentName': new FormControl(this.NDRInfo.StudentName, Validators.compose(
+      'studentName': new FormControl(this.NDRInfo.studentName, Validators.compose(
         [Validators.required,
         Validators.maxLength(250),
         Validators.minLength(3),
           ValidateLetter])),
-      'Awards': new FormControl(this.NDRInfo.Awards, Validators.compose(
+      'awards': new FormControl(this.NDRInfo.awards, Validators.compose(
         [Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
@@ -110,115 +110,115 @@ export class NDRComponent implements OnInit {
   }
 
   getErrorMessage(value: string) {
-    if (value == 'FullName') {
-      if (this.NDRForm.controls['FullName'].errors['required']) {
+    if (value == 'fullName') {
+      if (this.NDRForm.controls['fullName'].errors['required']) {
         return `Поле "ПІБ викладача" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['FullName'].errors['minlength']) {
+      else if (this.NDRForm.controls['fullName'].errors['minlength']) {
         return `Поле "ПІБ викладача" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['FullName'].errors['maxLength']) {
+      else if (this.NDRForm.controls['fullName'].errors['maxLength']) {
         return `Поле "ПІБ викладача" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['FullName'].errors['validLetter']) {
+      else if (this.NDRForm.controls['fullName'].errors['validLetter']) {
         return `Коректно заповніть поле "ПІБ викладача" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Type') {
-      if (this.NDRForm.controls['Type'].errors['required']) {
+    if (value == 'type') {
+      if (this.NDRForm.controls['type'].errors['required']) {
         return `Поле "Тип" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Type'].errors['minlength']) {
+      else if (this.NDRForm.controls['type'].errors['minlength']) {
         return `Поле "Тип" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Type'].errors['maxLength']) {
+      else if (this.NDRForm.controls['type'].errors['maxLength']) {
         return `Поле "Тип" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Type'].errors['validLetter']) {
+      else if (this.NDRForm.controls['type'].errors['validLetter']) {
         return `Коректно заповніть поле "Тип" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Level') {
-      if (this.NDRForm.controls['Level'].errors['required']) {
+    if (value == 'level') {
+      if (this.NDRForm.controls['level'].errors['required']) {
         return `Поле "Рівень" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Level'].errors['minlength']) {
+      else if (this.NDRForm.controls['level'].errors['minlength']) {
         return `Поле "Рівень" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Level'].errors['maxLength']) {
+      else if (this.NDRForm.controls['level'].errors['maxLength']) {
         return `Поле "Рівень" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Level'].errors['validLetter']) {
+      else if (this.NDRForm.controls['level'].errors['validLetter']) {
         return `Коректно заповніть поле "Рівень" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Name') {
-      if (this.NDRForm.controls['Name'].errors['required']) {
+    if (value == 'name') {
+      if (this.NDRForm.controls['name'].errors['required']) {
         return `Поле "Назва/Напрям" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Name'].errors['minlength']) {
+      else if (this.NDRForm.controls['name'].errors['minlength']) {
         return `Поле "Назва/Напрям" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Name'].errors['maxLength']) {
+      else if (this.NDRForm.controls['name'].errors['maxLength']) {
         return `Поле "Назва/Напрям" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Name'].errors['validLetter']) {
+      else if (this.NDRForm.controls['name'].errors['validLetter']) {
         return `Коректно заповніть поле "Назва/Напрям" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Step') {
-      if (this.NDRForm.controls['Step'].errors['required']) {
+    if (value == 'step') {
+      if (this.NDRForm.controls['step'].errors['required']) {
         return `Поле "Етап" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Step'].errors['minlength']) {
+      else if (this.NDRForm.controls['step'].errors['minlength']) {
         return `Поле "Етап" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Step'].errors['maxLength']) {
+      else if (this.NDRForm.controls['step'].errors['maxLength']) {
         return `Поле "Етап" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Step'].errors['validLetter']) {
+      else if (this.NDRForm.controls['step'].errors['validLetter']) {
         return `Коректно заповніть поле "Етап" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Place') {
-      if (this.NDRForm.controls['Place'].errors['required']) {
+    if (value == 'place') {
+      if (this.NDRForm.controls['place'].errors['required']) {
         return `Поле "Місце та дата проведення" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Place'].errors['minlength']) {
+      else if (this.NDRForm.controls['place'].errors['minlength']) {
         return `Поле "Місце та дата проведення" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Place'].errors['maxLength']) {
+      else if (this.NDRForm.controls['place'].errors['maxLength']) {
         return `Поле "Місце та дата проведення" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Place'].errors['validLetter']) {
+      else if (this.NDRForm.controls['place'].errors['validLetter']) {
         return `Коректно заповніть поле "Місце та дата проведення" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'StudentName') {
-      if (this.NDRForm.controls['StudentName'].errors['required']) {
+    if (value == 'studentName') {
+      if (this.NDRForm.controls['studentName'].errors['required']) {
         return `Поле "ПІБ студента" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['StudentName'].errors['minlength']) {
+      else if (this.NDRForm.controls['studentName'].errors['minlength']) {
         return `Поле "ПІБ студента" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['StudentName'].errors['maxLength']) {
+      else if (this.NDRForm.controls['studentName'].errors['maxLength']) {
         return `Поле "ПІБ студента" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['StudentName'].errors['validLetter']) {
+      else if (this.NDRForm.controls['studentName'].errors['validLetter']) {
         return `Коректно заповніть поле "ПІБ студента" ! Поле не може мати цифорвих значень!`;
       }
     }
-    if (value == 'Awards') {
-      if (this.NDRForm.controls['Awards'].errors['required']) {
+    if (value == 'awards') {
+      if (this.NDRForm.controls['awards'].errors['required']) {
         return `Поле "Нагороди" - обов'язкове`;
       }
-      else if (this.NDRForm.controls['Awards'].errors['minlength']) {
+      else if (this.NDRForm.controls['awards'].errors['minlength']) {
         return `Поле "Нагороди" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Awards'].errors['maxLength']) {
+      else if (this.NDRForm.controls['awards'].errors['maxLength']) {
         return `Поле "Нагороди" повинне мати не менше 3-х символів`;
       }
-      else if (this.NDRForm.controls['Awards'].errors['validLetter']) {
+      else if (this.NDRForm.controls['awards'].errors['validLetter']) {
         return `Коректно заповніть поле "Нагороди" ! Поле не може мати цифорвих значень!`;
       }
     }

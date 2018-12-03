@@ -16,6 +16,7 @@ import { ApplicationConstants } from "src/app/shared/constants/constants";
 import { HttpEventType } from "@angular/common/http";
 import { PublicationDataService } from "src/app/planner-component/publication-component/shared/service/publication-data.service";
 import { Publication } from "src/app/planner-component/publication-component/shared/models/publication.model";
+import { SelectItem } from "primeng/components/common/selectitem";
 
 
 @Component({
@@ -27,11 +28,11 @@ export class PublicationComponent implements OnInit {
   @Input() PublicationInfo: Publication;
 
   Publication: Publication[] = [];
-
+  users: SelectItem[] = []
   publicationForm: FormGroup;
 
   constructor(private authenticationService: AuthenticationService,
-    private PublicationDataService: PublicationDataService,
+      private publicationDataService: PublicationDataService,
     private router: Router,
     private messageService: MessageService,
     private fb: FormBuilder) {
@@ -41,76 +42,30 @@ export class PublicationComponent implements OnInit {
     if (!this.PublicationInfo) {
       this.PublicationInfo = new Publication();
       this.getUserPublication();
+      this.getUsers();
     }
 
-    this.publicationForm = this.fb.group({
-      'Name': new FormControl(this.PublicationInfo.Name, Validators.compose(
-        [Validators.required,
-        Validators.maxLength(250),
-        Validators.minLength(3),
-          ValidateLetter]
-      )),
-      'Pages': new FormControl(this.PublicationInfo.Pages, Validators.compose(
-        [Validators.required])),
-      'FilePath': new FormControl(this.PublicationInfo.FilePath, Validators.compose(
-        [Validators.required,
-        Validators.maxLength(250),
-        Validators.minLength(3),
-          ValidateLetter]
-      )),
-      'Output': new FormControl(this.PublicationInfo.Output, Validators.compose(
-        [Validators.required,
-        Validators.maxLength(250),
-        Validators.minLength(3),
-          ValidateLetter])),
-      'CreatedAt': new FormControl(this.PublicationInfo.CreatedAt, Validators.compose(
-        [Validators.required])),
-      'PublishedAt': new FormControl(this.PublicationInfo.PublishedAt, Validators.compose(
-        [Validators.required])),
-      'IsPublished': new FormControl(this.PublicationInfo.IsPublished, Validators.compose(
-        [Validators.required])),
-      'IsOverseas': new FormControl(this.PublicationInfo.IsOverseas, Validators.compose(
-        [Validators.required])),
-      'OwnerId': new FormControl(this.PublicationInfo.OwnerId, Validators.compose(
-        [Validators.required,
-        Validators.maxLength(250),
-        Validators.minLength(3),
-          ValidateLetter])),
-      'CitationNumberNMBD': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required])),
-      'ImpactFactorNMBD': new FormControl(this.PublicationInfo.ImpactFactorNMBD, Validators.compose(
-        [Validators.required])),
-      'NMBDId': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required])),
-      'StoringType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required])),
-      'PublicationType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required])),
-      'ResearchDoneType': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required])),
-      'NewCollaboratorsNames': new FormControl(this.PublicationInfo.CitationNumberNMBD, Validators.compose(
-        [Validators.required]))
-    }
-    );
   }
 
-  //addPublication() {
-  //  if (this.publicationForm.invalid) return;
 
-  //  let tempPublication = <Publication>this.publicationForm.value;
+  getUsers() {
+      this.publicationDataService.getUsers().subscribe((data) => {
+          this.configUsers(data);
+      });
+  }
 
-  //  this.PublicationDataService.addPublication(tempPublication).subscribe(data => {
-  //    if (data) {
-  //      this.publicationForm.reset();
-  //      this.messageService.add({ key: 'success', severity: 'error', summary: '', detail: 'Публікацію успішно додано' });
-  //    } else {
-  //      this.messageService.add({ key: 'error', severity: 'error', summary: '', detail: '' });
-  //    }
-  //  });
-  //}
+  configUsers(data) {
+      console.log(data);
+      data.forEach(item => {
+          this.users.push({ label: item.fullName, value: item.applicationUserId });
+      });
+      console.log(this.users);
+  }
+
+
 
   getUserPublication() {
-    this.PublicationDataService.getUserPublication().subscribe((result: Publication[]) => {
+      this.publicationDataService.getUserPublication().subscribe((result: Publication[]) => {
       if (result) {
         this.Publication = result;
       }

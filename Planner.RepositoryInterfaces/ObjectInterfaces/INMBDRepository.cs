@@ -8,5 +8,6 @@ namespace Planner.RepositoryInterfaces.ObjectInterfaces
     public interface INMBDRepository
     {
         IEnumerable<NMBD> GetAllNMBD();
+        NMBD GetById(String id);
     }
 }

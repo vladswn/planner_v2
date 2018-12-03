@@ -1,27 +1,28 @@
 export class Publication {
-  Name: string;
-  FilePath: string;
-  Pages: number;
-  Output: string;
-  CreatedAt: Date;
-  PublishedAt: Date;
-  IsPublished: number;
-  IsOverseas: string;
-  OwnerId: string;
-  CitationNumberNMBD: number;
-  ImpactFactorNMBD: number;
+  name: string;
+  filePath: string;
+  pages: number;
+  output: string;
+  createdAt: Date;
+  publishedAt: Date;
+  isPublished: number;
+  isOverseas: string;
+  ownerId: string;
+  citationNumberNMBD: number;
+  impactFactorNMBD: number;
+  collaboratorsName: string;
 
   constructor() {
-    this.Name = null;
-    this.FilePath = null;
-    this.Pages = null;
-    this.Output = null;
-    this.CreatedAt = null;
-    this.PublishedAt = null;
-    this.IsPublished = null;
-    this.IsOverseas = null;
-    this.OwnerId = null;
-    this.CitationNumberNMBD = null;
-    this.ImpactFactorNMBD = null;
+    this.name = null;
+    this.filePath = null;
+    this.pages = null;
+    this.output = null;
+    this.createdAt = null;
+    this.publishedAt = null;
+    this.isPublished = null;
+    this.isOverseas = null;
+    this.ownerId = null;
+    this.citationNumberNMBD = null;
+    this.impactFactorNMBD = null;
   }
 }

@@ -1,21 +1,21 @@
 export class NDR {
-  FullName: string;
-  Type: string;
-  Level: string;
-  Name: string;
-  Step: string;
-  Place: string;
-  StudentName: string;
-  Awards: string;
+  fullName: string;
+  type: string;
+  level: string;
+  name: string;
+  step: string;
+  place: string;
+  studentName: string;
+  awards: string;
 
   constructor() {
-    this.FullName = null;
-    this.Type = null;
-    this.Level = null;
-    this.Name = null;
-    this.Step = null;
-    this.Place = null;
-    this.StudentName = null;
-    this.Awards = null;
+    this.fullName = null;
+    this.type = null;
+    this.level = null;
+    this.name = null;
+    this.step = null;
+    this.place = null;
+    this.studentName = null;
+    this.awards = null;
   }
 }

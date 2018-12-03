@@ -14,6 +14,8 @@ import { ReportDataService } from "src/app/planner-component/report-component/sh
 import { ReportComponent } from "./report-component/report.component";
 import { AppDashboardComponent } from "./app-dashboard-component/app.dashboard.component";
 import { ConfirmationService } from "primeng/api";
+import { AddEditPublicationComponent } from "src/app/planner-component/publication-component/add-edit-publication-component/add-edit-publication.component";
+import { PublicationListComponent } from "src/app/planner-component/publication-component/publication-list-component/publication-list.component";
 
 @NgModule({
     imports:
@@ -28,7 +30,7 @@ import { ConfirmationService } from "primeng/api";
         NDRComponent,
         PublicationComponent,
         AppDashboardComponent,
-        ReportComponent
+        ReportComponent,
     ],
     declarations:
     [
@@ -38,7 +40,9 @@ import { ConfirmationService } from "primeng/api";
         NDRComponent,
         PublicationComponent,
         AppDashboardComponent,
-        ReportComponent
+        ReportComponent,
+        AddEditPublicationComponent,
+        PublicationListComponent
     ],
     entryComponents:
     [
@@ -48,7 +52,9 @@ import { ConfirmationService } from "primeng/api";
         NDRComponent,
         PublicationComponent,
         AppDashboardComponent,
-        ReportComponent
+        ReportComponent,
+        AddEditPublicationComponent,
+        PublicationListComponent
     ],
     providers:
     [

@@ -18,7 +18,15 @@ export class PublicationDataService {
   }
 
   getUserPublication() {
-    return this.http.get('/api/Ndr/GetUserPublication');
+      return this.http.get('/api/Publication/GetUserPublications');
+  }
+
+  getNMBDs() {
+      return this.http.get('/api/Publication/GetNMBDs');
+  }
+
+  getUsers() {
+      return this.http.get('/api/Account/GetAllUsers');
   }
 
   uploadFiles(data: File) {

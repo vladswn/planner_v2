@@ -22,6 +22,7 @@
     <None Remove="src\app\planner-component\planner.module.ts" />
     <None Remove="src\app\planner-component\ndr-component\ndr.component.ts" />
     <None Remove="src\app\planner-component\publication-component\publication.component.ts" />
+    <None Remove="src\app\planner-component\publication-component\shared\models\nmdb.model.ts" />
     <None Remove="src\app\planner-component\publication-component\shared\models\publication.model.ts" />
     <None Remove="src\app\planner-component\publication-component\shared\service\publication-data.service.ts" />
     <None Remove="src\app\planner-component\report-component\report.component.ts" />
@@ -70,6 +71,7 @@
     <TypeScriptCompile Include="src\app\planner-component\planner.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\ndr-component\ndr.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\publication-component\publication.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\publication-component\shared\models\nmdb.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\publication-component\shared\models\publication.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\publication-component\shared\service\publication-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\report-component\report.component.ts" />
