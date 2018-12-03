@@ -13,6 +13,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Net.Mail;
 using System.Net;
+using Newtonsoft.Json;
 
 namespace Planner.Controllers
 {
@@ -80,8 +81,12 @@ namespace Planner.Controllers
         message.To.Add(new MailAddress("deniskovalenko96@gmail.com", "To DSpace"));
         message.From = new MailAddress("denys.kovalenko.work@gmail.com", "From Planner");
         message.Subject = "Publication";
-        message.Body = "New publication";
-        message.IsBodyHtml = true;
+
+        IEnumerable<PublicationDTO> result = serviceFactory.PublicationService.GetPublications();
+        message.Body = JsonConvert.SerializeObject(result);
+        //message.Body = "New publication";
+        //message.IsBodyHtml = true;
+        message.IsBodyHtml = false;
 
         using (var client = new SmtpClient("smtp.gmail.com"))
         {

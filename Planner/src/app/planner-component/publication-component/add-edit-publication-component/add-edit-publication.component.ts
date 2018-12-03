@@ -204,7 +204,9 @@ export class AddEditPublicationComponent implements OnInit {
   }
 
   sendMessage() {
-    this.publicationDataService.sendMessage();
+      this.publicationDataService.sendMessage().subscribe(s => {
+          console.log(s);
+      });
   }
 
   async uploadFile(data) {
