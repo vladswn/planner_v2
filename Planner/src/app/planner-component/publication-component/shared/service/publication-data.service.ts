@@ -29,6 +29,10 @@ export class PublicationDataService {
       return this.http.get('/api/Account/GetAllUsers');
   }
 
+  send() {
+    return this.http.get('/api/Publication/SendMessage');
+  }
+
   uploadFiles(data: File) {
       let formData: FormData = new FormData();
 

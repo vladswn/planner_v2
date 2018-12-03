@@ -4,8 +4,12 @@
   font-size: 16px;
 }
 
-.button-margin {
-  margin-left: 84%;
+.btn-float {
+  float: right;
+}
+
+.btn-margin-right {
+  margin-right: 1%;
 }
 
 .login-box-msg {
@@ -18,8 +22,8 @@
 }
 
 .h5-style {
-  font-family: Verdana;
-  font-size: 14px;
+  font-family: Verdana !important;
+  font-size: 14px !important;
 }
 
 .datepicker-margin-bottom {

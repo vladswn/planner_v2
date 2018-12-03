@@ -10,9 +10,9 @@ using Planner.ServiceInterfaces.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
 
 namespace Planner.Controllers
 {
@@ -70,6 +70,30 @@ namespace Planner.Controllers
         }
       }
       return Json(fileName);
+    }
+
+    [HttpGet]
+    [Route("SendMessage")]
+    public IActionResult SendMessage()
+    {
+      using (var message = new MailMessage())
+      {
+        message.To.Add(new MailAddress("deniskovalenko96@gmail.com", "To DSpace"));
+        message.From = new MailAddress("denys.kovalenko.work@gmail.com", "From Planner");
+        message.Subject = "Publication";
+        message.Body = "New publication";
+        message.IsBodyHtml = true;
+
+        using (var client = new SmtpClient("smtp.gmail.com"))
+        {
+          client.Port = 587;
+          client.Credentials = new NetworkCredential("denys.kovalenko.work@gmail.com", "Rjdfktyrj24912696/");
+          client.EnableSsl = true;
+          client.Send(message);
+        }
+      }
+
+      return Ok(true);
     }
   }
 }

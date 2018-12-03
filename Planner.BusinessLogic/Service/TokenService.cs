@@ -58,7 +58,7 @@ namespace FrameworkApp.BusinessLogic.Service
                                             issuer: JwtConst.ISSUER,
                                             audience: JwtConst.AUDIENCE,
                                             claims: claims,
-                                            expires: DateTime.Now.AddYears(30),
+                                            expires: DateTime.Now.AddMinutes(30),
                                             signingCredentials: creds);
 
             var tokenEncd = new JwtSecurityTokenHandler().WriteToken(token);
@@ -83,7 +83,7 @@ namespace FrameworkApp.BusinessLogic.Service
                 ValidateAudience = true,
                 ValidIssuer = JwtConst.ISSUER,
                 ValidAudience = JwtConst.AUDIENCE,
-                ValidateLifetime = true,
+                ValidateLifetime = false,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtConst.SECURITY_KEY))
             };
 
