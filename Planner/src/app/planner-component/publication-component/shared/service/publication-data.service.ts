@@ -29,7 +29,7 @@ export class PublicationDataService {
       return this.http.get('/api/Account/GetAllUsers');
   }
 
-  sendMessage() {
+  sendMessageToLibrary() {
     return this.http.get('/api/Publication/SendMessage');
   }
 

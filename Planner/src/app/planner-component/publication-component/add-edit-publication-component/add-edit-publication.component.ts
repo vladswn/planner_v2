@@ -204,7 +204,7 @@ export class AddEditPublicationComponent implements OnInit {
   }
 
   sendMessage() {
-      this.publicationDataService.sendMessage().subscribe(s => {
+      this.publicationDataService.sendMessageToLibrary().subscribe(s => {
           console.log(s);
       });
   }
