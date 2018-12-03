@@ -29,3 +29,13 @@
 .datepicker-margin-bottom {
   margin-bottom: 1%;
 }
+
+.a-font-color {
+  font-family: verdana;
+  color: #ffffff !important;
+}
+
+.row-margin {
+  margin-top: 1%;
+  margin-right: 0.1%;
+}

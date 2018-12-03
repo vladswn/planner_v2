@@ -79,7 +79,7 @@ namespace Planner.Controllers
       using (var message = new MailMessage())
       {
         message.To.Add(new MailAddress("deniskovalenko96@gmail.com", "To DSpace"));
-        message.From = new MailAddress("denys.kovalenko.work@gmail.com", "From Planner");
+        message.From = new MailAddress("deniskovalenko96@gmail.com", "From Planner");
         message.Subject = "Publication";
 
         IEnumerable<PublicationDTO> result = serviceFactory.PublicationService.GetPublications();
@@ -91,7 +91,7 @@ namespace Planner.Controllers
         using (var client = new SmtpClient("smtp.gmail.com"))
         {
           client.Port = 587;
-          client.Credentials = new NetworkCredential("denys.kovalenko.work@gmail.com", "Rjdfktyrj24912696/");
+          client.Credentials = new NetworkCredential("deniskovalenko96@gmail.com", "rjdfktyrj24912696");
           client.EnableSsl = true;
           client.Send(message);
         }
