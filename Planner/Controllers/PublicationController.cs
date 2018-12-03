@@ -52,7 +52,6 @@ namespace Planner.Controllers
       return Ok(result);
     }
 
-
     [HttpPost, DisableRequestSizeLimit]
     public ActionResult UploadFile()
     {
