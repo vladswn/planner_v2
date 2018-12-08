@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Planner.ServiceInterfaces.Interfaces
+﻿namespace Planner.ServiceInterfaces.Interfaces
 {
     public interface IServiceFactory
     {
@@ -11,5 +7,6 @@ namespace Planner.ServiceInterfaces.Interfaces
         ISecurityService SecurityService { get; }
         INdrService NdrService { get; }
         IPublicationService PublicationService { get; }
+        IIndividualPlanService IndividualPlanService { get; }
     }
 }

@@ -16,6 +16,8 @@ import { AppDashboardComponent } from "./app-dashboard-component/app.dashboard.c
 import { ConfirmationService } from "primeng/api";
 import { AddEditPublicationComponent } from "src/app/planner-component/publication-component/add-edit-publication-component/add-edit-publication.component";
 import { PublicationListComponent } from "src/app/planner-component/publication-component/publication-list-component/publication-list.component";
+import { IndivPlanDataService } from "src/app/planner-component/indiv-plan-component/shared/service/indiv-plan-data.service";
+import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-component/training-job-component/training.job.component";
 
 @NgModule({
     imports:
@@ -31,6 +33,7 @@ import { PublicationListComponent } from "src/app/planner-component/publication-
         PublicationComponent,
         AppDashboardComponent,
         ReportComponent,
+        TrainingJobComponent
     ],
     declarations:
     [
@@ -42,7 +45,8 @@ import { PublicationListComponent } from "src/app/planner-component/publication-
         AppDashboardComponent,
         ReportComponent,
         AddEditPublicationComponent,
-        PublicationListComponent
+        PublicationListComponent,
+        TrainingJobComponent
     ],
     entryComponents:
     [
@@ -54,7 +58,8 @@ import { PublicationListComponent } from "src/app/planner-component/publication-
         AppDashboardComponent,
         ReportComponent,
         AddEditPublicationComponent,
-        PublicationListComponent
+        PublicationListComponent,
+        TrainingJobComponent
     ],
     providers:
     [
@@ -63,7 +68,8 @@ import { PublicationListComponent } from "src/app/planner-component/publication-
         { provide: NDRDataService, useClass: NDRDataService },
         { provide: ConfirmationService, useClass: ConfirmationService },
         { provide: PublicationDataService, useClass: PublicationDataService },
-        { provide: ReportDataService, useClass: ReportDataService }
+        { provide: ReportDataService, useClass: ReportDataService },
+        { provide: IndivPlanDataService, useClass: IndivPlanDataService }
     ],
 
 })

@@ -5,7 +5,6 @@ using Planner.RepositoryInterfaces.ObjectInterfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace Planner.Data.Repository
 {
     public class NdrRepository : BaseRepository<NDR>, INdrRepository

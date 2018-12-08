@@ -17,6 +17,9 @@
     <None Remove="src\app\planner-component\home-component\home.modeule.ts" />
     <None Remove="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
     <None Remove="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\shared\models\training-job.model.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\shared\service\indiv-plan-data.service.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\training-job-component\training.job.component.ts" />
     <None Remove="src\app\planner-component\ndr-component\shared\models\ndr.model.ts" />
     <None Remove="src\app\planner-component\ndr-component\shared\service\ndr-data.service.ts" />
     <None Remove="src\app\planner-component\planner.module.ts" />
@@ -66,6 +69,9 @@
     <TypeScriptCompile Include="src\app\common\common.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\home.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\models\training-job.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\service\indiv-plan-data.service.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\training-job-component\training.job.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\ndr-component\shared\models\ndr.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\ndr-component\shared\service\ndr-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\planner.module.ts" />
@@ -97,6 +103,7 @@
   <ItemGroup>
     <Folder Include="src\app\planner-component\home-component\shared\services\" />
     <Folder Include="src\app\planner-component\shared\models\" />
+    <Folder Include="src\reports\" />
     <Folder Include="wwwroot\images\profileImages\" />
   </ItemGroup>
 

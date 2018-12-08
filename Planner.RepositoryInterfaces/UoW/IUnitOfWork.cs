@@ -1,7 +1,5 @@
 ﻿using Planner.RepositoryInterfaces.ObjectInterfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Planner.RepositoryInterfaces.UoW
 {
@@ -12,6 +10,7 @@ namespace Planner.RepositoryInterfaces.UoW
         INdrRepository NdrRepository { get; set; }
         INMBDRepository NMBDRepository { get; set; }
         IPublicationRepositpry PublicationRepositpry { get; set; }
+        IIndividualPlanRepository IndividualPlanRepository { get; set; }
         Int32 SaveChanges();
     }
 }

@@ -16,6 +16,8 @@ namespace Planner.Data.UoW
         public INMBDRepository NMBDRepository { get; set; }
         public IPublicationRepositpry PublicationRepositpry { get; set; }
 
+        public IIndividualPlanRepository IndividualPlanRepository { get; set; }
+
         public UnitOfWork(AppDbContext _context)
         {
             context = _context;
@@ -25,6 +27,7 @@ namespace Planner.Data.UoW
             NdrRepository = new NdrRepository(_context);
             NMBDRepository = new NMBDRepository(_context);
             PublicationRepositpry = new PublicationRepositpry(_context);
+            IndividualPlanRepository = new IndividualPlanRepository(_context);
         }
 
         public Int32 SaveChanges()

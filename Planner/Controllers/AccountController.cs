@@ -21,14 +21,14 @@ namespace Planner.Controllers
       hostingEnvironment = _hostingEnvironment;
     }
 
-        [HttpGet]
-        [Route("GetUserInfo")]
-        public IActionResult GetUserInfo()
-        {
-          UserDTO user = serviceFactory.UserService.GetUser(UserInfo().UserName);
-          UserInfoViewModel userInfo = _mapper.Map<UserInfoViewModel>(user);
-          return Ok(userInfo);
-        }
+    [HttpGet]
+    [Route("GetUserInfo")]
+    public IActionResult GetUserInfo()
+    {
+      UserDTO user = serviceFactory.UserService.GetUser(UserInfo().UserName);
+      UserInfoViewModel userInfo = _mapper.Map<UserInfoViewModel>(user);
+      return Ok(userInfo);
+    }
 
     [HttpGet]
     [Route("GetUser")]
@@ -41,12 +41,12 @@ namespace Planner.Controllers
 
 
     [HttpPost]
-        [Route("UpdateUser")]
-        public IActionResult UpdateUser([FromBody] UserInfoViewModel registerUserDTO)
-        {
-          Boolean result = serviceFactory.UserService.AddOrUpdateUser(_mapper.Map<UserDTO>(registerUserDTO));
-          return Ok(result);
-        }
+    [Route("UpdateUser")]
+    public IActionResult UpdateUser([FromBody] UserInfoViewModel registerUserDTO)
+    {
+      Boolean result = serviceFactory.UserService.AddOrUpdateUser(_mapper.Map<UserDTO>(registerUserDTO));
+      return Ok(result);
+    }
 
     [HttpGet]
     [Route("GetAllUsers")]
@@ -61,20 +61,20 @@ namespace Planner.Controllers
     [HttpPost, DisableRequestSizeLimit]
     public ActionResult UploadFile()
     {
-        String fileName = "";
-        IFormFile file = Request.Form.Files[0];
-        String path = Path.Combine(hostingEnvironment.WebRootPath, "images", "profileImages");
+      String fileName = "";
+      IFormFile file = Request.Form.Files[0];
+      String path = Path.Combine(hostingEnvironment.WebRootPath, "images", "profileImages");
 
-        if (file.Length > 0)
+      if (file.Length > 0)
+      {
+        fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        string fullPath = Path.Combine(path, fileName);
+        using (var stream = new FileStream(fullPath, FileMode.Create))
         {
-          fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-          string fullPath = Path.Combine(path, fileName);
-          using (var stream = new FileStream(fullPath, FileMode.Create))
-          {
-            file.CopyTo(stream);
-          }
+          file.CopyTo(stream);
         }
-        return Json(fileName);
+      }
+      return Json(fileName);
     }
 
     [HttpPost]

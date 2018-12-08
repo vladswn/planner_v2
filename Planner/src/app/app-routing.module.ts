@@ -9,6 +9,7 @@ import { NDRComponent } from "src/app/planner-component/ndr-component/ndr.compon
 import { PublicationComponent } from "src/app/planner-component/publication-component/publication.component";
 import { AppDashboardComponent } from "src/app/planner-component/app-dashboard-component/app.dashboard.component";
 import { ReportComponent } from "src/app/planner-component/report-component/report.component";
+import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-component/training-job-component/training.job.component";
 
 const routes: Routes = [
   { path: 'login', component: AccountLoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'publication', component: PublicationComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: AppDashboardComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] },
+  { path: 'training-job', component: TrainingJobComponent, canActivate: [AuthGuard] },
   { path: '', component: AccountLoginComponent },
   { path: '**', redirectTo: '/' },
 ];
