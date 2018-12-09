@@ -20,18 +20,38 @@ namespace Planner.BusinessLogic.Service
             _securityService = securityService;
         }
 
-        bool IIndividualPlanService.UpdateTrainingJob(TrainingJobDTO trainingJobDTO)
+        public bool UpdateTrainingJob(TrainingJobDTO trainingJobDTO)
         {
             PlanTrainingJob trainingJob = _mapper.Map<PlanTrainingJob>(trainingJobDTO);
-            _uow.IndividualPlanRepository.UpdateTrainingJob(trainingJob);
+            _uow.PlanTrainingRepository.UpdateTrainingJob(trainingJob);
 
             return _uow.SaveChanges() >= 0;
         }
 
-        IEnumerable<TrainingJobDTO> IIndividualPlanService.GetTrainingJob(string userName)
+        public IEnumerable<TrainingJobDTO> GetTrainingJob(string userName)
         {
-            IEnumerable<PlanTrainingJob> trainingJob = _uow.IndividualPlanRepository.GetTrainingJob(userName);
+            IEnumerable<PlanTrainingJob> trainingJob = _uow.PlanTrainingRepository.GetTrainingJob(userName);
             return _mapper.Map<IEnumerable<TrainingJobDTO>>(trainingJob);
+        }
+
+        public bool UpdateIndivPlanFieldValue(IndivPlanFieldValueDTO indivPlanFieldValueDTO)
+        {
+            IndivPlanFieldsValue indivPlanFieldsValue = _mapper.Map<IndivPlanFieldsValue>(indivPlanFieldValueDTO);
+            _uow.IndivPlanFieldsValueRepository.UpdateIndivPlanFieldValue(indivPlanFieldsValue);
+
+            return _uow.SaveChanges() >= 0;
+        }
+
+        public IEnumerable<IndivPlanFieldValueDTO> GetIndivPlanFieldValue(string userName)
+        {
+            IEnumerable<IndivPlanFieldsValue> indivPlanFieldsValue = _uow.IndivPlanFieldsValueRepository.GetIndivPlanFieldValue(userName);
+            return _mapper.Map<IEnumerable<IndivPlanFieldValueDTO>>(indivPlanFieldsValue);
+        }
+
+        public IEnumerable<IndivPlanFieldDTO> GetIndivPlanField(string indPlanTypeId)
+        {
+            IEnumerable<IndivPlanFields> indivPlanFields = _uow.IndivPlanFieldsRepository.GetIndivPlanField(indPlanTypeId);
+            return _mapper.Map<IEnumerable<IndivPlanFieldDTO>>(indivPlanFields);
         }
     }
 }

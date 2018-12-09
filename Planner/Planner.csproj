@@ -17,6 +17,11 @@
     <None Remove="src\app\planner-component\home-component\home.modeule.ts" />
     <None Remove="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
     <None Remove="src\app\planner-component\home-component\shared\services\home-data.service.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\plan-management-component\plan.management.component.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\plan-methodical-work-component\plan.methodical.work.component.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\plan-scientific-work-component\plan.scientific.work.component.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\shared\models\indiv-plan-field-value.model.ts" />
+    <None Remove="src\app\planner-component\indiv-plan-component\shared\models\indiv-plan-field.model.ts" />
     <None Remove="src\app\planner-component\indiv-plan-component\shared\models\training-job.model.ts" />
     <None Remove="src\app\planner-component\indiv-plan-component\shared\service\indiv-plan-data.service.ts" />
     <None Remove="src\app\planner-component\indiv-plan-component\training-job-component\training.job.component.ts" />
@@ -69,6 +74,11 @@
     <TypeScriptCompile Include="src\app\common\common.module.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\home.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\plan-management-component\plan.management.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\plan-methodical-work-component\plan.methodical.work.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\plan-scientific-work-component\plan.scientific.work.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\models\indiv-plan-field-value.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\models\indiv-plan-field.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\models\training-job.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\shared\service\indiv-plan-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\training-job-component\training.job.component.ts" />

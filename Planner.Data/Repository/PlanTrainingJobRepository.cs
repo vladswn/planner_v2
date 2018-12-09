@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace Planner.Data.Repository
 {
-    public class IndividualPlanRepository : BaseRepository<PlanTrainingJob>, IIndividualPlanRepository
+    public class PlanTrainingJobRepository : BaseRepository<PlanTrainingJob>, IPlanTrainingRepository
     {
-        public IndividualPlanRepository(AppDbContext _context) : base(_context)
+        public PlanTrainingJobRepository(AppDbContext _context) : base(_context)
         {
         }
 

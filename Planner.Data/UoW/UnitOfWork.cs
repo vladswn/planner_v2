@@ -15,8 +15,9 @@ namespace Planner.Data.UoW
         public INdrRepository NdrRepository { get; set; }
         public INMBDRepository NMBDRepository { get; set; }
         public IPublicationRepositpry PublicationRepositpry { get; set; }
-
-        public IIndividualPlanRepository IndividualPlanRepository { get; set; }
+        public IPlanTrainingRepository PlanTrainingRepository { get; set; }
+        public IIndivPlanFieldsRepository IndivPlanFieldsRepository { get; set; }
+        public IIndivPlanFieldsValueRepository IndivPlanFieldsValueRepository { get; set; }
 
         public UnitOfWork(AppDbContext _context)
         {
@@ -27,7 +28,9 @@ namespace Planner.Data.UoW
             NdrRepository = new NdrRepository(_context);
             NMBDRepository = new NMBDRepository(_context);
             PublicationRepositpry = new PublicationRepositpry(_context);
-            IndividualPlanRepository = new IndividualPlanRepository(_context);
+            PlanTrainingRepository = new PlanTrainingJobRepository(_context);
+            IndivPlanFieldsRepository = new IndivPlanFieldRepository(_context);
+            IndivPlanFieldsValueRepository = new IndivPlanFieldsValueRepository(_context);
         }
 
         public Int32 SaveChanges()

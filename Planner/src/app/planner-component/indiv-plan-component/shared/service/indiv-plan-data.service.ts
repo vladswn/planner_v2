@@ -7,6 +7,7 @@ import { UserInfo } from "src/app/shared/models/user-info.model";
 import { HttpRequest } from "@angular/common/http";
 import { HttpEventType } from "@angular/common/http";
 import { TrainingJobModel } from "src/app/planner-component/indiv-plan-component/shared/models/training-job.model";
+import { IndivPlanFieldsValueModel } from "src/app/planner-component/indiv-plan-component/shared/models/indiv-plan-field-value.model";
 
 @Injectable()
 export class IndivPlanDataService {
@@ -18,5 +19,17 @@ export class IndivPlanDataService {
 
   getTrainingJob() {
     return this.http.get('/api/IndividualPlan/GetTrainingJob');
+  }
+
+  getIndivPlanField(indPlanTypeId) {
+    return this.http.post('/api/IndividualPlan/GetIndivPlanField', indPlanTypeId);
+  }
+
+  getIndivPlanFieldValue() {
+    return this.http.get('/api/IndividualPlan/GetIndivPlanFieldValue');
+  }
+
+  updateIndivPlanFieldValue(indivPlanFieldsValue: IndivPlanFieldsValueModel) {
+    return this.http.post('/api/IndividualPlan/UpdateIndivPlanFieldValue', indivPlanFieldsValue);
   }
 }

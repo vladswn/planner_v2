@@ -10,7 +10,9 @@ namespace Planner.RepositoryInterfaces.UoW
         INdrRepository NdrRepository { get; set; }
         INMBDRepository NMBDRepository { get; set; }
         IPublicationRepositpry PublicationRepositpry { get; set; }
-        IIndividualPlanRepository IndividualPlanRepository { get; set; }
+        IPlanTrainingRepository PlanTrainingRepository { get; set; }
+        IIndivPlanFieldsRepository IndivPlanFieldsRepository { get; set; }
+        IIndivPlanFieldsValueRepository IndivPlanFieldsValueRepository { get; set; }
         Int32 SaveChanges();
     }
 }

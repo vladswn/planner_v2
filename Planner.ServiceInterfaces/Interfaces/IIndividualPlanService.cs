@@ -7,5 +7,9 @@ namespace Planner.ServiceInterfaces.Interfaces
     {
         bool UpdateTrainingJob(TrainingJobDTO trainingJobDTO);
         IEnumerable<TrainingJobDTO> GetTrainingJob(string userName);
+        bool UpdateIndivPlanFieldValue(IndivPlanFieldValueDTO indivPlanFieldValueDTO);
+        IEnumerable<IndivPlanFieldValueDTO> GetIndivPlanFieldValue(string userName);
+        IEnumerable<IndivPlanFieldDTO> GetIndivPlanField(string indPlanTypeId);
+
     }
 }

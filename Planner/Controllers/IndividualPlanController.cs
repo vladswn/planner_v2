@@ -33,5 +33,31 @@ namespace Planner.Controllers
       IEnumerable<TrainingJobViewModel> trainingJobModel = _mapper.Map<IEnumerable<TrainingJobViewModel>>(trainingJob);
       return Ok(trainingJobModel);
     }
+
+    [HttpPost]
+    [Route("UpdateIndivPlanFieldValue")]
+    public IActionResult UpdateIndivPlanFieldValue([FromBody] IndivPlanFieldValueViewModel indivPlanFieldValueDTO)
+    {
+      bool result = serviceFactory.IndividualPlanService.UpdateIndivPlanFieldValue(_mapper.Map<IndivPlanFieldValueDTO>(indivPlanFieldValueDTO));
+      return Ok(result);
+    }
+
+    [HttpGet]
+    [Route("GetIndivPlanFieldValue")]
+    public IActionResult GetIndivPlanFieldValue()
+    {
+      IEnumerable<IndivPlanFieldValueDTO> indivPlanFieldValue = serviceFactory.IndividualPlanService.GetIndivPlanFieldValue(UserInfo().UserName);
+      IEnumerable<IndivPlanFieldValueViewModel> indivPlanFieldValueModel = _mapper.Map<IEnumerable<IndivPlanFieldValueViewModel>>(indivPlanFieldValue);
+      return Ok(indivPlanFieldValueModel);
+    }
+
+    [HttpPost]
+    [Route("GetIndivPlanField")]
+    public IActionResult GetIndivPlanField(string indPlanTypeId)
+    {
+      IEnumerable<IndivPlanFieldDTO> indivPlanField = serviceFactory.IndividualPlanService.GetIndivPlanField(indPlanTypeId);
+      IEnumerable<IndivPlanFieldViewModel> indivPlanFieldModel = _mapper.Map<IEnumerable<IndivPlanFieldViewModel>>(indivPlanField);
+      return Ok(indivPlanFieldModel);
+    }
   }
 }

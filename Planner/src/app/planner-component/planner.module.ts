@@ -18,6 +18,9 @@ import { AddEditPublicationComponent } from "src/app/planner-component/publicati
 import { PublicationListComponent } from "src/app/planner-component/publication-component/publication-list-component/publication-list.component";
 import { IndivPlanDataService } from "src/app/planner-component/indiv-plan-component/shared/service/indiv-plan-data.service";
 import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-component/training-job-component/training.job.component";
+import { PlanManagementComponent } from "src/app/planner-component/indiv-plan-component/plan-management-component/plan.management.component";
+import { PlanMethodicalWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-methodical-work-component/plan.methodical.work.component";
+import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-scientific-work-component/plan.scientific.work.component";
 
 @NgModule({
     imports:
@@ -33,7 +36,10 @@ import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-compo
         PublicationComponent,
         AppDashboardComponent,
         ReportComponent,
-        TrainingJobComponent
+        TrainingJobComponent,
+        PlanManagementComponent,
+        PlanMethodicalWorkComponent,
+        PlanScientificWorkComponent
     ],
     declarations:
     [
@@ -46,7 +52,10 @@ import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-compo
         ReportComponent,
         AddEditPublicationComponent,
         PublicationListComponent,
-        TrainingJobComponent
+        TrainingJobComponent,
+        PlanManagementComponent,
+        PlanMethodicalWorkComponent,
+        PlanScientificWorkComponent
     ],
     entryComponents:
     [
@@ -59,7 +68,10 @@ import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-compo
         ReportComponent,
         AddEditPublicationComponent,
         PublicationListComponent,
-        TrainingJobComponent
+        TrainingJobComponent,
+        PlanManagementComponent,
+        PlanMethodicalWorkComponent,
+        PlanScientificWorkComponent
     ],
     providers:
     [

@@ -10,6 +10,9 @@ import { PublicationComponent } from "src/app/planner-component/publication-comp
 import { AppDashboardComponent } from "src/app/planner-component/app-dashboard-component/app.dashboard.component";
 import { ReportComponent } from "src/app/planner-component/report-component/report.component";
 import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-component/training-job-component/training.job.component";
+import { PlanManagementComponent } from "src/app/planner-component/indiv-plan-component/plan-management-component/plan.management.component";
+import { PlanMethodicalWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-methodical-work-component/plan.methodical.work.component";
+import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-scientific-work-component/plan.scientific.work.component";
 
 const routes: Routes = [
   { path: 'login', component: AccountLoginComponent },
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'dashboard', component: AppDashboardComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] },
   { path: 'training-job', component: TrainingJobComponent, canActivate: [AuthGuard] },
+  { path: 'plan-management', component: PlanManagementComponent, canActivate: [AuthGuard] },
+  { path: 'plan-methodical-work', component: PlanMethodicalWorkComponent, canActivate: [AuthGuard] },
+  { path: 'plan-scientific-work', component: PlanScientificWorkComponent, canActivate: [AuthGuard] },
   { path: '', component: AccountLoginComponent },
   { path: '**', redirectTo: '/' },
 ];

@@ -1,0 +1,32 @@
+.profile-content {
+  margin-top: 2%;
+  font-family: verdana;
+  font-size: 16px;
+}
+
+.btn-float {
+  float: right;
+}
+
+.btn-margin-right {
+  margin-right: 1%;
+}
+
+.login-box-msg {
+  text-align: center;
+}
+
+.table-margin-top {
+  margin-top: 1%;
+  min-height: 350px;
+}
+
+.row-margin {
+  margin-top: 1%;
+  margin-right: 0.1%;
+}
+
+.verticalTableHeader {
+  text-align: center;
+  word-break: break-all;
+}
