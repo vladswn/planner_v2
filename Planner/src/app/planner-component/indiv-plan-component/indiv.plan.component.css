@@ -30,3 +30,17 @@
   text-align: center;
   word-break: break-all;
 }
+
+.h5-style {
+  font-family: Verdana !important;
+  font-size: 14px !important;
+}
+
+.a-font-color {
+  font-family: verdana;
+  color: #ffffff !important;
+}
+
+.input-width {
+  width: 20px !important;
+}
