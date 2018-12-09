@@ -54,9 +54,7 @@ export class PlanScientificWorkComponent implements OnInit {
   }
 
   getIndivPlanFieldValue() {
-    let tempPlanScientificWorkForm = <IndivPlanFieldsValueModel>this.planScientificWorkForm.value;
-
-    this.indivPlanDataService.getIndivPlanField(tempPlanScientificWorkForm).subscribe((result: IndivPlanFieldsValueModel[]) => {
+    this.indivPlanDataService.getIndivPlanFieldValue().subscribe((result: IndivPlanFieldsValueModel[]) => {
       if (result) {
         this.planScientificWorkFieldValue = result;
       }

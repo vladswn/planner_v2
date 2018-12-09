@@ -54,9 +54,7 @@ export class PlanMethodicalWorkComponent implements OnInit {
   }
 
   getIndivPlanFieldValue() {
-    let tempplanMethodicalWorkForm = <IndivPlanFieldsValueModel>this.planMethodicalWorkForm.value;
-
-    this.indivPlanDataService.getIndivPlanField(tempplanMethodicalWorkForm).subscribe((result: IndivPlanFieldsValueModel[]) => {
+    this.indivPlanDataService.getIndivPlanFieldValue().subscribe((result: IndivPlanFieldsValueModel[]) => {
       if (result) {
         this.planMethodicalWorkFieldValue = result;
       }

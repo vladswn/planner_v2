@@ -44,7 +44,7 @@ export class PlanManagementComponent implements OnInit {
   }
 
   getIndivPlanField() {
-    let planManagementTypeId = "21972bd0-1081-4ab7-aab4-cc723b8a2c71";
+    let planManagementTypeId = "6e57da2e-de83-4c6c-b365-6e8aafa7d2ab";
 
     this.indivPlanDataService.getIndivPlanField(planManagementTypeId).subscribe((result: IndivPlanFieldModel[]) => {
       if (result) {
@@ -54,9 +54,7 @@ export class PlanManagementComponent implements OnInit {
   }
 
   getIndivPlanFieldValue() {
-    let tempPlanManagementForm = <IndivPlanFieldsValueModel>this.planManagementForm.value;
-
-    this.indivPlanDataService.getIndivPlanField(tempPlanManagementForm).subscribe((result: IndivPlanFieldsValueModel[]) => {
+    this.indivPlanDataService.getIndivPlanFieldValue().subscribe((result: IndivPlanFieldsValueModel[]) => {
       if (result) {
         this.planManagementFieldValue = result;
       }
