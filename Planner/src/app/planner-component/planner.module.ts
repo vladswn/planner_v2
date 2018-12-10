@@ -21,6 +21,10 @@ import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-compo
 import { PlanManagementComponent } from "src/app/planner-component/indiv-plan-component/plan-management-component/plan.management.component";
 import { PlanMethodicalWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-methodical-work-component/plan.methodical.work.component";
 import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-scientific-work-component/plan.scientific.work.component";
+import { UploadDistributionComponent } from "src/app/planner-component/upload-distribution-component/upload-distribution.component";
+import { DistributionComponent } from "src/app/planner-component/distribution-component/distribution.component";
+import { DistributionDataService } from "src/app/planner-component/distribution-component/shared/services/distribution-data.service";
+import { DayEntryComponent } from "src/app/planner-component/distribution-component/day-entry-component/day-entry.component";
 
 @NgModule({
     imports:
@@ -39,7 +43,10 @@ import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-pla
         TrainingJobComponent,
         PlanManagementComponent,
         PlanMethodicalWorkComponent,
-        PlanScientificWorkComponent
+        PlanScientificWorkComponent,
+        UploadDistributionComponent,
+      DistributionComponent,
+      DayEntryComponent
     ],
     declarations:
     [
@@ -55,7 +62,10 @@ import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-pla
         TrainingJobComponent,
         PlanManagementComponent,
         PlanMethodicalWorkComponent,
-        PlanScientificWorkComponent
+        PlanScientificWorkComponent,
+        UploadDistributionComponent,
+      DistributionComponent,
+      DayEntryComponent
     ],
     entryComponents:
     [
@@ -71,7 +81,10 @@ import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-pla
         TrainingJobComponent,
         PlanManagementComponent,
         PlanMethodicalWorkComponent,
-        PlanScientificWorkComponent
+        PlanScientificWorkComponent,
+        UploadDistributionComponent,
+      DistributionComponent,
+      DayEntryComponent
     ],
     providers:
     [
@@ -81,7 +94,8 @@ import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-pla
         { provide: ConfirmationService, useClass: ConfirmationService },
         { provide: PublicationDataService, useClass: PublicationDataService },
         { provide: ReportDataService, useClass: ReportDataService },
-        { provide: IndivPlanDataService, useClass: IndivPlanDataService }
+        { provide: IndivPlanDataService, useClass: IndivPlanDataService },
+        { provide: DistributionDataService, useClass: DistributionDataService }
     ],
 
 })

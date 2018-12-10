@@ -30,7 +30,7 @@ export class PlanManagementComponent implements OnInit {
   planManagementField: IndivPlanFieldModel[] = [];
   planManagementFieldValue: IndivPlanFieldsValueModel[] = [];
 
-  planManagementForm: FormGroup;
+  //planManagementForm: FormGroup;
 
   constructor(private authenticationService: AuthenticationService,
     private indivPlanDataService: IndivPlanDataService,
@@ -62,13 +62,13 @@ export class PlanManagementComponent implements OnInit {
   }
 
   updateIndivPlanFieldValue() {
-    if (this.planManagementForm.invalid) return;
+    //if (this.planManagementForm.invalid) return;
 
-    let tempPlanManagementForm = <IndivPlanFieldsValueModel>this.planManagementForm.value;
-
-    this.indivPlanDataService.updateIndivPlanFieldValue(tempPlanManagementForm).subscribe(data => {
+    //let tempPlanManagementForm = <IndivPlanFieldsValueModel>this.planManagementForm.value;
+    let temp = new IndivPlanFieldsValueModel();
+    this.indivPlanDataService.updateIndivPlanFieldValue(temp).subscribe(data => {
       if (data) {
-        this.planManagementForm.reset();
+      //  this.planManagementForm.reset();
         this.getIndivPlanFieldValue();
         this.messageService.add({ key: 'success', severity: 'success', summary: '', detail: 'Дані організаційної роботи успішно оновлено' });
       } else {

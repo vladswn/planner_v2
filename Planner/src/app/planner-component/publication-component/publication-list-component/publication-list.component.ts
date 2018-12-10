@@ -46,4 +46,10 @@ export class PublicationListComponent implements OnInit {
         });
     }
 
+    sendMessage(id: string) {
+      this.publicationDataService.sendMessageToLibrary(id).subscribe(s => {
+        console.log(s);
+      });
+    }
+
 }

@@ -16,7 +16,7 @@ namespace Planner.Data.Repository
 
         public IEnumerable<IndivPlanFields> GetIndivPlanField(string indPlanTypeId)
         {
-            yield return Query.Where(s => s.IndPlanTypeId == indPlanTypeId).FirstOrDefault();
+            return Query.Where(s => s.IndPlanTypeId == indPlanTypeId).ToList();
         }
     }
 }

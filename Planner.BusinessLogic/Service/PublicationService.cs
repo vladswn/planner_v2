@@ -74,5 +74,11 @@ namespace Planner.BusinessLogic.Service
 
             return _mapper.Map<IEnumerable<PublicationDTO>>(publications);
         }
+        public PublicationDTO GetPublicationById(String id)
+        {
+            Publication publication = uow.PublicationRepositpry.GetById(id);
+
+            return _mapper.Map<PublicationDTO>(publication);
+        }
     }
 }

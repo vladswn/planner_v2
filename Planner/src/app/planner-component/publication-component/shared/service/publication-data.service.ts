@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Publication } from "src/app/planner-component/publication-component/shared/models/publication.model";
 import { UserInfo } from "src/app/shared/models/user-info.model";
 import { HttpRequest } from "@angular/common/http";
-import { HttpEventType } from "@angular/common/http";
+import { HttpEventType, HttpParams } from "@angular/common/http";
 import { PublicationAddEditModel } from "src/app/planner-component/publication-component/shared/models/publication-add-edit.model";
 
 @Injectable()
@@ -29,8 +29,11 @@ export class PublicationDataService {
       return this.http.get('/api/Account/GetAllUsers');
   }
 
-  sendMessageToLibrary() {
-    return this.http.get('/api/Publication/SendMessage');
+  sendMessageToLibrary(id: string) {
+    let params = new HttpParams();
+
+    params = params.set('id', id);
+    return this.http.get('/api/Publication/SendMessage', { params: params });
   }
 
   uploadFiles(data: File) {

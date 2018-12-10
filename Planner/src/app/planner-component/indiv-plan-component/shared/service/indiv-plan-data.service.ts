@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { UserInfo } from "src/app/shared/models/user-info.model";
 import { HttpRequest } from "@angular/common/http";
-import { HttpEventType } from "@angular/common/http";
+import { HttpEventType, HttpParams } from "@angular/common/http";
 import { TrainingJobModel } from "src/app/planner-component/indiv-plan-component/shared/models/training-job.model";
 import { IndivPlanFieldsValueModel } from "src/app/planner-component/indiv-plan-component/shared/models/indiv-plan-field-value.model";
 
@@ -21,8 +21,11 @@ export class IndivPlanDataService {
     return this.http.get('/api/IndividualPlan/GetTrainingJob');
   }
 
-  getIndivPlanField(indPlanTypeId) {
-    return this.http.post('/api/IndividualPlan/GetIndivPlanField', indPlanTypeId);
+  getIndivPlanField(indPlanTypeId: string) {
+    let params = new HttpParams();
+
+    params = params.set('indPlanTypeId', indPlanTypeId);
+    return this.http.get('/api/IndividualPlan/GetIndivPlanField', { params: params });
   }
 
   getIndivPlanFieldValue() {

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Planner.Data.Repository
 {
-    class IndivPlanFieldsValueRepository : BaseRepository<IndivPlanFieldsValue>, IIndivPlanFieldsValueRepository
+    public class IndivPlanFieldsValueRepository : BaseRepository<IndivPlanFieldsValue>, IIndivPlanFieldsValueRepository
     {
         public IndivPlanFieldsValueRepository(AppDbContext _context) : base(_context)
         {

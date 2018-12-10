@@ -13,6 +13,13 @@
     <None Remove="src\app\common\app-header-component\app-header.component.ts" />
     <None Remove="src\app\common\app-sidenav-component\app-sidenav.component.ts" />
     <None Remove="src\app\common\common.modeule.ts" />
+    <None Remove="src\app\planner-component\distribution-component\day-entry-component\day-entry.component.ts" />
+    <None Remove="src\app\planner-component\distribution-component\distribution.component.ts" />
+    <None Remove="src\app\planner-component\distribution-component\shared\models\day-distribution.model.ts" />
+    <None Remove="src\app\planner-component\distribution-component\shared\models\day-entry-model.ts" />
+    <None Remove="src\app\planner-component\distribution-component\shared\models\des.model.ts" />
+    <None Remove="src\app\planner-component\distribution-component\shared\models\distribution-filter.model.ts" />
+    <None Remove="src\app\planner-component\distribution-component\shared\services\distribution-data.service.ts" />
     <None Remove="src\app\planner-component\home-component\home.component.ts" />
     <None Remove="src\app\planner-component\home-component\home.modeule.ts" />
     <None Remove="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
@@ -72,6 +79,13 @@
     <TypeScriptCompile Include="src\app\common\app-header-component\app-header.component.ts" />
     <TypeScriptCompile Include="src\app\common\app-sidenav-component\app-sidenav.component.ts" />
     <TypeScriptCompile Include="src\app\common\common.module.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\day-entry-component\day-entry.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\distribution.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\shared\models\day-distribution.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\shared\models\day-entry-model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\shared\models\des.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\shared\models\distribution-filter.model.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\shared\services\distribution-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\home.component.ts" />
     <TypeScriptCompile Include="src\app\planner-component\home-component\shared\models\user-profile.model.ts" />
     <TypeScriptCompile Include="src\app\planner-component\indiv-plan-component\plan-management-component\plan.management.component.ts" />

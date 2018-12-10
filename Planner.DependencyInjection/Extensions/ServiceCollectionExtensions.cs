@@ -24,17 +24,22 @@ namespace Planner.DependencyInjection.Extensions
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<INdrRepository, NdrRepository>();
+            services.AddSingleton<IDayEntryLoadRepository, DayEntryLoadRepository>();
             services.AddSingleton<INMBDRepository, NMBDRepository>();
             services.AddSingleton<IRoleRepository, RoleRepository>();
+            services.AddSingleton<IIndivPlanFieldsRepository, IndivPlanFieldRepository>();
+            services.AddSingleton<IIndivPlanFieldsValueRepository, IndivPlanFieldsValueRepository>();
+            
             services.AddSingleton<IPublicationRepositpry, PublicationRepositpry>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<IServiceFactory, ServiceFactory>();
+            services.AddTransient<IDistributionService, DistributionService>();
             services.AddTransient<ISecurityService, SecurityService>();
             services.AddTransient<INdrService, NdrService>();
             services.AddTransient<IPublicationService, PublicationService>();
+            services.AddTransient<IIndividualPlanService, IndividualPlanService>();
             
-
 
             services.AddAutoMapper(null, AppDomain.CurrentDomain.GetAssemblies());
 

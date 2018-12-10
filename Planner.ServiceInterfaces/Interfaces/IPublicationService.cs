@@ -12,5 +12,6 @@ namespace Planner.ServiceInterfaces.Interfaces
         //void UodatePublication(Publication);
         Boolean UpdatePublication(PublicationAddEditDTO publicationDTO, String userName);
         IEnumerable<PublicationDTO> GetPublications();
+        PublicationDTO GetPublicationById(String id);
     }
 }

@@ -13,6 +13,7 @@ namespace Planner.RepositoryInterfaces.UoW
         IPlanTrainingRepository PlanTrainingRepository { get; set; }
         IIndivPlanFieldsRepository IndivPlanFieldsRepository { get; set; }
         IIndivPlanFieldsValueRepository IndivPlanFieldsValueRepository { get; set; }
+        IDayEntryLoadRepository DayEntryLoadRepository { get; set; }
         Int32 SaveChanges();
     }
 }

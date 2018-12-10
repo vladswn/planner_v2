@@ -10,9 +10,11 @@ namespace Planner.BusinessLogic.Service
         public INdrService NdrService { get; }
         public IPublicationService PublicationService { get; }
         public IIndividualPlanService IndividualPlanService { get; }
+        public IDistributionService DistributionService { get; }
 
         public ServiceFactory(IUserService _userService, ITokenService _tokenService,
-            ISecurityService _securityService, INdrService _ndrService, IPublicationService _publicationService, IIndividualPlanService _individualPlanService)
+            ISecurityService _securityService, INdrService _ndrService, IPublicationService _publicationService, 
+            IIndividualPlanService _individualPlanService, IDistributionService _distributionService)
         {
             UserService = _userService;
             TokenService = _tokenService;
@@ -20,6 +22,7 @@ namespace Planner.BusinessLogic.Service
             NdrService = _ndrService;
             PublicationService = _publicationService;
             IndividualPlanService = _individualPlanService;
+            DistributionService = _distributionService;
         }
     }
 }

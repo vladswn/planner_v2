@@ -74,7 +74,7 @@ namespace Planner.Controllers
 
     [HttpGet]
     [Route("SendMessage")]
-    public IActionResult SendMessage()
+    public IActionResult SendMessage(String id)
     {
       using (var message = new MailMessage())
       {
@@ -82,7 +82,7 @@ namespace Planner.Controllers
         message.From = new MailAddress("deniskovalenko96@gmail.com", "From Planner");
         message.Subject = "Publication";
 
-        IEnumerable<PublicationDTO> result = serviceFactory.PublicationService.GetPublications();
+        PublicationDTO result = serviceFactory.PublicationService.GetPublicationById(id);
         message.Body = JsonConvert.SerializeObject(result);
         //message.Body = "New publication";
         //message.IsBodyHtml = true;

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Planner.ServiceInterfaces.DTO.IndividualPlan;
 using Microsoft.AspNetCore.Hosting;
 using Planner.DependencyInjection.ViewModels.IndividualPlan;
+using System;
 
 namespace Planner.Controllers
 {
@@ -21,7 +22,7 @@ namespace Planner.Controllers
     [Route("UpdateTrainingJob")]
     public IActionResult UpdateTrainingJob([FromBody] TrainingJobViewModel trainingJobDTO)
     {
-      bool result = serviceFactory.IndividualPlanService.UpdateTrainingJob(_mapper.Map<TrainingJobDTO>(trainingJobDTO));
+      Boolean result = serviceFactory.IndividualPlanService.UpdateTrainingJob(_mapper.Map<TrainingJobDTO>(trainingJobDTO));
       return Ok(result);
     }
 
@@ -51,7 +52,7 @@ namespace Planner.Controllers
       return Ok(indivPlanFieldValueModel);
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("GetIndivPlanField")]
     public IActionResult GetIndivPlanField(string indPlanTypeId)
     {

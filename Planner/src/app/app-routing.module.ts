@@ -13,6 +13,8 @@ import { TrainingJobComponent } from "src/app/planner-component/indiv-plan-compo
 import { PlanManagementComponent } from "src/app/planner-component/indiv-plan-component/plan-management-component/plan.management.component";
 import { PlanMethodicalWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-methodical-work-component/plan.methodical.work.component";
 import { PlanScientificWorkComponent } from "src/app/planner-component/indiv-plan-component/plan-scientific-work-component/plan.scientific.work.component";
+import { UploadDistributionComponent } from 'src/app/planner-component/upload-distribution-component/upload-distribution.component';
+import { DistributionComponent } from 'src/app/planner-component/distribution-component/distribution.component';
 
 const routes: Routes = [
   { path: 'login', component: AccountLoginComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'plan-management', component: PlanManagementComponent, canActivate: [AuthGuard] },
   { path: 'plan-methodical-work', component: PlanMethodicalWorkComponent, canActivate: [AuthGuard] },
   { path: 'plan-scientific-work', component: PlanScientificWorkComponent, canActivate: [AuthGuard] },
+  { path: 'upload-distribution', component: UploadDistributionComponent, canActivate: [AuthGuard] },
+  { path: 'distribution', component: DistributionComponent, canActivate: [AuthGuard] },
   { path: '', component: AccountLoginComponent },
   { path: '**', redirectTo: '/' },
 ];

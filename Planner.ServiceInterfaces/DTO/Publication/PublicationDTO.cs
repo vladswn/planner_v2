@@ -6,6 +6,7 @@ namespace Planner.ServiceInterfaces.DTO.Publication
 {
     public class PublicationDTO
     {
+        public String PublicationId { get; set; }
         public String Name { get; set; }
         public String FilePath { get; set; }
         public String Pages { get; set; }

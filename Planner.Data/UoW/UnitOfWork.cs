@@ -18,6 +18,7 @@ namespace Planner.Data.UoW
         public IPlanTrainingRepository PlanTrainingRepository { get; set; }
         public IIndivPlanFieldsRepository IndivPlanFieldsRepository { get; set; }
         public IIndivPlanFieldsValueRepository IndivPlanFieldsValueRepository { get; set; }
+        public IDayEntryLoadRepository DayEntryLoadRepository { get; set; }
 
         public UnitOfWork(AppDbContext _context)
         {
@@ -31,6 +32,7 @@ namespace Planner.Data.UoW
             PlanTrainingRepository = new PlanTrainingJobRepository(_context);
             IndivPlanFieldsRepository = new IndivPlanFieldRepository(_context);
             IndivPlanFieldsValueRepository = new IndivPlanFieldsValueRepository(_context);
+            DayEntryLoadRepository = new DayEntryLoadRepository(_context);
         }
 
         public Int32 SaveChanges()

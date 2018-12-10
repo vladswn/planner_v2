@@ -1,4 +1,5 @@
 export class Publication {
+  publicationId: string;
   name: string;
   filePath: string;
   pages: number;
@@ -13,6 +14,7 @@ export class Publication {
   collaboratorsName: string;
 
   constructor() {
+    this.publicationId = null;
     this.name = null;
     this.filePath = null;
     this.pages = null;

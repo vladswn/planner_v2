@@ -5,6 +5,8 @@ export class IndivPlanFieldModel {
   suffix: string;
   tabName: string;
   indPlanTypeId: string;
+  plannedValue: number;
+  result: number;
 
   constructor() {
     this.indivPlanFieldsId = null;
