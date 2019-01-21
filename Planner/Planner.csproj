@@ -44,6 +44,7 @@
     <None Remove="src\app\planner-component\report-component\shared\models\report.model.ts" />
     <None Remove="src\app\planner-component\report-component\shared\service\report-data.service.ts" />
     <None Remove="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
+    <None Remove="src\app\planner-component\distribution-component\day-entry-component\styles\style.css" />
     <None Remove="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />
     <None Remove="src\app\planner-component\user-list-component\user-list.component.ts" />
     <None Remove="src\app\shared\components\authentication-component.ts" />
@@ -109,6 +110,7 @@
     <TypeScriptCompile Include="src\app\planner-component\report-component\shared\service\report-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\service\user-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\shared\components\add-update-user-component\add-update-user.component.ts" />
+    <TypeScriptCompile Include="src\app\planner-component\distribution-component\day-entry-component\day-entry.component.css" />
     <TypeScriptCompile Include="src\app\planner-component\user-list-component\shared\service\user-list-data.service.ts" />
     <TypeScriptCompile Include="src\app\planner-component\user-list-component\user-list.component.ts" />
     <TypeScriptCompile Include="src\app\shared\components\authentication-component.ts" />
@@ -125,6 +127,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\app\planner-component\distribution-component\day-entry-component\styles\" />
     <Folder Include="src\app\planner-component\home-component\shared\services\" />
     <Folder Include="src\app\planner-component\shared\models\" />
     <Folder Include="src\reports\" />

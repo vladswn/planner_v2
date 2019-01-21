@@ -4,6 +4,7 @@ import { DayEntryModel } from "src/app/planner-component/distribution-component/
 @Component({
   selector: 'day-entry',
   templateUrl: './day-entry.component.html',
+  styleUrls: ['./day-entry.component.css'],
 })
 export class DayEntryComponent implements OnInit {
   @Input() dayEntry: DayEntryModel[];
